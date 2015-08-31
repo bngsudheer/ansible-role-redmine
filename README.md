@@ -15,7 +15,10 @@ gems from rubygems.org.
 Role Variables
 --------------
 
-* Role variables
+* sql_username
+* sql_password
+* sql_database_name
+* sql_database_host
 
 
 Dependencies
@@ -32,7 +35,7 @@ Example playbook
     - hosts: servers
       remote_user: root
       roles:
-         - { role: bngsudheer.ansible-role-redmine }
+         - { role: bngsudheer.ansible-role-redmine, sql_username: redmine, sql_password: password, sql_database_name: redmine, sql_database_host: localhost}
 
 License
 -------

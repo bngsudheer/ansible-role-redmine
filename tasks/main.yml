@@ -1,2 +1,82 @@
 ---
-# tasks file for ansible-role-redmine/
+ - name: Install the required dependencies
+   yum: state=installed name={{ item }}
+   with_items:
+    - mariadb-server
+    - ruby-devel
+    - ImageMagick-devel
+
+ - name: Create the Redmine user
+   user: name=redmine
+
+ - name: Download Redmine
+   get_url: url=http://www.redmine.org/releases/redmine-3.1.0.tar.gz  dest=/home/redmine/
+   become: yes
+   become_user: redmine
+
+ - name: Unpack Redmine source tarball
+   unarchive: src=/home/redmine/redmine-3.1.0.tar.gz dest=/home/redmine copy=no 
+   become: yes
+   become_user: redmine
+   become_method: su
+
+ - name: Install the required gems - bundler
+   gem: name=bundler state=present user_install=yes
+   become: yes
+   become_user: redmine
+
+ - name: Install bundler via gem
+   shell: chdir=/home/redmine/ /bin/gem install bundler
+   become: yes
+   become_user: redmine
+
+   # Bundler is available in Ansible 2.0
+ - name: Install the required gems via bundler
+   become: yes
+   become_user: redmine
+   become_method: su
+   shell: chdir=/home/redmine/redmine-3.1.0/ /usr/local/bin/bundler install --without development test rmagick
+
+ 
+ - name: Upload the Redmine configuration file
+   template: src=database.yml dest=/home/redmine/redmine-3.1.0/config/
+   become: yes
+   become_user: redmine
+
+ - name: Generate secret token
+   become: yes
+   become_user: redmine
+   shell: chdir=/home/redmine/redmine-3.1.0/ /usr/local/bin/bundle exec /usr/local/bin/rake generate_secret_token
+
+
+ - name: DB Migrate
+   shell: chdir=/home/redmine/redmine-3.1.0/ RAILS_ENV=production /usr/local/bin/bundle  exec /usr/local/bin/rake db:migrate
+   become: yes
+   become_user: redmine
+ 
+ - name: Default data
+   shell: chdir=/home/redmine/redmine-3.1.0/ RAILS_ENV=production REDMINE_LANG=en /usr/local/bin/bundle exec /usr/local/bin/rake redmine:load_default_data
+   become: yes
+   become_user: redmine
+ 
+ - name: temp dir
+   shell: chdir=/home/redmine/redmine-3.1.0/ mkdir -p tmp tmp/pdf public/plugin_assets
+   become: yes
+   become_user: redmine
+ 
+ - name: file permissions and ownership
+   become: yes
+   become_user: redmine
+   file: path=/home/redmine/redmine-3.1.0/{{ item }} owner=redmine group=redmine mode=0755
+   with_items:
+        - files
+        - log
+        - tmp
+        - public/plugin_assets
+ 
+
+   # bundle exec rails server webrick -e production
+   # admin/admin
+
+
+
