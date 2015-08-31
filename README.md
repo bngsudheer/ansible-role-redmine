@@ -1,6 +1,8 @@
 Role Name
 =========
 
+THIS MODULE IS IN BETA. YOUR FEEDBACK IS APPRECIATED.
+
 Install Redmine 3 on CentOS. Eventually, we will support other operating
 systems. Right now, only CentOS 7.
 
@@ -35,7 +37,7 @@ Example playbook
     - hosts: servers
       remote_user: root
       roles:
-         - { role: bngsudheer.ansible-role-redmine, sql_username: redmine, sql_password: password, sql_database_name: redmine, sql_database_host: localhost}
+         - { role: bngsudheer.redmine, sql_username: redmine, sql_password: password, sql_database_name: redmine, sql_database_host: localhost}
 
 License
 -------
