@@ -5,20 +5,49 @@
     - mariadb-server
     - ruby-devel
     - ImageMagick-devel
+    - gcc
+    - patch
+    - mariadb-devel
+    - MySQL-python
+
+ - name: Enable MariaDB server
+   service: name=mariadb state=started enabled=yes
+
+ - name: Create redmine DB
+   mysql_db:
+     name={{ sql_database_name }} state=present
+
+ - name: Create redmine DB user
+   mysql_user:
+     name={{ sql_username}}
+     password={{ sql_password }}
+     host={{ sql_database_host }}
+     priv={{ sql_database_name }}.*:ALL
+     state=present
 
  - name: Create the Redmine user
    user: name=redmine
 
+ - name: Check redmine catalog
+   stat: path={{ redmine_home }}
+   register: redmine_cat
+
  - name: Download Redmine
-   get_url: url=http://www.redmine.org/releases/redmine-3.1.0.tar.gz  dest=/home/redmine/
+   get_url:
+     url=http://www.redmine.org/releases/redmine-{{ redmine_version }}.tar.gz
+     dest=/home/redmine/
    become: yes
    become_user: redmine
+   when: redmine_cat.stat.exists == False
 
  - name: Unpack Redmine source tarball
-   unarchive: src=/home/redmine/redmine-3.1.0.tar.gz dest=/home/redmine copy=no 
+   unarchive:
+     src=/home/redmine/redmine-{{ redmine_version }}.tar.gz
+     dest=/home/redmine/
+     copy=no
    become: yes
    become_user: redmine
-   become_method: su
+   when: redmine_cat.stat.exists == False
 
  - name: Install the required gems - bundler
    gem: name=bundler state=present user_install=yes
@@ -26,54 +55,61 @@
    become_user: redmine
 
  - name: Install bundler via gem
-   shell: chdir=/home/redmine/ /bin/gem install bundler
+   shell: /bin/gem install bundler
    become: yes
    become_user: redmine
+   args:
+     chdir: /home/redmine/
 
    # Bundler is available in Ansible 2.0
  - name: Install the required gems via bundler
    become: yes
    become_user: redmine
-   become_method: su
-   shell: chdir=/home/redmine/redmine-3.1.0/ /usr/local/bin/bundler install --without development test rmagick
-
+   shell: /home/redmine/bin/bundler install --without development test rmagick
+   args:
+     chdir: "{{ redmine_home }}"
  
  - name: Upload the Redmine configuration file
-   template: src=database.yml dest=/home/redmine/redmine-3.1.0/config/
+   template: src=database.yml dest={{ redmine_home }}/config/
    become: yes
    become_user: redmine
 
  - name: Generate secret token
    become: yes
    become_user: redmine
-   shell: chdir=/home/redmine/redmine-3.1.0/ /usr/local/bin/bundle exec /usr/local/bin/rake generate_secret_token
-
+   shell: /home/redmine/bin/bundle exec /home/redmine/bin/rake generate_secret_token
+   args:
+     chdir: "{{ redmine_home }}"
 
  - name: DB Migrate
-   shell: chdir=/home/redmine/redmine-3.1.0/ RAILS_ENV=production /usr/local/bin/bundle  exec /usr/local/bin/rake db:migrate
+   shell: RAILS_ENV=production /home/redmine/bin/bundle  exec /home/redmine/bin/rake db:migrate
    become: yes
    become_user: redmine
+   args:
+     chdir: "{{ redmine_home }}"
  
  - name: Default data
-   shell: chdir=/home/redmine/redmine-3.1.0/ RAILS_ENV=production REDMINE_LANG=en /usr/local/bin/bundle exec /usr/local/bin/rake redmine:load_default_data
+   shell: RAILS_ENV=production REDMINE_LANG=en /home/redmine/bin/bundle exec /home/redmine/bin/rake redmine:load_default_data
    become: yes
    become_user: redmine
- 
+   args:
+     chdir: "{{ redmine_home }}"
+
  - name: temp dir
-   shell: chdir=/home/redmine/redmine-3.1.0/ mkdir -p tmp tmp/pdf public/plugin_assets
-   become: yes
-   become_user: redmine
- 
- - name: file permissions and ownership
-   become: yes
-   become_user: redmine
-   file: path=/home/redmine/redmine-3.1.0/{{ item }} owner=redmine group=redmine mode=0755
+   file: path={{ redmine_home }}/{{ item }} state=directory
+     owner=redmine
+     group=redmine
+     mode=0755
    with_items:
-        - files
-        - log
-        - tmp
-        - public/plugin_assets
- 
+   - "tmp/pdf"
+   - "public/plugin_assets"
+   - "files"
+   - "log"
+
+ - name: Open http port
+   firewalld: port={{ http_port }}/tcp permanent=true state=enabled
+   notify:
+   - Firewalld reload
 
    # bundle exec rails server webrick -e production
    # admin/admin
