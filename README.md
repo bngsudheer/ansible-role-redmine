@@ -17,6 +17,7 @@ gems from rubygems.org.
 Role Variables
 --------------
 
+* redmine_version
 * sql_username
 * sql_password
 * sql_database_name
@@ -37,7 +38,7 @@ Example playbook
     - hosts: servers
       remote_user: root
       roles:
-         - { role: bngsudheer.redmine, sql_username: redmine, sql_password: password, sql_database_name: redmine, sql_database_host: localhost}
+         - { role: bngsudheer.redmine, sql_username: redmine, sql_password: password, sql_database_name: redmine, sql_database_host: localhost, redmine_version: 3.2.1}
 
 License
 -------
