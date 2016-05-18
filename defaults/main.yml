@@ -11,4 +11,5 @@ sql_password: "redmine"
 
 http_port: 3000
 
-
+# supported firewall types: firewalld, ufw, iptables
+firewall: ""

@@ -137,10 +137,19 @@
    - "files"
    - "log"
 
- - name: Open http port
+ - name: Open http port (firewalld)
    firewalld: port={{ http_port }}/tcp permanent=true state=enabled
    notify:
    - Firewalld reload
+   when: firewall == "firewalld"
+
+ - name: Open http port (ufw)
+   ufw: rule=allow port={{ http_port }} proto=tcp
+   when: firewall == "ufw"
+
+ - name: Open http port (iptables)
+   iptables: chain=INPUT destination_port=5000 protocol=tcp jump=ACCEPT
+   when: firewall == "iptables"
 
    # bundle exec rails server webrick -e production
    # admin/admin
