@@ -82,6 +82,11 @@
    become_user: redmine
    when: redmine_cat.stat.exists == False
 
+ - name: Upload the Redmine configuration file
+   template: src=database.yml.j2 dest={{ redmine_home }}/config/database.yml
+   become: yes
+   become_user: redmine
+
  - name: Install the required gems - bundler
    gem: name=bundler state=present user_install=yes
    become: yes
@@ -102,11 +107,6 @@
    args:
      chdir: "{{ redmine_home }}"
  
- - name: Upload the Redmine configuration file
-   template: src=database.yml dest={{ redmine_home }}/config/
-   become: yes
-   become_user: redmine
-
  - name: Generate secret token
    become: yes
    become_user: redmine
