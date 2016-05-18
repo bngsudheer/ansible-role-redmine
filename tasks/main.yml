@@ -87,42 +87,40 @@
    become: yes
    become_user: redmine
 
- - name: Install the required gems - bundler
-   gem: name=bundler state=present user_install=yes
+ - name: Set install dir for bundler executable
+   template: src=gemrc.j2 dest=/home/redmine/.gemrc
    become: yes
    become_user: redmine
 
  - name: Install bundler via gem
-   shell: /bin/gem install bundler
+   shell: gem install --user bundler
    become: yes
    become_user: redmine
-   args:
-     chdir: /home/redmine/
 
-   # Bundler is available in Ansible 2.0
+   # Bundler module is available in Ansible 2.0
  - name: Install the required gems via bundler
+   shell: /home/redmine/bin/bundler install --path vendor/bundler --without development test rmagick
    become: yes
    become_user: redmine
-   shell: /home/redmine/bin/bundler install --without development test rmagick
    args:
      chdir: "{{ redmine_home }}"
  
  - name: Generate secret token
+   shell: /home/redmine/bin/bundle exec rake generate_secret_token
    become: yes
    become_user: redmine
-   shell: /home/redmine/bin/bundle exec /home/redmine/bin/rake generate_secret_token
    args:
      chdir: "{{ redmine_home }}"
 
  - name: DB Migrate
-   shell: RAILS_ENV=production /home/redmine/bin/bundle  exec /home/redmine/bin/rake db:migrate
+   shell: RAILS_ENV=production /home/redmine/bin/bundle  exec rake db:migrate
    become: yes
    become_user: redmine
    args:
      chdir: "{{ redmine_home }}"
  
  - name: Default data
-   shell: RAILS_ENV=production REDMINE_LANG=en /home/redmine/bin/bundle exec /home/redmine/bin/rake redmine:load_default_data
+   shell: RAILS_ENV=production REDMINE_LANG=en /home/redmine/bin/bundle exec rake redmine:load_default_data
    become: yes
    become_user: redmine
    args:
