@@ -1,14 +1,40 @@
 ---
- - name: Install the required dependencies
+ - name: Install the required dependencies (yum)
    yum: state=installed name={{ item }}
    with_items:
     - mariadb-server
     - ruby-devel
     - ImageMagick-devel
+    - make
     - gcc
     - patch
     - mariadb-devel
     - MySQL-python
+   when: ansible_os_family == "RedHat"
+
+ # note the mariadb dev package is missing mysql_config, use mysql one instaead
+ - name: Install the required dependencies (apt)
+   apt: state=installed name={{ item }}
+   with_items:
+    - mariadb-server
+    - ruby-dev
+    - rubygems
+    - imagemagick
+    - make
+    - gcc
+    - patch
+    - libmysqlclient-dev
+    - python-mysqldb
+   when: ansible_os_family == "Debian"
+
+ - name: Install the required dependencies (portage)
+   portage: state=installed name={{ item }}
+   with_items:
+    - dev-db/mariadb
+    - dev-lang/ruby
+    - media-gfx/imagemagick
+    - dev-python/mysql-python
+   when: ansible_os_family == "Gentoo"
 
  - name: Enable MariaDB server
    service: name=mariadb state=started enabled=yes
