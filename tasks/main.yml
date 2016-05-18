@@ -36,8 +36,15 @@
     - dev-python/mysql-python
    when: ansible_os_family == "Gentoo"
 
- - name: Enable MariaDB server
+ - name: Enable MariaDB server (try real name)
    service: name=mariadb state=started enabled=yes
+   register: db_started
+   ignore_errors: True
+
+ # some distros call service "mysql" since MariaDB is drop-in replacement
+ - name: Enable MariaDB server (try 'mysql' as name)
+   service: name=mysql state=started enabled=yes
+   when: db_started|failed
 
  - name: Create redmine DB
    mysql_db:
