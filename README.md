@@ -3,8 +3,8 @@ Role Name
 
 THIS MODULE IS IN BETA. YOUR FEEDBACK IS APPRECIATED.
 
-Install Redmine 3 on CentOS. Eventually, we will support other operating
-systems. Right now, only CentOS 7.
+Install Redmine 3 on CentOS. We restrict ourselves to RHEL/CentOS/Fedora family of distributions. 
+Right now, only CentOS 7 is supported.
 
 Requirements
 ------------
