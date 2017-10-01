@@ -1,4 +1,5 @@
 ---
+# TODO Unicorn with Redmine instead of webrick
  - name: Install the required dependencies
    yum: state=installed name={{ item }}
    with_items:
@@ -50,30 +51,41 @@
    when: redmine_cat.stat.exists == False
 
  - name: Install the required gems - bundler
-   gem: name=bundler state=present user_install=yes
+   gem: 
+       name: bundler 
+       state: present 
+       user_install: yes
+       version: 1.15.4
    become: yes
    become_user: redmine
 
- - name: Install bundler via gem
-   shell: /bin/gem install bundler
-   become: yes
-   become_user: redmine
-   args:
-     chdir: /home/redmine/
+# - name: Install bundler via gem
+#   shell: /bin/gem install bundler
+#   become: yes
+#   become_user: redmine
+#   args:
+#     chdir: /home/redmine/
 
-   # Bundler is available in Ansible 2.0
- - name: Install the required gems via bundler
-   become: yes
-   become_user: redmine
-   shell: /home/redmine/bin/bundler install --without development test rmagick
-   args:
-     chdir: "{{ redmine_home }}"
+#   # Bundler is available in Ansible 2.0
+# - name: Install the required gems via bundler - rmagick
+#   become: yes
+#   become_user: redmine
+#   shell: /home/redmine/bin/bundler install --without development test rmagick
+#   args:
+#     chdir: "{{ redmine_home }}"
  
  - name: Upload the Redmine configuration file
    template: src=database.yml dest={{ redmine_home }}/config/
    become: yes
    become_user: redmine
 
+ - name: Install the required gems via bundler 
+   become: yes
+   become_user: redmine
+   shell: /home/redmine/bin/bundler install 
+   args:
+     chdir: "{{ redmine_home }}"
+ 
  - name: Generate secret token
    become: yes
    become_user: redmine
