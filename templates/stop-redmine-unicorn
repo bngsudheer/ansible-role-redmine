@@ -1,0 +1,2 @@
+#!/bin/bash
+kill -QUIT $(cat /var/run/redmine/unicorn.pid)

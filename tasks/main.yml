@@ -1,63 +1,63 @@
 ---
 # TODO Unicorn with Redmine instead of webrick
- - name: Install the required dependencies
-   yum: state=installed name={{ item }}
-   with_items:
-    - mariadb-server
-    - ruby-devel
-    - ImageMagick-devel
-    - gcc
-    - patch
-    - mariadb-devel
-    - MySQL-python
+- name: Install the required dependencies
+  yum: state=installed name={{ item }}
+  with_items:
+   - mariadb-server
+   - ruby-devel
+   - ImageMagick-devel
+   - gcc
+   - patch
+   - mariadb-devel
+   - MySQL-python
 
- - name: Enable MariaDB server
-   service: name=mariadb state=started enabled=yes
+- name: Enable MariaDB server
+  service: name=mariadb state=started enabled=yes
 
- - name: Create redmine DB
-   mysql_db:
-     name={{ sql_database_name }} state=present
+- name: Create redmine DB
+  mysql_db:
+    name={{ sql_database_name }} state=present
 
- - name: Create redmine DB user
-   mysql_user:
-     name={{ sql_username}}
-     password={{ sql_password }}
-     host={{ sql_database_host }}
-     priv={{ sql_database_name }}.*:ALL
-     state=present
+- name: Create redmine DB user
+  mysql_user:
+    name={{ sql_username}}
+    password={{ sql_password }}
+    host={{ sql_database_host }}
+    priv={{ sql_database_name }}.*:ALL
+    state=present
 
- - name: Create the Redmine user
-   user: name=redmine
+- name: Create the Redmine user
+  user: name=redmine
 
- - name: Check redmine catalog
-   stat: path={{ redmine_home }}
-   register: redmine_cat
+- name: Check redmine catalog
+  stat: path={{ redmine_home }}
+  register: redmine_cat
 
- - name: Download Redmine
-   get_url:
-     url=http://www.redmine.org/releases/redmine-{{ redmine_version }}.tar.gz
-     dest=/home/redmine/
-   become: yes
-   become_user: redmine
-   when: redmine_cat.stat.exists == False
+- name: Download Redmine
+  get_url:
+    url=http://www.redmine.org/releases/redmine-{{ redmine_version }}.tar.gz
+    dest=/home/redmine/
+  become: yes
+  become_user: redmine
+  when: redmine_cat.stat.exists == False
 
- - name: Unpack Redmine source tarball
-   unarchive:
-     src=/home/redmine/redmine-{{ redmine_version }}.tar.gz
-     dest=/home/redmine/
-     copy=no
-   become: yes
-   become_user: redmine
-   when: redmine_cat.stat.exists == False
+- name: Unpack Redmine source tarball
+  unarchive:
+    src: /home/redmine/redmine-{{ redmine_version }}.tar.gz
+    dest: /home/redmine/
+    copy: no
+  become: yes
+  become_user: redmine
+  when: redmine_cat.stat.exists == False
 
- - name: Install the required gems - bundler
-   gem: 
-       name: bundler 
-       state: present 
-       user_install: yes
-       version: 1.15.4
-   become: yes
-   become_user: redmine
+- name: Install the required gems - bundler
+  gem: 
+      name: bundler 
+      state: present 
+      user_install: yes
+      version: 1.15.4
+  become: yes
+  become_user: redmine
 
 # - name: Install bundler via gem
 #   shell: /bin/gem install bundler
@@ -74,57 +74,112 @@
 #   args:
 #     chdir: "{{ redmine_home }}"
  
- - name: Upload the Redmine configuration file
-   template: src=database.yml dest={{ redmine_home }}/config/
-   become: yes
-   become_user: redmine
+- name: Upload the Redmine configuration file
+  template: 
+     src: database.yml 
+     dest: "{{ redmine_home }}/config/"
+  become: yes
+  become_user: redmine
 
- - name: Install the required gems via bundler 
-   become: yes
-   become_user: redmine
-   shell: /home/redmine/bin/bundler install 
-   args:
-     chdir: "{{ redmine_home }}"
+- name: Install the required gems via bundler 
+  become: yes
+  become_user: redmine
+  shell: /home/redmine/bin/bundler install 
+  args:
+    chdir: "{{ redmine_home }}"
  
- - name: Generate secret token
-   become: yes
-   become_user: redmine
-   shell: /home/redmine/bin/bundle exec /home/redmine/bin/rake generate_secret_token
-   args:
-     chdir: "{{ redmine_home }}"
+- name: Generate secret token
+  become: yes
+  become_user: redmine
+  shell: /home/redmine/bin/bundle exec /home/redmine/bin/rake generate_secret_token
+  args:
+    chdir: "{{ redmine_home }}"
 
- - name: DB Migrate
-   shell: RAILS_ENV=production /home/redmine/bin/bundle  exec /home/redmine/bin/rake db:migrate
-   become: yes
-   become_user: redmine
-   args:
-     chdir: "{{ redmine_home }}"
- 
- - name: Default data
-   shell: RAILS_ENV=production REDMINE_LANG=en /home/redmine/bin/bundle exec /home/redmine/bin/rake redmine:load_default_data
-   become: yes
-   become_user: redmine
-   args:
-     chdir: "{{ redmine_home }}"
+- name: DB Migrate
+  shell: RAILS_ENV=production /home/redmine/bin/bundle  exec /home/redmine/bin/rake db:migrate
+  become: yes
+  become_user: redmine
+  args:
+    chdir: "{{ redmine_home }}"
 
- - name: temp dir
-   file: path={{ redmine_home }}/{{ item }} state=directory
-     owner=redmine
-     group=redmine
-     mode=0755
-   with_items:
+- name: Local gemfile
+  template: 
+   src: Gemfile.local
+   dest: "{{ redmine_home }}"
+
+- name: Install the required gems via bundler  - unicorn
+  become: yes
+  become_user: redmine
+  shell: /home/redmine/bin/bundler install 
+  args:
+    chdir: "{{ redmine_home }}"
+
+- name: Create directories for shared resources
+  file:
+   path: "{{ redmine_home }}/shared/{{ item }}"
+   state: directory
+  with_items:
+   - config/redmine
+   - log/redmine
+   - pid/redmine
+   - socket/redmine
+  become: yes
+  become_user: redmine
+
+- name: unicorn.conf.rb file
+  template:
+      src: unicorn.conf.rb
+      dest: "{{ redmine_home }}/shared/config/redmine/"
+  become: yes
+  become_user: redmine
+
+- name: run directory
+  file:
+      path: /var/run/redmine
+      state: directory
+      owner: redmine
+      group: redmine
+  become: yes
+  become_user: redmine
+
+- name: Redmine start and stop scripts
+  template: 
+    src: stop-redmine-unicorn
+    dest: /home/redmine/bin/
+    mode: u+x
+  with_items:
+    - stop-redmine-unicorn
+    - start-redmine-unicorn
+    
+  become: yes
+  become_user: redmine
+
+
+- name: Default data
+  shell: RAILS_ENV=production REDMINE_LANG=en /home/redmine/bin/bundle exec /home/redmine/bin/rake redmine:load_default_data
+  become: yes
+  become_user: redmine
+  args:
+    chdir: "{{ redmine_home }}"
+
+- name: temp dir
+  file: 
+    path: "{{ redmine_home }}/{{ item }}" 
+    state: directory
+    owner: redmine
+    group: redmine
+    mode: 0755
+  with_items:
    - "tmp/pdf"
    - "public/plugin_assets"
    - "files"
    - "log"
 
- - name: Open http port
-   firewalld: port={{ http_port }}/tcp permanent=true state=enabled
-   notify:
+- name: Open http port
+  firewalld: port={{ http_port }}/tcp permanent=true state=enabled
+  notify:
    - Firewalld reload
 
    # bundle exec rails server webrick -e production
    # admin/admin
-
-
 
