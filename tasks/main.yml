@@ -1,8 +1,8 @@
 ---
 - name: Install the required dependencies
   yum: 
-      state: installed 
-      name: {{ item }}
+    state: installed 
+    name: "{{ item }}"
   with_items:
    - mariadb-server
    - ruby-devel
@@ -162,13 +162,12 @@
 
 - name: Redmine start and stop scripts
   template: 
-    src: stop-redmine-unicorn
+    src: "{{ item }}"
     dest: /home/redmine/bin/
     mode: u+x
   with_items:
     - stop-redmine-unicorn
     - start-redmine-unicorn
-    
   become: yes
   become_user: redmine
 
@@ -198,7 +197,18 @@
       permanent: true 
       state: enabled
   notify:
-   - Firewalld reload
+   - Firewalld restart
+  when: configure_firewalld
+
+- name: Permissions for Nginx to read Redmine files
+  file:
+    path: "{{ item }}"
+    recurse: yes
+    mode: o+rx
+  with_items:
+    - /home/redmine
+    - /var/run/redmine
+  when: configure_nginx
 
 - name: Nginx configuration 
   template:

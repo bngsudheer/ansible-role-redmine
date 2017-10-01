@@ -5,6 +5,11 @@
       name: firewalld 
       state: reloaded
 
+- name: Firewalld restart
+  service: 
+      name: firewalld 
+      state: restarted
+
 - name: Nginx reload
   service: 
       name: nginx 

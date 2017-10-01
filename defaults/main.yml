@@ -16,5 +16,6 @@ domain_name: redmine.example.com
 
 configure_nginx: yes
 configure_unicorn: yes
+configure_firewalld: yes
 
 
