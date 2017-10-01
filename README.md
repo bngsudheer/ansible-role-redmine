@@ -56,4 +56,4 @@ Author Information
 
 Sudheer Satyanarayana
 Blog: http://www.techchorus.net
-Twitter: http:/www.twitter.com/bngsudheer
+Twitter: http://www.twitter.com/bngsudheer
