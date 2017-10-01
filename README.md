@@ -5,6 +5,7 @@ This module is in beta. your feedback is appreciated.
 
 Install Redmine 3 on CentOS. We restrict ourselves to RHEL/CentOS/Fedora family of distributions. 
 Right now, only CentOS 7 is supported.
+The role supports setting up Redmine via Unicorn and Nignx.
 
 Requirements
 ------------
@@ -17,12 +18,16 @@ gems from rubygems.org.
 Role Variables
 --------------
 
-* redmine_version: default value is "3.4.2"
-* sql_username: default value is "redmine"
-* sql_password: default value is "localhost"
-* sql_database_name: default value is "redmine"
-* sql_database_host: default value is "localhost"
-* unicorn_worker_processes: default value is 2
+These variables are available with the following default values:
+* redmine_version: "3.4.2"
+* sql_username: "redmine"
+* sql_password: "localhost"
+* sql_database_name: "redmine"
+* sql_database_host: "localhost"
+* unicorn_worker_processes: 2
+* domain_name:  redmine.example.com (domain name on which you want to serve Nginx->Unicorn->Redmine).  
+* configure_nginx: default value is yes
+* configure_unicorn: default value yes
 
 
 Dependencies

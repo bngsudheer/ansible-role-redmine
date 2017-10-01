@@ -1,7 +1,8 @@
 ---
-# TODO Unicorn with Redmine instead of webrick
 - name: Install the required dependencies
-  yum: state=installed name={{ item }}
+  yum: 
+      state: installed 
+      name: {{ item }}
   with_items:
    - mariadb-server
    - ruby-devel
@@ -11,8 +12,24 @@
    - mariadb-devel
    - MySQL-python
 
+- name: Install Nginx
+  yum: 
+      state: installed 
+      name: nginx
+  when: configure_nginx
+
 - name: Enable MariaDB server
-  service: name=mariadb state=started enabled=yes
+  service: 
+      name: mariadb 
+      state: started 
+      enabled: yes
+
+- name: Enable Nginx server
+  service: 
+      name: nginx 
+      state: started 
+      enabled: yes
+  when: configure_nginx
 
 - name: Create redmine DB
   mysql_db:
@@ -27,7 +44,8 @@
     state=present
 
 - name: Create the Redmine user
-  user: name=redmine
+  user: 
+      name: redmine
 
 - name: Check redmine catalog
   stat: path={{ redmine_home }}
@@ -154,7 +172,6 @@
   become: yes
   become_user: redmine
 
-
 - name: Default data
   shell: RAILS_ENV=production REDMINE_LANG=en /home/redmine/bin/bundle exec /home/redmine/bin/rake redmine:load_default_data
   become: yes
@@ -176,10 +193,17 @@
    - "log"
 
 - name: Open http port
-  firewalld: port={{ http_port }}/tcp permanent=true state=enabled
+  firewalld: 
+      port: "{{ http_port }}/tcp"
+      permanent: true 
+      state: enabled
   notify:
    - Firewalld reload
 
-   # bundle exec rails server webrick -e production
-   # admin/admin
-
+- name: Nginx configuration 
+  template:
+    src: redmine.conf
+    dest: /etc/nginx/conf.d/
+  notify:
+   - Nginx reload
+  when: configure_nginx

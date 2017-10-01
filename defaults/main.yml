@@ -12,4 +12,9 @@ sql_password: "redmine"
 http_port: 3000
 unicorn_worker_processes: 2
 
+domain_name: redmine.example.com 
+
+configure_nginx: yes
+configure_unicorn: yes
+
 
