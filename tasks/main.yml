@@ -1,4 +1,6 @@
 ---
+# TODO SELinux policies
+# TCP Socket with systemd
 - name: Install the required dependencies
   yum: 
     state: installed 
@@ -193,7 +195,7 @@
 
 - name: Open http port
   firewalld: 
-      port: "{{ http_port }}/tcp"
+      port: "80/tcp"
       permanent: true 
       state: enabled
   notify:
@@ -217,3 +219,4 @@
   notify:
    - Nginx reload
   when: configure_nginx
+

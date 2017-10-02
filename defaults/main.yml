@@ -9,7 +9,6 @@ sql_database_host: "localhost"
 sql_username: "redmine"
 sql_password: "redmine"
 
-http_port: 3000
 unicorn_worker_processes: 2
 
 domain_name: redmine.example.com 
