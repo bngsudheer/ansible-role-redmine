@@ -13,6 +13,7 @@
    - patch
    - mariadb-devel
    - MySQL-python
+   - epel-release
 
 - name: Install Nginx
   yum: 
