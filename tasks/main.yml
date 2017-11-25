@@ -160,8 +160,6 @@
       state: directory
       owner: redmine
       group: redmine
-  become: yes
-  become_user: redmine
 
 - name: Redmine start and stop scripts
   template: 
