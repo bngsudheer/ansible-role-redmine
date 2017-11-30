@@ -19,7 +19,7 @@
   yum: 
       state: installed 
       name: nginx
-  when: configure_nginx
+  when: redmine_configure_nginx
 
 - name: Enable MariaDB server
   service: 
@@ -32,18 +32,18 @@
       name: nginx 
       state: started 
       enabled: yes
-  when: configure_nginx
+  when: redmine_configure_nginx
 
 - name: Create redmine DB
   mysql_db:
-    name={{ sql_database_name }} state=present
+    name={{ redmine_sql_database_name }} state=present
 
 - name: Create redmine DB user
   mysql_user:
-    name={{ sql_username}}
-    password={{ sql_password }}
-    host={{ sql_database_host }}
-    priv={{ sql_database_name }}.*:ALL
+    name={{ redmine_sql_username}}
+    password={{ redmine_sql_password }}
+    host={{ redmine_sql_database_host }}
+    priv={{ redmine_sql_database_name }}.*:ALL
     state=present
 
 - name: Create the Redmine user
@@ -199,7 +199,7 @@
       state: enabled
   notify:
    - Firewalld restart
-  when: configure_firewalld
+  when: redmine_configure_firewalld
 
 - name: Permissions for Nginx to read Redmine files
   file:
@@ -209,7 +209,7 @@
   with_items:
     - /home/redmine
     - /var/run/redmine
-  when: configure_nginx
+  when: redmine_configure_nginx
 
 - name: Nginx configuration 
   template:
@@ -217,5 +217,4 @@
     dest: /etc/nginx/conf.d/
   notify:
    - Nginx reload
-  when: configure_nginx
-
+  when: redmine_configure_nginx

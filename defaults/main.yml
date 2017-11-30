@@ -1,20 +1,17 @@
 ---
-# defaults file for ansible-role-redmine/
-
+# defaults file for ansible-role-redmine
 redmine_version: "3.4.2"
 redmine_home: "/home/redmine/redmine-{{ redmine_version }}"
 
-sql_database_name: "redmine"
-sql_database_host: "localhost"
-sql_username: "redmine"
-sql_password: "redmine"
+redmine_sql_database_name: "redmine"
+redmine_sql_database_host: "localhost"
+redmine_sql_username: "redmine"
+redmine_sql_password: "redmine"
 
-unicorn_worker_processes: 2
+redmine_unicorn_worker_processes: 2
 
-domain_name: redmine.example.com 
+redmine_domain_name: redmine.example.com 
 
-configure_nginx: yes
-configure_unicorn: yes
-configure_firewalld: yes
-
-
+redmine_configure_nginx: yes
+redmine_configure_unicorn: yes
+redmine_configure_firewalld: yes

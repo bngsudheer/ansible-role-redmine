@@ -35,6 +35,8 @@ Dependencies
 
 No other dependencies.
 
+We recommend using the role [CentOS Base](https://galaxy.ansible.com/bngsudheer/centos_base/)
+
 
 Example Playbook
 ----------------
@@ -42,15 +44,16 @@ Example Playbook
 Example playbook
 
     - hosts: servers
+      vars:
+       - redmine_sql_username: redmine 
+       - redmine_sql_password: password
+       - redmine_sql_database_name: redmine 
+       - remmine_sql_database_host: localhost 
+       - redmine_version: 3.4.2
       remote_user: root
       roles:
          - role: bngsudheer.redmine 
-         - sql_username: redmine 
-         - sql_password: password
-         - sql_database_name: redmine 
-         - sql_database_host: localhost 
-         - redmine_version: 3.4.2
-
+      
 License
 -------
 

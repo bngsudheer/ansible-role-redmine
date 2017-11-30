@@ -4,10 +4,10 @@
 
 production:
   adapter: mysql2
-  database: {{ sql_database_name }}
-  host: {{ sql_database_host }}
-  username: {{ sql_username }}
-  password: {{ sql_password }}
+  database: {{ redmine_sql_database_name }}
+  host: {{ redmine_sql_database_host }}
+  username: {{ redmine_sql_username }}
+  password: {{ redmine_sql_password }}
   encoding: utf8
 
 development:

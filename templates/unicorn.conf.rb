@@ -1,4 +1,4 @@
-worker_processes {{ unicorn_worker_processes }}
+worker_processes {{ redmine_unicorn_worker_processes }}
 
 working_directory "{{ redmine_home }}" # available in 0.94.0+
 
