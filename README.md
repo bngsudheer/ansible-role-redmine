@@ -20,14 +20,14 @@ Role Variables
 
 These variables are available with the following default values:
 * redmine_version: "3.4.2"
-* sql_username: "redmine"
-* sql_password: "localhost"
-* sql_database_name: "redmine"
-* sql_database_host: "localhost"
-* unicorn_worker_processes: 2
-* domain_name:  redmine.example.com (domain name on which you want to serve Nginx->Unicorn->Redmine).  
-* configure_nginx: default value is yes
-* configure_unicorn: default value yes
+* redmine_sql_username: "redmine"
+* redmine_sql_password: "localhost"
+* redmine_sql_database_name: "redmine"
+* redmine_sql_database_host: "localhost"
+* redmine_unicorn_worker_processes: 2
+* redmine_domain_name: redmine.example.com (domain name on which you want to serve Nginx->Unicorn->Redmine).  
+* redmine_configure_nginx: yes
+* redmine_configure_unicorn: yes
 
 
 Dependencies
