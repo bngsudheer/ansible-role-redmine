@@ -172,6 +172,11 @@
   become: yes
   become_user: redmine
 
+- name: Systemd script
+  template:
+      src: usr/lib/systemd/system/redmine.service
+      dest: /usr/lib/systemd/system/
+
 - name: Default data
   shell: RAILS_ENV=production REDMINE_LANG=en /home/redmine/bin/bundle exec /home/redmine/bin/rake redmine:load_default_data
   become: yes
@@ -218,3 +223,9 @@
   notify:
    - Nginx reload
   when: redmine_configure_nginx
+
+- name: Enable redmine systemd unit
+  service: 
+    name: redmine
+    state: started
+    enabled: yes
