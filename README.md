@@ -1,9 +1,9 @@
 Redmine On CentOS 7
 =========
 
-This module is in beta. your feedback is appreciated.
+This module is in beta. Your feedback is appreciated.
 
-Install Redmine 3 on CentOS. We restrict ourselves to RHEL/CentOS/Fedora family of distributions. 
+Install Redmine 3 on CentOS. We restrict ourselves to RHEL/CentOS/Fedora family of distributions. (This many change in future.) 
 Right now, only CentOS 7 is supported.
 The role supports setting up Redmine via Unicorn and Nignx.
 
@@ -54,6 +54,7 @@ Example playbook
       roles:
          - role: bngsudheer.redmine 
       
+
 License
 -------
 
@@ -65,3 +66,5 @@ Author Information
 Sudheer Satyanarayana
 Blog: http://www.techchorus.net
 Twitter: http://www.twitter.com/bngsudheer
+
+
