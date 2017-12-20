@@ -6,7 +6,6 @@
     state: installed 
     name: "{{ item }}"
   with_items:
-   - mariadb-server
    - ruby-devel
    - ImageMagick-devel
    - gcc
@@ -14,6 +13,14 @@
    - mariadb-devel
    - MySQL-python
    - epel-release
+
+- name: Install the required dependencies
+  yum: 
+    state: installed 
+    name: "{{ item }}"
+  with_items:
+   - mariadb-server
+  when: redmine_configure_mariadb
 
 - name: Install Nginx
   yum: 
@@ -26,6 +33,7 @@
       name: mariadb 
       state: started 
       enabled: yes
+  when: redmine_configure_mariadb
 
 - name: Enable Nginx server
   service: 
@@ -37,6 +45,7 @@
 - name: Create redmine DB
   mysql_db:
     name={{ redmine_sql_database_name }} state=present
+  when: redmine_configure_mariadb
 
 - name: Create redmine DB user
   mysql_user:
@@ -45,6 +54,7 @@
     host={{ redmine_sql_database_host }}
     priv={{ redmine_sql_database_name }}.*:ALL
     state=present
+  when: redmine_configure_mariadb
 
 - name: Create the Redmine user
   user: 

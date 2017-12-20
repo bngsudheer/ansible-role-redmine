@@ -15,3 +15,5 @@ redmine_domain_name: redmine.example.com
 redmine_configure_nginx: yes
 redmine_configure_unicorn: yes
 redmine_configure_firewalld: yes
+
+redmine_configure_mariadb: yes
