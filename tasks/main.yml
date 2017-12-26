@@ -62,7 +62,7 @@
   user: 
       name: redmine
 
-- name: Check redmine catalog
+- name: Check whether Redmine is already downloaded
   stat: path={{ redmine_home }}
   register: redmine_cat
 
@@ -74,11 +74,39 @@
   become_user: redmine
   when: redmine_cat.stat.exists == False
 
+- name: Create redmine directory
+  file:
+      path: /home/redmine/redmine
+      state: directory
+  when: redmine_cat.stat.exists == False
+  become: yes
+  become_user: redmine
+
+  # Ansible has a bug because of which you can't extract to destination directly via unarchive
+  #  https://github.com/ansible/ansible-modules-core/issues/2480
+  #  extra_opts: ['--strip-components=1'] also doesn't work
 - name: Unpack Redmine source tarball
   unarchive:
     src: /home/redmine/redmine-{{ redmine_version }}.tar.gz
     dest: /home/redmine/
     copy: no
+  become: yes
+  become_user: redmine
+  when: redmine_cat.stat.exists == False
+
+- name: copy source files 
+  shell: "mv /home/redmine/redmine-{{ redmine_version }}/* /home/redmine/redmine/"
+  become: yes
+  become_user: redmine
+  when: redmine_cat.stat.exists == False
+
+- name: remove the unused files 
+  file: 
+    path: "{{ item }}"
+    state: absent
+  with_items:
+      - /home/redmine/redmine-{{ redmine_version }}
+      - /home/redmine/redmine-{{ redmine_version }}.tar.gz
   become: yes
   become_user: redmine
   when: redmine_cat.stat.exists == False
