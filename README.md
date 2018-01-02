@@ -3,17 +3,34 @@ Redmine On CentOS 7
 
 This module is in beta. Your feedback is appreciated.
 
-Install Redmine 3 on CentOS. We restrict ourselves to RHEL/CentOS/Fedora family of distributions. (This many change in future.) 
-Right now, only CentOS 7 is supported.
+Install Redmine 3 on CentOS. We restrict ourselves to RHEL/CentOS/Fedora family
+of distributions. (This many change in future.) Right now, only CentOS 7 is supported.
 The role supports setting up Redmine via Unicorn and Nignx.
-
-Requirements
-------------
 
 This role will install the required RPM packages from the official CentOS 7
 repositories. Redmine will be downloaded from redmine.org and required Ruby
 gems from rubygems.org.
 
+To stop redmine use the command:
+systemctl stop redmine
+
+To start redmine use the command:
+systemctl start redmine
+
+Requirements
+------------
+Ruby >= 2.1 is required. Somewhere in the gems dependency chain recently Ruby 2.1 is now a required packafge.
+Make sure Ruby >= 2.1 is installed or use bngsudheer.ruby.
+
+If you are using MySQL or PostgreSQL, you have to provide the database server name,
+database name, database username and password via the variables:
+* redmine_sql_username
+* redmine_sql_password
+* redmine_sql_database_name
+* redmine_sql_database_host
+
+Make sure port 80 is open in your firewall. If you server Redmine over https
+make sure port 443 is open too.
 
 Role Variables
 --------------
@@ -29,31 +46,33 @@ These variables are available with the following default values:
 * redmine_configure_nginx: yes
 * redmine_configure_unicorn: yes
 
+These variables are available with the no default values:
+* redmine_nginx_bind_ip:
+
 
 Dependencies
 ------------
 
 No other dependencies.
 
-We recommend using the role [CentOS Base](https://galaxy.ansible.com/bngsudheer/centos_base/)
-
-
-Example Playbook
-----------------
+We recommend using the roles:
+- [CentOS Base](https://galaxy.ansible.com/bngsudheer/centos_base/)
+- [Ruby](https://galaxy.ansible.com/bngsudheer/ruby/)
 
 Example playbook
 
     - hosts: servers
       vars:
-       - redmine_sql_username: redmine 
+       - redmine_sql_username: redmine
        - redmine_sql_password: password
-       - redmine_sql_database_name: redmine 
-       - remmine_sql_database_host: localhost 
+       - redmine_sql_database_name: redmine
+       - remmine_sql_database_host: localhost
        - redmine_version: 3.4.2
+       - redmine_nginx_bind_ip: 192.168.100.130
       remote_user: root
       roles:
-         - role: bngsudheer.redmine 
-      
+         - bngsudheer.ruby
+         - bngsudheer.redmine
 
 License
 -------
@@ -66,5 +85,3 @@ Author Information
 Sudheer Satyanarayana
 Blog: http://www.techchorus.net
 Twitter: http://www.twitter.com/bngsudheer
-
-

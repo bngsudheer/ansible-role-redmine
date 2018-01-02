@@ -1,11 +1,11 @@
 ---
-# TODO 
+# TODO
 # SELinux policies
 # TCP Socket with unicorn
 # Tests
-- name: Install the required dependencies
-  yum: 
-    state: installed 
+- name: Install the dependencies
+  yum:
+    state: installed
     name: "{{ item }}"
   with_items:
    - ruby-devel
@@ -17,30 +17,30 @@
    - epel-release
 
 - name: Install the required dependencies
-  yum: 
-    state: installed 
+  yum:
+    state: installed
     name: "{{ item }}"
   with_items:
    - mariadb-server
   when: redmine_configure_mariadb
 
 - name: Install Nginx
-  yum: 
-      state: installed 
+  yum:
+      state: installed
       name: nginx
   when: redmine_configure_nginx
 
 - name: Enable MariaDB server
-  service: 
-      name: mariadb 
-      state: started 
+  service:
+      name: mariadb
+      state: started
       enabled: yes
   when: redmine_configure_mariadb
 
 - name: Enable Nginx server
-  service: 
-      name: nginx 
-      state: started 
+  service:
+      name: nginx
+      state: started
       enabled: yes
   when: redmine_configure_nginx
 
@@ -59,7 +59,7 @@
   when: redmine_configure_mariadb
 
 - name: Create the Redmine user
-  user: 
+  user:
       name: redmine
 
 - name: Check whether Redmine is already downloaded
@@ -94,14 +94,14 @@
   become_user: redmine
   when: redmine_cat.stat.exists == False
 
-- name: copy source files 
+- name: copy source files
   shell: "mv /home/redmine/redmine-{{ redmine_version }}/* /home/redmine/redmine/"
   become: yes
   become_user: redmine
   when: redmine_cat.stat.exists == False
 
-- name: remove the unused files 
-  file: 
+- name: remove the unused files
+  file:
     path: "{{ item }}"
     state: absent
   with_items:
@@ -112,28 +112,28 @@
   when: redmine_cat.stat.exists == False
 
 - name: Install the required gems - bundler
-  gem: 
-      name: bundler 
-      state: present 
+  gem:
+      name: bundler
+      state: present
       user_install: yes
       version: 1.15.4
   become: yes
   become_user: redmine
 
 - name: Upload the Redmine configuration file
-  template: 
-     src: database.yml 
+  template:
+     src: database.yml
      dest: "{{ redmine_home }}/config/"
   become: yes
   become_user: redmine
 
-- name: Install the required gems via bundler 
+- name: Install the required gems via bundler
   become: yes
   become_user: redmine
-  shell: /home/redmine/bin/bundler install 
+  shell: /home/redmine/bin/bundler install
   args:
     chdir: "{{ redmine_home }}"
- 
+
 - name: Generate secret token
   become: yes
   become_user: redmine
@@ -149,14 +149,14 @@
     chdir: "{{ redmine_home }}"
 
 - name: Local gemfile
-  template: 
+  template:
    src: Gemfile.local
    dest: "{{ redmine_home }}"
 
 - name: Install the required gems via bundler  - unicorn
   become: yes
   become_user: redmine
-  shell: /home/redmine/bin/bundler install 
+  shell: /home/redmine/bin/bundler install
   args:
     chdir: "{{ redmine_home }}"
 
@@ -187,7 +187,7 @@
       group: redmine
 
 - name: Redmine start and stop scripts
-  template: 
+  template:
     src: "{{ item }}"
     dest: /home/redmine/bin/
     mode: u+x
@@ -210,8 +210,8 @@
     chdir: "{{ redmine_home }}"
 
 - name: temp dir
-  file: 
-    path: "{{ redmine_home }}/{{ item }}" 
+  file:
+    path: "{{ redmine_home }}/{{ item }}"
     state: directory
     owner: redmine
     group: redmine
@@ -223,9 +223,9 @@
    - "log"
 
 - name: Open http port
-  firewalld: 
+  firewalld:
       port: "80/tcp"
-      permanent: true 
+      permanent: true
       state: enabled
   notify:
    - Firewalld restart
@@ -241,7 +241,7 @@
     - /var/run/redmine
   when: redmine_configure_nginx
 
-- name: Nginx configuration 
+- name: Nginx configuration
   template:
     src: redmine.conf
     dest: /etc/nginx/conf.d/
@@ -250,7 +250,7 @@
   when: redmine_configure_nginx
 
 - name: Enable redmine systemd unit
-  service: 
+  service:
     name: redmine
     state: started
     enabled: yes
