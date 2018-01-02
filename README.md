@@ -12,15 +12,15 @@ repositories. Redmine will be downloaded from redmine.org and required Ruby
 gems from rubygems.org.
 
 To stop redmine use the command:
-systemctl stop redmine
+    systemctl stop redmine
 
 To start redmine use the command:
-systemctl start redmine
+    systemctl start redmine
 
 Requirements
 ------------
-Ruby >= 2.1 is required. Somewhere in the gems dependency chain recently Ruby 2.1 is now a required packafge.
-Make sure Ruby >= 2.1 is installed or use bngsudheer.ruby.
+Ruby >= 2.1 is required. Somewhere in the gems dependency chain recently, Ruby 2.1 has been set as a required package.
+Make sure Ruby >= 2.1 is installed or use [Ruby Ansible role](https://galaxy.ansible.com/bngsudheer/ruby/).
 
 If you are using MySQL or PostgreSQL, you have to provide the database server name,
 database name, database username and password via the variables:
@@ -29,7 +29,7 @@ database name, database username and password via the variables:
 * redmine_sql_database_name
 * redmine_sql_database_host
 
-Make sure port 80 is open in your firewall. If you server Redmine over https
+Make sure port 80 is open in your firewall. If you serve Redmine over https
 make sure port 443 is open too.
 
 Role Variables
