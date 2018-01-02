@@ -12,10 +12,14 @@ repositories. Redmine will be downloaded from redmine.org and required Ruby
 gems from rubygems.org.
 
 To stop redmine use the command:
+```sh
     systemctl stop redmine
+ ```
 
 To start redmine use the command:
+```sh
     systemctl start redmine
+ ```
 
 Requirements
 ------------
