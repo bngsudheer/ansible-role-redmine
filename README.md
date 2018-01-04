@@ -36,8 +36,7 @@ database name, database username and password via the variables:
 * redmine_sql_database_host
 
 Make sure port 80 is open in your firewall. If you serve Redmine over HTTPS
-make sure port 443 is open too. This role can configure firewalld to allow HTTP
-and HTTPS ports on the host.
+make sure port 443 is open too. 
 
 Role Variables
 --------------
