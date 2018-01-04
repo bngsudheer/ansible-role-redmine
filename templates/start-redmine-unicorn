@@ -1,3 +1,0 @@
-#!/bin/bash
-/home/redmine/bin/unicorn_rails -c {{ redmine_home }}/shared/config/redmine/unicorn.conf.rb -p 5000 -E production -D
-
