@@ -187,12 +187,15 @@
    - "files"
    - "log"
 
-- name: Default data
-  shell: RAILS_ENV=production REDMINE_LANG=en /home/redmine/bin/bundle exec /home/redmine/bin/rake redmine:load_default_data
-  become: yes
-  become_user: redmine
-  args:
-    chdir: "{{ redmine_home }}"
+# Need to set lang here
+# and an option to install demo data
+# RAILS_ENV=production REDMINE_LANG=fr bundle exec rake redmine:load_default_data
+# - name: Default data
+#   shell: RAILS_ENV=production REDMINE_LANG=en /home/redmine/bin/bundle exec /home/redmine/bin/rake redmine:load_default_data
+#   become: yes
+#   become_user: redmine
+#   args:
+#     chdir: "{{ redmine_home }}"
 
 - name: firewall open http and https ports
   firewalld:
