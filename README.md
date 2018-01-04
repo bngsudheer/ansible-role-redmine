@@ -12,12 +12,12 @@ This role will install the required RPM packages from the official CentOS 7
 repositories. Redmine will be downloaded from redmine.org and required Ruby
 gems from rubygems.org.
 
-To start redmine use the command:
+To start Redmine use the command:
 ```sh
     systemctl start redmine
  ```
 
-To stop redmine use the command:
+To stop Redmine use the command:
 ```sh
     systemctl stop redmine
  ```
