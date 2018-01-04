@@ -1,32 +1,31 @@
 Redmine On CentOS 7
 =========
 
+Install Redmine 3 on CentOS. The role installs Redmine via Unicorn and Nignx.
+
 This module is in beta. Your feedback is appreciated.
 
-Install Redmine 3 on CentOS. We restrict ourselves to RHEL/CentOS/Fedora family
-of distributions. (This many change in future.) Right now, only CentOS 7 is supported.
-The role supports setting up Redmine via Unicorn and Nignx.
+We focus on RHEL/CentOS/Fedora family
+of distributions until version 1.0 is released. In future versions, we will support Ubuntu and other Linux distributions. Right now, only CentOS 7 is supported.
 
 This role will install the required RPM packages from the official CentOS 7
 repositories. Redmine will be downloaded from redmine.org and required Ruby
 gems from rubygems.org.
-
-To stop redmine use the command:
-```sh
-    systemctl stop redmine
- ```
 
 To start redmine use the command:
 ```sh
     systemctl start redmine
  ```
 
+To stop redmine use the command:
+```sh
+    systemctl stop redmine
+ ```
+
 Requirements
 ------------
-Ruby >= 2.1 is required. Recently, somewhere in the gems dependency chain,
-Ruby 2.1 has been set as a required package.
-Make sure Ruby >= 2.1 is installed or use
-[Ruby Ansible role](https://galaxy.ansible.com/bngsudheer/ruby/).
+Ruby >= 2.1 maybe required. If somewhere in the gems dependency chain,
+Ruby 2.1 is set as a required package, you could use [Ruby Ansible role](https://galaxy.ansible.com/bngsudheer/ruby/). At the moment, Redmine works on Ruby 2.0.
 
 If you are using MySQL or PostgreSQL, you have to provide the database server name,
 database name, database username and password via the variables:
@@ -44,6 +43,7 @@ Role Variables
 These variables are available with the following default values:
 * redmine_version: "3.4.2"
 
+Database related variables:
 * redmine_sql_username: "redmine"
 * redmine_sql_password: "localhost"
 * redmine_sql_database_name: "redmine"
@@ -51,13 +51,12 @@ These variables are available with the following default values:
 * redmine_unicorn_worker_processes: 2
 * redmine_domain_name: redmine.example.com (domain name on which you want to serve Nginx->Unicorn->Redmine).  
 
+Other variables
 * redmine_configure_nginx: yes
 * redmine_configure_unicorn: yes
 * redmine_unicorn_port: 5000
 * redmine_configure_firewalld: yes
-
-These variables are available with the no default values:
-* redmine_nginx_bind_ip:
+* redmine_nginx_bind_ip: 0.0.0.0
 
 
 Dependencies
