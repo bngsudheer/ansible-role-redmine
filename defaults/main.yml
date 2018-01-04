@@ -11,10 +11,10 @@ redmine_sql_password: "password"
 
 redmine_unicorn_worker_processes: 2
 
-redmine_domain_name: redmine.example.com 
+redmine_domain_name: redmine.example.com
 
 redmine_configure_nginx: yes
 redmine_configure_unicorn: yes
 redmine_configure_firewalld: yes
 
-redmine_configure_mariadb: yes
+redmine_unicorn_port: 5000

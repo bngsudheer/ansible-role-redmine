@@ -9,9 +9,7 @@ PermissionsStartOnly=true
 WorkingDirectory=/home/redmine/bin
 ExecStartPre=-/usr/bin/mkdir /var/run/redmine
 ExecStartPre=/usr/bin/chown redmine.redmine /var/run/redmine
-;ExecStart=/home/redmine/bin/start-redmine-unicorn
-ExecStart=/home/redmine/bin/unicorn_rails -c {{ redmine_home }}/shared/config/redmine/unicorn.conf.rb -p 5000 -E production -D
-;ExecStop=/home/redmine/bin/stop-redmine-unicorn
+ExecStart=/home/redmine/bin/unicorn_rails -c {{ redmine_home }}/shared/config/redmine/unicorn.conf.rb -p {{ redmine_unicorn_port }} -E production -D
 ExecStop=/usr/bin/kill -QUIT $(/usr/bin/cat /var/run/redmine/unicorn.pid)
 User=redmine
 

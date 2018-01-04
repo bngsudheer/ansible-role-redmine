@@ -13,16 +13,7 @@
    - gcc
    - patch
    - mariadb-devel
-   - MySQL-python
    - epel-release
-
-- name: Install the required dependencies
-  yum:
-    state: installed
-    name: "{{ item }}"
-  with_items:
-   - mariadb-server
-  when: redmine_configure_mariadb
 
 - name: Install Nginx
   yum:
@@ -30,33 +21,12 @@
       name: nginx
   when: redmine_configure_nginx
 
-- name: Enable MariaDB server
-  service:
-      name: mariadb
-      state: started
-      enabled: yes
-  when: redmine_configure_mariadb
-
 - name: Enable Nginx server
   service:
       name: nginx
       state: started
       enabled: yes
   when: redmine_configure_nginx
-
-- name: Create redmine DB
-  mysql_db:
-    name={{ redmine_sql_database_name }} state=present
-  when: redmine_configure_mariadb
-
-- name: Create redmine DB user
-  mysql_user:
-    name={{ redmine_sql_username}}
-    password={{ redmine_sql_password }}
-    host={{ redmine_sql_database_host }}
-    priv={{ redmine_sql_database_name }}.*:ALL
-    state=present
-  when: redmine_configure_mariadb
 
 - name: Create the Redmine user
   user:
@@ -179,35 +149,30 @@
   become: yes
   become_user: redmine
 
-- name: run directory
-  file:
-      path: /var/run/redmine
-      state: directory
-      owner: redmine
-      group: redmine
+# This is handled by systemd
+# - name: run directory
+#   file:
+#       path: /var/run/redmine
+#       state: directory
+#       owner: redmine
+#       group: redmine
 
-- name: Redmine start and stop scripts
-  template:
-    src: "{{ item }}"
-    dest: /home/redmine/bin/
-    mode: u+x
-  with_items:
-    - stop-redmine-unicorn
-    - start-redmine-unicorn
-  become: yes
-  become_user: redmine
+# - name: Redmine start and stop scripts
+#   template:
+#     src: "{{ item }}"
+#     dest: /home/redmine/bin/
+#     mode: u+x
+#   with_items:
+#     - stop-redmine-unicorn
+#     - start-redmine-unicorn
+#   become: yes
+#   become_user: redmine
 
 - name: Systemd script
   template:
       src: usr/lib/systemd/system/redmine.service
       dest: /usr/lib/systemd/system/
 
-- name: Default data
-  shell: RAILS_ENV=production REDMINE_LANG=en /home/redmine/bin/bundle exec /home/redmine/bin/rake redmine:load_default_data
-  become: yes
-  become_user: redmine
-  args:
-    chdir: "{{ redmine_home }}"
 
 - name: temp dir
   file:
@@ -222,11 +187,22 @@
    - "files"
    - "log"
 
-- name: Open http port
+- name: Default data
+  shell: RAILS_ENV=production REDMINE_LANG=en /home/redmine/bin/bundle exec /home/redmine/bin/rake redmine:load_default_data
+  become: yes
+  become_user: redmine
+  args:
+    chdir: "{{ redmine_home }}"
+
+- name: firewall open http and https ports
   firewalld:
-      port: "80/tcp"
-      permanent: true
-      state: enabled
+    permanent: "{{ item[1] }}"
+    service: "{{ item[0] }}"
+    state: enabled
+    zone: public
+  with_nested:
+    - [ 'http', 'https']
+    - [yes, no]
   notify:
    - Firewalld restart
   when: redmine_configure_firewalld

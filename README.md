@@ -23,8 +23,10 @@ To start redmine use the command:
 
 Requirements
 ------------
-Ruby >= 2.1 is required. Somewhere in the gems dependency chain recently, Ruby 2.1 has been set as a required package.
-Make sure Ruby >= 2.1 is installed or use [Ruby Ansible role](https://galaxy.ansible.com/bngsudheer/ruby/).
+Ruby >= 2.1 is required. Recently, somewhere in the gems dependency chain,
+Ruby 2.1 has been set as a required package.
+Make sure Ruby >= 2.1 is installed or use
+[Ruby Ansible role](https://galaxy.ansible.com/bngsudheer/ruby/).
 
 If you are using MySQL or PostgreSQL, you have to provide the database server name,
 database name, database username and password via the variables:
@@ -33,22 +35,27 @@ database name, database username and password via the variables:
 * redmine_sql_database_name
 * redmine_sql_database_host
 
-Make sure port 80 is open in your firewall. If you serve Redmine over https
-make sure port 443 is open too.
+Make sure port 80 is open in your firewall. If you serve Redmine over HTTPS
+make sure port 443 is open too. This role can configure firewalld to allow HTTP
+and HTTPS ports on the host.
 
 Role Variables
 --------------
 
 These variables are available with the following default values:
 * redmine_version: "3.4.2"
+
 * redmine_sql_username: "redmine"
 * redmine_sql_password: "localhost"
 * redmine_sql_database_name: "redmine"
 * redmine_sql_database_host: "localhost"
 * redmine_unicorn_worker_processes: 2
 * redmine_domain_name: redmine.example.com (domain name on which you want to serve Nginx->Unicorn->Redmine).  
+
 * redmine_configure_nginx: yes
 * redmine_configure_unicorn: yes
+* redmine_unicorn_port: 5000
+* redmine_configure_firewalld: yes
 
 These variables are available with the no default values:
 * redmine_nginx_bind_ip:
