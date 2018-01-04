@@ -36,7 +36,7 @@ database name, database username and password via the variables:
 * redmine_sql_database_host
 
 Make sure port 80 is open in your firewall. If you serve Redmine over HTTPS
-make sure port 443 is open too. 
+make sure port 443 is open too.
 
 Role Variables
 --------------
@@ -93,5 +93,6 @@ Author Information
 ------------------
 
 Sudheer Satyanarayana
-Blog: http://www.techchorus.net
-Twitter: http://www.twitter.com/bngsudheer
+* Blog: https://www.techchorus.net
+* Twitter: https://www.twitter.com/bngsudheer
+* Work: https://www.gavika.com
