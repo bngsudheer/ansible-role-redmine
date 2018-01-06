@@ -1,7 +1,7 @@
 Redmine On CentOS 7
 =========
 
-Install Redmine 3 on CentOS. The role installs Redmine via Unicorn and Nignx.
+Install Redmine 3,x and Redmine plugins on CentOS. The role installs Redmine via Unicorn and Nignx.
 
 This module is in beta. Your feedback is appreciated.
 
@@ -56,7 +56,7 @@ Other variables
 * redmine_configure_unicorn: yes
 * redmine_unicorn_port: 5000
 * redmine_configure_firewalld: yes
-* redmine_nginx_bind_ip: 0.0.0.0
+* redmine_nginx_bind_ip:
 
 
 Dependencies
@@ -82,6 +82,29 @@ Example playbook
       roles:
          - bngsudheer.ruby
          - bngsudheer.redmine
+
+ Example playbook to install Redmine with plugins
+
+     - hosts: servers
+       vars:
+        - redmine_sql_username: redmine
+        - redmine_sql_password: password
+        - redmine_sql_database_name: redmine
+        - remmine_sql_database_host: localhost
+        - redmine_version: 3.4.2
+        - redmine_nginx_bind_ip: 192.168.100.130
+        - redmine_plugins:
+          - name: scrum
+            base_name: scrum
+            url: https://redmine.ociotec.com/attachments/download/481/scrum-v0.18.1.tar.gz
+       remote_user: root
+       roles:
+          - bngsudheer.ruby
+          - bngsudheer.redmine
+
+The variable *redmine_plugins* is a directory with the keys *name*, *base_name* and the *url*.
+The *base_name* is the directory name that will be used in the plugins directory. *name*
+is for human reference. *url* is the location from where the plugin has to be downloaded.
 
 License
 -------
