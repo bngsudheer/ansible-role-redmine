@@ -11,7 +11,7 @@
   when: plugin_directory_stat.stat.exists == False
   register: plugin_download
 
-- name: debug show plugin_download
+- name: debug plugin_download
   debug:
     msg: "{{ plugin_download }}"
     verbosity: 3
