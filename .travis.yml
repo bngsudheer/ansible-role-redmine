@@ -1,0 +1,10 @@
+--
+services: docker
+
+env:
+  - distro: centos7
+
+script:
+
+notifications:
+  webhooks: https://galaxy.ansible.com/api/v1/notifications/
