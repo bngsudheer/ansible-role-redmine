@@ -11,9 +11,10 @@
   when: plugin_directory_stat.stat.exists == False
   register: plugin_download
 
-- name: show plugin_download
+- name: debug show plugin_download
   debug:
     msg: "{{ plugin_download }}"
+    verbosity: 3
   when: plugin_directory_stat.stat.exists == False
 
 - name: Extract plugin
@@ -27,3 +28,5 @@
   shell: RAILS_ENV=production /home/redmine/bin/bundle exec /home/redmine/bin/rake redmine:plugins:migrate
   args:
     chdir: "{{ redmine_home }}"
+  notify:
+    redmine restart

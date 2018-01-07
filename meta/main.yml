@@ -4,7 +4,7 @@ galaxy_info:
   description: Install Redmine on CentOS
   company: Gavika Information Technologies Pvt. Ltd.
   license: license (BSD)
-  min_ansible_version: 1.2
+  min_ansible_version: 2.4
   platforms:
   - name: EL
     versions:

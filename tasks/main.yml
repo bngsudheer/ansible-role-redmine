@@ -210,14 +210,16 @@
    - Firewalld restart
   when: redmine_configure_firewalld
 
+# TODO Review this
 - name: Permissions for Nginx to read Redmine files
   file:
     path: "{{ item }}"
     recurse: yes
-    mode: o+rx
+    mode: o+x
   with_items:
+    - /home
     - /home/redmine
-    - /var/run/redmine
+    - "{{ redmine_home }}"
   when: redmine_configure_nginx
 
 - name: Nginx configuration
