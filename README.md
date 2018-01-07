@@ -57,6 +57,7 @@ Other variables
 * redmine_unicorn_port: 5000
 * redmine_configure_firewalld: yes
 * redmine_nginx_bind_ip:
+* redmine_plugins: []
 
 
 Dependencies
