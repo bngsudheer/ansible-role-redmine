@@ -70,23 +70,23 @@
   become_user: redmine
   when: redmine_cat.stat.exists == False
 
-- name: remove the unused files
-  file:
-    path: "{{ item }}"
-    state: absent
-  with_items:
-      - /home/redmine/redmine-{{ redmine_version }}
-      - /home/redmine/redmine-{{ redmine_version }}.tar.gz
-  become: yes
-  become_user: redmine
-  when: redmine_cat.stat.exists == False
+# - name: remove the unused files
+#   file:
+#     path: "{{ item }}"
+#     state: absent
+#   with_items:
+#       - /home/redmine/redmine-{{ redmine_version }}
+#       - /home/redmine/redmine-{{ redmine_version }}.tar.gz
+#   become: yes
+#   become_user: redmine
+#   when: redmine_cat.stat.exists == False
 
 - name: Install the required gems - bundler
   gem:
       name: bundler
       state: present
       user_install: yes
-      version: 1.15.4
+      version: 1.16.1
   become: yes
   become_user: redmine
 
@@ -97,12 +97,25 @@
   become: yes
   become_user: redmine
 
+# - name: Install the required gems via bundler
+#   become: yes
+#   become_user: redmine
+#   shell: /home/redmine/bin/bundler install
+#   args:
+#     chdir: "{{ redmine_home }}"
 - name: Install the required gems via bundler
+  bundler:
+    executable: /home/redmine/bin/bundler
+    gemfile: "{{ redmine_home }}/Gemfile"
+    chdir: "{{ redmine_home }}"
   become: yes
   become_user: redmine
-  shell: /home/redmine/bin/bundler install
-  args:
-    chdir: "{{ redmine_home }}"
+
+- name: State secret token file
+  stat:
+    path: "{{ redmine_home }}/config/initializers/secret_token.rb"
+  register:
+    secret_token_stat
 
 - name: Generate secret token
   become: yes
@@ -110,25 +123,48 @@
   shell: /home/redmine/bin/bundle exec /home/redmine/bin/rake generate_secret_token
   args:
     chdir: "{{ redmine_home }}"
+  when: secret_token_stat.stat.exists == False
 
+  # TODO Review
 - name: DB Migrate
   shell: RAILS_ENV=production /home/redmine/bin/bundle exec /home/redmine/bin/rake db:migrate
+  args:
+    creates: "{{ redmine_home }}/ansible_db_migrate_creates"
+    chdir: "{{ redmine_home }}"
   become: yes
   become_user: redmine
-  args:
-    chdir: "{{ redmine_home }}"
+  register:
+    db_migrate
+
+- name: show db_migrate
+  debug:
+    msg: "{{ db_migrate }}"
+    verbosity: 3
+
+- name: create the creates file for db migration
+  file:
+    path: "{{ redmine_home }}/ansible_db_migrate_creates"
+    state: touch
+  when: db_migrate.changed
 
 - name: Local gemfile
   template:
-   src: Gemfile.local
-   dest: "{{ redmine_home }}"
+    src: Gemfile.local
+    dest: "{{ redmine_home }}"
 
-- name: Install the required gems via bundler  - unicorn
+   # - name: Install the required gems via bundler  - unicorn
+   #   become: yes
+   #   become_user: redmine
+   #   shell: /home/redmine/bin/bundler install
+   #   args:
+   #     chdir: "{{ redmine_home }}"
+- name: Install the local gems via bundler - unicorn
+  bundler:
+    executable: /home/redmine/bin/bundler
+    gemfile: "{{ redmine_home }}/Gemfile.local"
+    chdir: "{{ redmine_home }}"
   become: yes
   become_user: redmine
-  shell: /home/redmine/bin/bundler install
-  args:
-    chdir: "{{ redmine_home }}"
 
 - name: Create directories for shared resources
   file:
@@ -214,7 +250,7 @@
 - name: Permissions for Nginx to read Redmine files
   file:
     path: "{{ item }}"
-    recurse: yes
+    recurse: no
     mode: o+x
   with_items:
     - /home

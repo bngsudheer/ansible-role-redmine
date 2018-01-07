@@ -1,5 +1,15 @@
 ---
 - hosts: localhost
   remote_user: root
+  vars:
+    - mysql_databases:
+        - name: redmine
+    - mysql_users:
+        - name: redmine
+          password: password
+          priv: "redmine.*:ALL"
+    - redmine_configure_firewalld: no
   roles:
-    - ansible-role-redmine
+    - role: geerlingguy.mysql
+      become: yes
+    - role: role_under_test

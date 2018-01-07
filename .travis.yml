@@ -3,7 +3,7 @@ services:
   - docker
 env:
   - distro: centos7
-    playbook: test.yml
+    playbook: centos-7-test.yml
 
 branches:
   only:

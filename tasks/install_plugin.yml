@@ -30,3 +30,4 @@
     chdir: "{{ redmine_home }}"
   notify:
     redmine restart
+  when: plugin_download.changed
