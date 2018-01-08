@@ -1,7 +1,7 @@
 Redmine On CentOS 7
 =========
 
-Install Redmine 3,x and Redmine plugins on CentOS. The role installs Redmine via Unicorn and Nignx.
+Install Redmine 3.x and Redmine plugins on CentOS. The role installs Redmine via Unicorn and Nignx.
 
 This module is in beta. Your feedback is appreciated.
 
