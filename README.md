@@ -57,7 +57,6 @@ Other variables
 * redmine_plugins: []
 * redmine_configure_selinux: no
 
-
 Dependencies
 ------------
 
