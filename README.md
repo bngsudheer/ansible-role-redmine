@@ -58,6 +58,7 @@ Other variables
 * redmine_configure_firewalld: yes
 * redmine_nginx_bind_ip:
 * redmine_plugins: []
+* redmine_configure_selinux: no
 
 
 Dependencies

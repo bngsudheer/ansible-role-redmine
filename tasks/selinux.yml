@@ -1,0 +1,13 @@
+---
+- name: Allow Nginx to access the Unicorn ports
+  seport:
+    ports: "{{ redmine_unicorn_port }}"
+    proto: tcp 
+    setype: http_port_t
+    state: present
+    
+- name: Allow Nginx to read user content 
+  seboolean:
+    name: httpd_read_user_content
+    state: yes
+    persistent: yes
