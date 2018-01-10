@@ -3,10 +3,7 @@ Redmine On CentOS 7
 
 Install Redmine 3.x and Redmine plugins on CentOS. The role installs Redmine via Unicorn and Nignx.
 
-This role is in beta. Your feedback is appreciated.
-
-We focus on RHEL/CentOS/Fedora family
-of distributions until version 1.0 is released. In future versions, we will support Ubuntu and other Linux distributions. Right now, only CentOS 7 is supported.
+In future versions, we will support Ubuntu and other Linux distributions. Right now, only CentOS 7 is supported.
 
 This role will install the required RPM packages from the official CentOS 7
 repositories. Redmine will be downloaded from redmine.org and required Ruby
