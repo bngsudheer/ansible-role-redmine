@@ -59,6 +59,7 @@
 # see https://groups.google.com/forum/#!topic/ansible-project/IcgnAekwsbA
 # about the intended behaviour of sefcontext
 # This ideal setup is not working yet
+# the parent directory probably has to have the same context for this to work 
 # For now use restorecon
 # TODO probably change redmine path to /sr/redmine instead of /home/redmine/redmine
 - name: Allow Nginx to read redmine content 
