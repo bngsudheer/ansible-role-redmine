@@ -52,6 +52,22 @@
   become: yes
   become_user: redmine
 
+# First we create the fcontext before files are created in the directory
+# When the files are created they automatically have the right context
+# If you alraedy have the file, relabel them using the command:
+# restorecon -Rv /home/redmine/redmine/public
+# see https://groups.google.com/forum/#!topic/ansible-project/IcgnAekwsbA
+# about the intended behaviour of sefcontext
+# This ideal setup is not working yet
+# For now use restorecon
+# TODO probably change redmine path to /sr/redmine instead of /home/redmine/redmine
+- name: Allow Nginx to read redmine content 
+  sefcontext:
+    target: '/home/redmine/redmine/public(/.*)?'
+    setype: httpd_sys_content_t
+    state: present
+  when: redmine_configure_selinux
+
   # Ansible has a bug because of which you can't extract to destination directly via unarchive
   #  https://github.com/ansible/ansible-modules-core/issues/2480
   #  extra_opts: ['--strip-components=1'] also doesn't work
@@ -151,6 +167,8 @@
   template:
     src: Gemfile.local
     dest: "{{ redmine_home }}"
+  become: yes
+  become_user: redmine
 
    # - name: Install the required gems via bundler  - unicorn
    #   become: yes

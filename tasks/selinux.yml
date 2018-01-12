@@ -6,8 +6,18 @@
     setype: http_port_t
     state: present
     
-- name: Allow Nginx to read user content 
-  seboolean:
-    name: httpd_read_user_content
-    state: yes
-    persistent: yes
+# - name: stat the public directory
+#   stat:
+#     path: "{{ redmine_home }}/public"
+#   register: stat_redmine
+  
+# - name: show stat
+#   debug:
+#     msg: "{{ stat_redmine.stat }}"
+# Use restorecon as a temporary fix
+- name: Relabel SELinux context 
+  file: 
+    path: "{{ redmine_home }}/public"
+    setype: httpd_sys_content_t
+    recurse: yes
+  when: redmine_configure_selinux

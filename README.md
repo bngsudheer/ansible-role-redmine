@@ -76,6 +76,7 @@ Example playbook
        - remmine_sql_database_host: localhost
        - redmine_version: 3.4.2
        - redmine_nginx_bind_ip: 192.168.100.130
+       - redmine_configure_selinux: yes
       remote_user: root
       roles:
          - bngsudheer.ruby
@@ -91,6 +92,7 @@ Example playbook
         - remmine_sql_database_host: localhost
         - redmine_version: 3.4.2
         - redmine_nginx_bind_ip: 192.168.100.130
+        - redmine_configure_selinux: yes
         - redmine_plugins:
           - name: scrum
             base_name: scrum
