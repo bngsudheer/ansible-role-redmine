@@ -1,9 +1,6 @@
 ---
-# TODO
-# SELinux policies
-# TCP Socket with unicorn
-# Tests
-- name: Install the dependencies
+# TODO: TCP Socket with unicorn
+- name: Package dependencies from distribution
   yum:
     state: installed
     name: "{{ item }}"
@@ -15,20 +12,20 @@
    - mariadb-devel
    - epel-release
 
-- name: Install Nginx
+- name: Ensure Nginx is installed
   yum:
       state: installed
       name: nginx
   when: redmine_configure_nginx
 
-- name: Enable Nginx server
+- name: Ensure Nginx server is enabled and started
   service:
       name: nginx
       state: started
       enabled: yes
   when: redmine_configure_nginx
 
-- name: Create the Redmine user
+- name: Redmine user
   user:
       name: redmine
 
@@ -44,7 +41,7 @@
   become_user: redmine
   when: redmine_cat.stat.exists == False
 
-- name: Create redmine directory
+- name: redmine directory
   file:
       path: /home/redmine/redmine
       state: directory
@@ -81,45 +78,29 @@
   become_user: redmine
   when: redmine_cat.stat.exists == False
 
-- name: copy source files
+- name: copy source files to target directory
   shell: "mv /home/redmine/redmine-{{ redmine_version }}/* /home/redmine/redmine/"
   become: yes
   become_user: redmine
   when: redmine_cat.stat.exists == False
 
-# - name: remove the unused files
-#   file:
-#     path: "{{ item }}"
-#     state: absent
-#   with_items:
-#       - /home/redmine/redmine-{{ redmine_version }}
-#       - /home/redmine/redmine-{{ redmine_version }}.tar.gz
-#   become: yes
-#   become_user: redmine
-#   when: redmine_cat.stat.exists == False
-
-- name: Install the required gems - bundler
+- name: Install bundler
   gem:
       name: bundler
       state: present
       user_install: yes
-      version: 1.16.1
+      version: "{{ redmine_bundler_version }}"
+      env_shebang: yes
   become: yes
   become_user: redmine
 
-- name: Upload the Redmine configuration file
+- name: Redmine configuration file
   template:
      src: database.yml
      dest: "{{ redmine_home }}/config/"
   become: yes
   become_user: redmine
 
-# - name: Install the required gems via bundler
-#   become: yes
-#   become_user: redmine
-#   shell: /home/redmine/bin/bundler install
-#   args:
-#     chdir: "{{ redmine_home }}"
 - name: Install the required gems via bundler
   bundler:
     executable: /home/redmine/bin/bundler
@@ -128,7 +109,7 @@
   become: yes
   become_user: redmine
 
-- name: State secret token file
+- name: stat secret token file
   stat:
     path: "{{ redmine_home }}/config/initializers/secret_token.rb"
   register:
@@ -158,7 +139,7 @@
     msg: "{{ db_migrate }}"
     verbosity: 3
 
-- name: create the creates file for db migration
+- name: creates file for db migration
   file:
     path: "{{ redmine_home }}/ansible_db_migrate_creates"
     state: touch
@@ -171,12 +152,6 @@
   become: yes
   become_user: redmine
 
-   # - name: Install the required gems via bundler  - unicorn
-   #   become: yes
-   #   become_user: redmine
-   #   shell: /home/redmine/bin/bundler install
-   #   args:
-   #     chdir: "{{ redmine_home }}"
 - name: Install the local gems via bundler - unicorn
   bundler:
     executable: /home/redmine/bin/bundler
@@ -185,7 +160,7 @@
   become: yes
   become_user: redmine
 
-- name: Create directories for shared resources
+- name: directories for shared resources
   file:
    path: "{{ redmine_home }}/shared/{{ item }}"
    state: directory
@@ -204,32 +179,12 @@
   become: yes
   become_user: redmine
 
-# This is handled by systemd
-# - name: run directory
-#   file:
-#       path: /var/run/redmine
-#       state: directory
-#       owner: redmine
-#       group: redmine
-
-# - name: Redmine start and stop scripts
-#   template:
-#     src: "{{ item }}"
-#     dest: /home/redmine/bin/
-#     mode: u+x
-#   with_items:
-#     - stop-redmine-unicorn
-#     - start-redmine-unicorn
-#   become: yes
-#   become_user: redmine
-
 - name: Systemd script
   template:
       src: usr/lib/systemd/system/redmine.service
       dest: /usr/lib/systemd/system/
 
-
-- name: temp dir
+- name: temp, log and other directories
   file:
     path: "{{ redmine_home }}/{{ item }}"
     state: directory
@@ -265,7 +220,6 @@
    - Firewalld restart
   when: redmine_configure_firewalld
 
-# TODO Review this
 - name: Permissions for Nginx to read Redmine files
   file:
     path: "{{ item }}"
@@ -282,12 +236,13 @@
     src: redmine.conf
     dest: /etc/nginx/conf.d/
   notify:
-   - Nginx reload
+   - Nginx restart
   when: redmine_configure_nginx
 
 - name: Enable redmine systemd unit
-  service:
-    name: redmine
+  systemd:
+    daemon-reload: yes
+    name: redmine.service
     state: started
     enabled: yes
 

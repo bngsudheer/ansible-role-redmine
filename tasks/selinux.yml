@@ -6,15 +6,6 @@
     setype: http_port_t
     state: present
     
-# - name: stat the public directory
-#   stat:
-#     path: "{{ redmine_home }}/public"
-#   register: stat_redmine
-  
-# - name: show stat
-#   debug:
-#     msg: "{{ stat_redmine.stat }}"
-# Use restorecon as a temporary fix
 - name: Relabel SELinux context 
   file: 
     path: "{{ redmine_home }}/public"

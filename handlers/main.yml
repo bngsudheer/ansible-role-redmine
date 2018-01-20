@@ -15,6 +15,11 @@
       name: nginx
       state: reloaded
 
+- name: Nginx restart
+  service:
+      name: nginx
+      state: restarted
+
 - name: redmine restart
   service:
       name: redmine

@@ -22,3 +22,4 @@ redmine_nginx_bind_ip:
 redmine_plugins: []
 
 redmine_configure_selinux: no
+redmine_bundler_version: 1.16.1

@@ -1,7 +1,7 @@
 Redmine On CentOS 7
 =========
 
-Install Redmine 3.x and Redmine plugins on CentOS. The role installs Redmine via Unicorn and Nignx.
+Install Redmine 3.x and Redmine plugins on CentOS. The role installs Redmine along with Unicorn and Nignx.
 
 In future versions, we will support Ubuntu and other Linux distributions. Right now, only CentOS 7 is supported.
 
@@ -34,29 +34,31 @@ database name, database username and password via the variables:
 Make sure port 80 is open in your firewall. If you serve Redmine over HTTPS
 make sure port 443 is open too.
 
+If you set *redmine_configure_selinux* to *yes* then *libselinux-python* and
+*policycoreutils-python* packages are required. These packages can be installed via [CentOS Base](https://galaxy.ansible.com/bngsudheer/centos_base/).
+
 Role Variables
 --------------
 
 These variables are available with the following default values:
-* redmine_version: "3.4.2"
 
-Database related variables:
-* redmine_sql_username: "redmine"
-* redmine_sql_password: "localhost"
-* redmine_sql_database_name: "redmine"
-* redmine_sql_database_host: "localhost"
-* redmine_unicorn_worker_processes: 2
-* redmine_domain_name: redmine.example.com (domain name on which you want to serve Nginx->Unicorn->Redmine).  
-
-Other variables
-* redmine_configure_nginx: yes
-* redmine_configure_unicorn: yes
-* redmine_unicorn_port: 5000
-* redmine_configure_firewalld: yes
-* redmine_nginx_bind_ip:
-* redmine_plugins: []
-* redmine_configure_selinux: no
-
+| Variable | Default Value | Description | Required? |
+|----------|---------------|---------|-----------|
+| redmine_version |  3.4.2 | Redmine version | No |
+| redmine_sql_username|redmine| MySQL or PostgreSQL username| No|
+| redmine_sql_password}redmine| localhost | Datagase server password| No|
+| redmine_sql_database_name| redmine| Database name | No|
+| redmine_sql_database_host| localhost| Database hostname | No |
+| redmine_unicorn_worker_processes| 2 | Number of Unicorn worker processes | No |
+| redmine_domain_name| redmine.example.com | domain name to use in Nginx | No |  
+| redmine_configure_nginx | yes | Whether to configure Nginx | No | 
+| redmine_configure_unicorn | yes | Whether to configure Unicorn | No |
+| redmine_unicorn_port| 5000 | Port number on which Unicorn serves | No |
+| redmine_configure_firewalld | yes | Whether to configure Firewalld | No| 
+| redmine_nginx_bind_ip | (Empty string) |  IP address to bind Nginx to | No | |
+| redmine_plugins| [] | List of Redmine plugins to install. Each item in the list is a dictionary with keys *name*, *base_name* and *url*. The *base_name* is the directory name that will be used in the plugins directory. *name* is for human reference. *url* is the location from where the plugin has to be downloaded.| No |
+| redmine_configure_selinux| no | Whether to configure Redmine to support SELinux | No |
+| redmine_bundler_version| 1.16.1 | Bunder version. If you use a recent version, you will probably require Ruby >= 2.1 | No |
 Dependencies
 ------------
 
@@ -102,9 +104,7 @@ Example playbook
           - bngsudheer.ruby
           - bngsudheer.redmine
 
-The variable *redmine_plugins* is a directory with the keys *name*, *base_name* and the *url*.
-The *base_name* is the directory name that will be used in the plugins directory. *name*
-is for human reference. *url* is the location from where the plugin has to be downloaded.
+
 
 License
 -------
