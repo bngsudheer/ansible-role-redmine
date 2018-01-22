@@ -3,4 +3,8 @@
   hosts: all
   roles:
     - bngsudheer.ruby
+    
+- name: Converge
+  hosts: all
+  roles:
     - ansible-role-redmine
