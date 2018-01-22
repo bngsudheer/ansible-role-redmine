@@ -12,14 +12,14 @@
    - mariadb-devel
    - epel-release
 
-- name: debug rub version
-  shell: ruby --version
-  register: debug_ruby_version
-  
-- name: show ruby version
-  debug:
-    msg: "{{ debug_ruby_version }}"
-    verbosity: 3
+# - name: debug rub version
+#   shell: ruby --version
+#   register: debug_ruby_version
+#   
+# - name: show ruby version
+#   debug:
+#     msg: "{{ debug_ruby_version }}"
+#     verbosity: 0
     
 - name: Ensure Nginx is installed
   yum:
@@ -38,17 +38,18 @@
   user:
       name: redmine
 
-- name: debug ruby version for redmine
-  shell: ruby --version
-  register: debug_ruby_version
-  become: yes
-  become_user: redmine
-  
-- name: show ruby version for redmine user
-  debug:
-    msg: "{{ debug_ruby_version }}"
-  become_user: redmine
-  become: yes
+# - name: debug ruby version for redmine
+#   shell: ruby --version
+#   register: debug_ruby_version
+#   become: yes
+#   become_user: redmine
+#   
+# - name: show ruby version for redmine user
+#   debug:
+#     msg: "{{ debug_ruby_version }}"
+#     verbosity: 0
+#   become_user: redmine
+#   become: yes
 
 - name: Check whether Redmine is already downloaded
   stat: path={{ redmine_home }}

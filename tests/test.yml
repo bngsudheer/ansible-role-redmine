@@ -2,6 +2,12 @@
 - hosts: localhost
   remote_user: root
   vars:
+  roles:
+    - role: bngsudheer.ruby
+
+- hosts: localhost
+  remote_user: root
+  vars:
     - mysql_databases:
         - name: redmine
     - mysql_users:
