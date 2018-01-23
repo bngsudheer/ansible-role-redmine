@@ -12,6 +12,8 @@ platforms:
   - name: instance
     image: centos:7
     privileged: True
+    capabilities:
+      - SYS_ADMIN
     volume_mounts:
       - /sys/fs/cgroup:/host/sys/fs/cgroup:ro
     command: "/usr/sbin/init"
