@@ -6,8 +6,9 @@
     
 - name: Converge
   hosts: all
-  # pre_tasks:
-  #   - name: Reset connection
-  #     meta: reset_connection
+  pre_tasks:
+    # fails because of https://github.com/ansible/ansible/issues/27520
+    - name: Reset connection
+      meta: reset_connection
   roles:
     - ansible-role-redmine
