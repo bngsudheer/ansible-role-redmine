@@ -1,4 +1,6 @@
 ---
+# Split playbook with Ruby and Redmmine bug - 
+# https://github.com/ansible/ansible/issues/27520
 # TODO: TCP Socket with unicorn
 - name: Package dependencies from distribution
   yum:
@@ -12,15 +14,6 @@
    - mariadb-devel
    - epel-release
 
-# - name: debug rub version
-#   shell: ruby --version
-#   register: debug_ruby_version
-#   
-# - name: show ruby version
-#   debug:
-#     msg: "{{ debug_ruby_version }}"
-#     verbosity: 0
-    
 - name: Ensure Nginx is installed
   yum:
       state: installed
@@ -37,20 +30,6 @@
 - name: Redmine user
   user:
       name: redmine
-
-# - name: debug ruby version for redmine
-#   shell: ruby --version
-#   register: debug_ruby_version
-#   become: yes
-#   become_user: redmine
-#   
-# - name: show ruby version for redmine user
-#   debug:
-#     msg: "{{ debug_ruby_version }}"
-#     verbosity: 0
-#   become_user: redmine
-#   become: yes
-
 - name: Check whether Redmine is already downloaded
   stat: path={{ redmine_home }}
   register: redmine_cat
@@ -219,7 +198,7 @@
    - "files"
    - "log"
 
-# Need to set lang here
+# TODO Need to set lang here
 # and an option to install demo data
 # RAILS_ENV=production REDMINE_LANG=fr bundle exec rake redmine:load_default_data
 # - name: Default data
