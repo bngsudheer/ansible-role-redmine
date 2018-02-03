@@ -59,17 +59,18 @@ These variables are available with the following default values:
 | redmine_plugins| [] | List of Redmine plugins to install. Each item in the list is a dictionary with keys *name*, *base_name* and *url*. The *base_name* is the directory name that will be used in the plugins directory. *name* is for human reference. *url* is the location from where the plugin has to be downloaded.| No |
 | redmine_configure_selinux| no | Whether to configure Redmine to support SELinux | No |
 | redmine_bundler_version| 1.16.1 | Bunder version. If you use a recent version, you will probably require Ruby >= 2.1 | No |
+
 Dependencies
 ------------
 
-No other dependencies.
-
-We recommend using the roles:
 - [CentOS Base](https://galaxy.ansible.com/bngsudheer/centos_base/)
+
+If you need a recent version of Ruby use:
 - [Ruby](https://galaxy.ansible.com/bngsudheer/ruby/)
 
 Example playbook
 
+```yml
     - hosts: servers
       vars:
        - redmine_sql_username: redmine
@@ -81,11 +82,12 @@ Example playbook
        - redmine_configure_selinux: yes
       remote_user: root
       roles:
-         - bngsudheer.ruby
+         - bngsudheer.centos_base
          - bngsudheer.redmine
+```
 
  Example playbook to install Redmine with plugins
-
+```yml
      - hosts: servers
        vars:
         - redmine_sql_username: redmine
@@ -101,9 +103,9 @@ Example playbook
             url: https://redmine.ociotec.com/attachments/download/481/scrum-v0.18.1.tar.gz
        remote_user: root
        roles:
-          - bngsudheer.ruby
+          - bngsudheer.centos_base
           - bngsudheer.redmine
-
+```
 
 
 License
