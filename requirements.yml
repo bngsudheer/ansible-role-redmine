@@ -1,2 +1,4 @@
 ---
+- src: bngsudheer.centos_base
 - src: bngsudheer.ruby
+- src: geerlingguy.mysql

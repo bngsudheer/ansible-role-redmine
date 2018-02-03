@@ -1,5 +1,5 @@
 ---
-# Split playbook with Ruby and Redmmine bug - 
+# Split playbook with Ruby and Redmmine bug -
 # https://github.com/ansible/ansible/issues/27520
 # TODO: TCP Socket with unicorn
 - name: Package dependencies from distribution
@@ -7,29 +7,32 @@
     state: installed
     name: "{{ item }}"
   with_items:
-   - ruby-devel
-   - ImageMagick-devel
-   - gcc
-   - patch
-   - mariadb-devel
-   - epel-release
+    - ruby-devel
+    - ImageMagick
+    - ImageMagick-devel
+    - gcc
+    - patch
+    - mariadb-devel
+    - epel-release
+    # - libwmf-devel
+    # - ImageMagick-c++-devel
 
 - name: Ensure Nginx is installed
   yum:
-      state: installed
-      name: nginx
+    state: installed
+    name: nginx
   when: redmine_configure_nginx
 
 - name: Ensure Nginx server is enabled and started
   service:
-      name: nginx
-      state: started
-      enabled: yes
+    name: nginx
+    state: started
+    enabled: yes
   when: redmine_configure_nginx
 
 - name: Redmine user
   user:
-      name: redmine
+    name: redmine
 - name: Check whether Redmine is already downloaded
   stat: path={{ redmine_home }}
   register: redmine_cat
@@ -44,8 +47,8 @@
 
 - name: redmine directory
   file:
-      path: /home/redmine/redmine
-      state: directory
+    path: /home/redmine/redmine
+    state: directory
   when: redmine_cat.stat.exists == False
   become: yes
   become_user: redmine
@@ -57,10 +60,10 @@
 # see https://groups.google.com/forum/#!topic/ansible-project/IcgnAekwsbA
 # about the intended behaviour of sefcontext
 # This ideal setup is not working yet
-# the parent directory probably has to have the same context for this to work 
+# the parent directory probably has to have the same context for this to work
 # For now use restorecon
 # TODO probably change redmine path to /sr/redmine instead of /home/redmine/redmine
-- name: Allow Nginx to read redmine content 
+- name: Allow Nginx to read redmine content
   sefcontext:
     target: '/home/redmine/redmine/public(/.*)?'
     setype: httpd_sys_content_t
@@ -87,18 +90,33 @@
 
 - name: Install bundler
   gem:
-      name: bundler
-      state: present
-      user_install: yes
-      version: "{{ redmine_bundler_version }}"
-      env_shebang: yes
+    name: bundler
+    state: present
+    user_install: yes
+    version: "{{ redmine_bundler_version }}"
+    env_shebang: yes
   become: yes
   become_user: redmine
 
 - name: Redmine configuration file
   template:
-     src: database.yml
-     dest: "{{ redmine_home }}/config/"
+    src: database.yml
+    dest: "{{ redmine_home }}/config/"
+  become: yes
+  become_user: redmine
+
+- name: Local gemfile
+  template:
+    src: Gemfile.local
+    dest: "{{ redmine_home }}"
+  become: yes
+  become_user: redmine
+
+- name: Install the local gems via bundler
+  bundler:
+    executable: /home/redmine/bin/bundler
+    gemfile: "{{ redmine_home }}/Gemfile.local"
+    chdir: "{{ redmine_home }}"
   become: yes
   become_user: redmine
 
@@ -126,7 +144,9 @@
 
   # TODO Review
 - name: DB Migrate
-  shell: RAILS_ENV=production /home/redmine/bin/bundle exec /home/redmine/bin/rake db:migrate
+  environment:
+    RAILS_ENV: production
+  shell: /home/redmine/bin/bundle exec /home/redmine/bin/rake db:migrate
   args:
     creates: "{{ redmine_home }}/ansible_db_migrate_creates"
     chdir: "{{ redmine_home }}"
@@ -134,56 +154,37 @@
   become_user: redmine
   register:
     db_migrate
+  notify:
+    creates file for db migration
 
 - name: show db_migrate
   debug:
     msg: "{{ db_migrate }}"
     verbosity: 3
 
-- name: creates file for db migration
-  file:
-    path: "{{ redmine_home }}/ansible_db_migrate_creates"
-    state: touch
-  when: db_migrate.changed
-
-- name: Local gemfile
-  template:
-    src: Gemfile.local
-    dest: "{{ redmine_home }}"
-  become: yes
-  become_user: redmine
-
-- name: Install the local gems via bundler - unicorn
-  bundler:
-    executable: /home/redmine/bin/bundler
-    gemfile: "{{ redmine_home }}/Gemfile.local"
-    chdir: "{{ redmine_home }}"
-  become: yes
-  become_user: redmine
-
 - name: directories for shared resources
   file:
-   path: "{{ redmine_home }}/shared/{{ item }}"
-   state: directory
+    path: "{{ redmine_home }}/shared/{{ item }}"
+    state: directory
   with_items:
-   - config/redmine
-   - log/redmine
-   - pid/redmine
-   - socket/redmine
+    - config/redmine
+    - log/redmine
+    - pid/redmine
+    - socket/redmine
   become: yes
   become_user: redmine
 
 - name: unicorn.conf.rb file
   template:
-      src: unicorn.conf.rb
-      dest: "{{ redmine_home }}/shared/config/redmine/"
+    src: unicorn.conf.rb
+    dest: "{{ redmine_home }}/shared/config/redmine/"
   become: yes
   become_user: redmine
 
 - name: Systemd script
   template:
-      src: usr/lib/systemd/system/redmine.service
-      dest: /usr/lib/systemd/system/
+    src: usr/lib/systemd/system/redmine.service
+    dest: /usr/lib/systemd/system/
 
 - name: temp, log and other directories
   file:
@@ -193,10 +194,10 @@
     group: redmine
     mode: 0755
   with_items:
-   - "tmp/pdf"
-   - "public/plugin_assets"
-   - "files"
-   - "log"
+    - "tmp/pdf"
+    - "public/plugin_assets"
+    - "files"
+    - "log"
 
 # TODO Need to set lang here
 # and an option to install demo data
@@ -218,7 +219,7 @@
     - [ 'http', 'https']
     - [yes, no]
   notify:
-   - Firewalld restart
+    - Firewalld restart
   when: redmine_configure_firewalld
 
 - name: Permissions for Nginx to read Redmine files
@@ -237,7 +238,7 @@
     src: redmine.conf
     dest: /etc/nginx/conf.d/
   notify:
-   - Nginx restart
+    - Nginx restart
   when: redmine_configure_nginx
 
 - name: Enable redmine systemd unit
@@ -252,7 +253,7 @@
   with_items: "{{ redmine_plugins }}"
   become: yes
   become_user: redmine
-  
+
 - name: Configure SELinux policies
   include_tasks: selinux.yml
   when: redmine_configure_selinux

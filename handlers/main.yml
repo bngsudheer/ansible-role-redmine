@@ -1,5 +1,4 @@
 ---
-# handlers file for ansible-role-redmine/
 - name: Firewalld reload
   service:
       name: firewalld
@@ -24,3 +23,20 @@
   service:
       name: redmine
       state: restarted
+
+# TODO environment variables not working in handler
+# - name: plugins migrate
+#   environment:
+#       RAILS_ENV: production
+#   shell: RAILS_ENV=production /home/redmine/bin/bundle exec /home/redmine/bin/rake redmine:plugins:migrate
+#   args:
+#       chdir: "{{ redmine_home }}"
+#   notify:
+#       redmine restart
+#   tags:
+#       - skip_ansible_lint
+
+- name: creates file for db migration
+  file:
+      path: "{{ redmine_home }}/ansible_db_migrate_creates"
+      state: touch

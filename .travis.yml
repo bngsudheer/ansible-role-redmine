@@ -7,7 +7,7 @@ env:
 
 branches:
   only:
-  - master
+    - master
 
 script:
   # Configure test script so we can run extra tests after playbook is run.

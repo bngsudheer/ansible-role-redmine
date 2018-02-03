@@ -1,14 +1,36 @@
 ---
+# - name: Converge
+#   hosts: all
+#   roles:
+#     - bngsudheer.ruby
+
 - name: Converge
   hosts: all
-  roles:
-    - bngsudheer.ruby
-    
-- name: Converge
-  hosts: all
-  pre_tasks:
+  vars:
+  #pre_tasks:
     # fails because of https://github.com/ansible/ansible/issues/27520
-    - name: Reset connection
-      meta: reset_connection
+    # - name: Reset connection
+    #   meta: reset_connection
+    - redmine_sql_database_name: "redmine"
+    - redmine_sql_database_host: "localhost"
+    - redmine_sql_username: "redmine"
+    - redmine_sql_password: "password"
+    - redmine_unicorn_port: 5777
+    - redmine_configure_selinux: no
+    - redmine_plugins:
+        - name: scrum
+          base_name: scrum
+          url: https://redmine.ociotec.com/attachments/download/481/scrum-v0.18.1.tar.gz
+        - name: timesheet
+          base_name: timesheet
+          url: https://github.com/Contargo/redmine-timesheet-plugin/archive/master.zip
+    - mysql_databases:
+        - name: redmine
+    - mysql_users:
+        - name: redmine
+          password: password
+          priv: "redmine.*:ALL"
   roles:
+    - geerlingguy.mysql
+    - bngsudheer.centos_base
     - ansible-role-redmine

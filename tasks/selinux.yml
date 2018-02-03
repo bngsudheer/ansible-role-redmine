@@ -2,12 +2,12 @@
 - name: Allow Nginx to access the Unicorn ports
   seport:
     ports: "{{ redmine_unicorn_port }}"
-    proto: tcp 
+    proto: tcp
     setype: http_port_t
     state: present
-    
-- name: Relabel SELinux context 
-  file: 
+
+- name: Relabel SELinux context
+  file:
     path: "{{ redmine_home }}/public"
     setype: httpd_sys_content_t
     recurse: yes

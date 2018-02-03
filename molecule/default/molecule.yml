@@ -25,16 +25,6 @@ provisioner:
       x: ANSIBLE0013
 scenario:
   name: default
-  test_sequence:
-    - destroy
-    - syntax
-    - create
-    - prepare
-    - converge
-    - lint
-    - side_effect
-    - verify
-    - destroy
 verifier:
   name: testinfra
   options:

@@ -1,4 +1,0 @@
----
-# defaults file for ansible-role-ruby
-ruby_version: 2.4
-  

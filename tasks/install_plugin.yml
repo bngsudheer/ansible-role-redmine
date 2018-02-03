@@ -17,12 +17,18 @@
     verbosity: 3
   when: plugin_directory_stat.stat.exists == False
 
+- name: Create plugin directory
+  file:
+    path: "{{ redmine_home }}/plugins/{{ item.base_name }}"
+    state: directory
+
 - name: Extract plugin
   unarchive:
     remote_src: yes
-    dest: "{{ redmine_home }}/plugins/"
+    dest: "{{ redmine_home }}/plugins/{{ item.base_name }}"
     src: "{{ plugin_download.dest }}"
   when: plugin_directory_stat.stat.exists == False
+  
 
 - name: Plugins migrate
   shell: RAILS_ENV=production /home/redmine/bin/bundle exec /home/redmine/bin/rake redmine:plugins:migrate
@@ -31,3 +37,5 @@
   notify:
     redmine restart
   when: plugin_download.changed
+  tags:
+    - skip_ansible_lint
