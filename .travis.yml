@@ -1,9 +1,16 @@
 ---
+sudo: required
+language: python
 services:
   - docker
 env:
   - distro: centos7
     playbook: test.yml
+
+install:
+  - pip install molecule
+  - pip install docker
+  - pip install docker-py
 
 branches:
   only:
