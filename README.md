@@ -51,10 +51,10 @@ These variables are available with the following default values:
 | redmine_sql_database_host| localhost| Database hostname | No |
 | redmine_unicorn_worker_processes| 2 | Number of Unicorn worker processes | No |
 | redmine_domain_name| redmine.example.com | domain name to use in Nginx | No |  
-| redmine_configure_nginx | yes | Whether to configure Nginx | No | 
+| redmine_configure_nginx | yes | Whether to configure Nginx | No |
 | redmine_configure_unicorn | yes | Whether to configure Unicorn | No |
 | redmine_unicorn_port| 5000 | Port number on which Unicorn serves | No |
-| redmine_configure_firewalld | yes | Whether to configure Firewalld | No| 
+| redmine_configure_firewalld | yes | Whether to configure Firewalld | No|
 | redmine_nginx_bind_ip | (Empty string) |  IP address to bind Nginx to | No | |
 | redmine_plugins| [] | List of Redmine plugins to install. Each item in the list is a dictionary with keys *name*, *base_name* and *url*. The *base_name* is the directory name that will be used in the plugins directory. *name* is for human reference. *url* is the location from where the plugin has to be downloaded.| No |
 | redmine_configure_selinux| no | Whether to configure Redmine to support SELinux | No |
@@ -112,6 +112,14 @@ License
 -------
 
 BSD
+
+Developement
+------------
+To run molecule tests locally, you might want to set the ANSIBLE_ROLES_PATH
+  variable.
+```sh
+export ANSIBLE_ROLES_PATH=/path/to/ansible-role-redmine/molecule/default
+```
 
 Author Information
 ------------------
