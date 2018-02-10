@@ -28,7 +28,7 @@
     dest: "{{ redmine_home }}/plugins/{{ item.base_name }}"
     src: "{{ plugin_download.dest }}"
   when: plugin_directory_stat.stat.exists == False
-  
+
 
 - name: Plugins migrate
   shell: RAILS_ENV=production /home/redmine/bin/bundle exec /home/redmine/bin/rake redmine:plugins:migrate

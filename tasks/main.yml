@@ -141,6 +141,8 @@
   args:
     chdir: "{{ redmine_home }}"
   when: secret_token_stat.stat.exists == False
+  tags:
+    - skip_ansible_lint
 
   # TODO Review
 - name: DB Migrate
@@ -156,6 +158,8 @@
     db_migrate
   notify:
     creates file for db migration
+  tags:
+    - skip_ansible_lint
 
 - name: show db_migrate
   debug:
