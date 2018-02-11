@@ -1,4 +1,5 @@
 ---
+# If Ruby is required. Perhaps move this to a diffeerent scenario
 # - name: Converge
 #   hosts: all
 #   roles:
@@ -7,7 +8,7 @@
 - name: Converge
   hosts: all
   vars:
-  #pre_tasks:
+    # pre_tasks:
     # fails because of https://github.com/ansible/ansible/issues/27520
     # - name: Reset connection
     #   meta: reset_connection
@@ -16,7 +17,7 @@
     - redmine_sql_username: "redmine"
     - redmine_sql_password: "password"
     - redmine_unicorn_port: 5777
-    - redmine_configure_selinux: no
+    - redmine_configure_selinux: false
     - redmine_plugins:
         - name: scrum
           base_name: scrum

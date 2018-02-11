@@ -1,7 +1,7 @@
 ---
 # defaults file for ansible-role-redmine
 redmine_version: "3.4.2"
-#redmine_home: "/home/redmine/redmine-{{ redmine_version }}"
+# redmine_home: "/home/redmine/redmine-{{ redmine_version }}"
 redmine_home: "/home/redmine/redmine"
 
 redmine_sql_database_name: "redmine"

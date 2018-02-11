@@ -24,7 +24,7 @@
 
 - name: Extract plugin
   unarchive:
-    remote_src: yes
+    remote_src: true
     dest: "{{ redmine_home }}/plugins/{{ item.base_name }}"
     src: "{{ plugin_download.dest }}"
   when: plugin_directory_stat.stat.exists == False

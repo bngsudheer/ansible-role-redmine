@@ -144,7 +144,7 @@
   tags:
     - skip_ansible_lint
 
-  # TODO Review
+# TODO Review
 - name: DB Migrate
   environment:
     RAILS_ENV: production

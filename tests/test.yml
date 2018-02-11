@@ -8,8 +8,8 @@
         - name: redmine
           password: password
           priv: "redmine.*:ALL"
-    - redmine_configure_firewalld: no
+    - redmine_configure_firewalld: false
   roles:
     - role: geerlingguy.mysql
-      become: yes
+      become: true
     - role: role_under_test
