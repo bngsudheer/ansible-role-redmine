@@ -41,8 +41,8 @@
         name: '{{ item }}'
       with_items:
         - zlib-static
-        # - zlib-ada-devel
-        # - zlib-ada
+        - zlib-ada-devel
+        - zlib-ada
   roles:
     - geerlingguy.mysql
     - bngsudheer.centos_base
