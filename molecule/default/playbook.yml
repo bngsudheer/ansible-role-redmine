@@ -35,14 +35,12 @@
         - name: redmine
           password: password
           priv: "redmine.*:ALL"
-  pre_tasks:
-    - name:
-      yum:
-        name: '{{ item }}'
-      with_items:
-        - zlib-static
-        - zlib-ada-devel
-        - zlib-ada
+  # pre_tasks:
+  #   - name:
+  #     yum:
+  #       name: '{{ item }}'
+  #     with_items:
+  #       - which
   roles:
     - geerlingguy.mysql
     - bngsudheer.centos_base
