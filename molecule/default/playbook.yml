@@ -12,6 +12,10 @@
     # fails because of https://github.com/ansible/ansible/issues/27520
     # - name: Reset connection
     #   meta: reset_connection
+    - centos_base_enable_epel: true
+    - centos_base_fail2ban_configuration: true
+    - centos_base_install_selinux_packages: true
+    - centos_base_basic_packages: true
     - redmine_sql_database_name: "redmine"
     - redmine_sql_database_host: "localhost"
     - redmine_sql_username: "redmine"
@@ -31,6 +35,14 @@
         - name: redmine
           password: password
           priv: "redmine.*:ALL"
+  pre_tasks:
+    - name:
+      yum:
+        name: '{{ item }}'
+      with_items:
+        - zlib-static
+        # - zlib-ada-devel
+        # - zlib-ada
   roles:
     - geerlingguy.mysql
     - bngsudheer.centos_base

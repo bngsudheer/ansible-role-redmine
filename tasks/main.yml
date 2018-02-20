@@ -15,7 +15,7 @@
     - mariadb-devel
     - epel-release
     # - libwmf-devel
-    # - ImageMagick-c++-devel
+    - ImageMagick-c++-devel
 
 - name: Ensure Nginx is installed
   yum:
@@ -237,13 +237,35 @@
     - "{{ redmine_home }}"
   when: redmine_configure_nginx
 
-- name: Nginx configuration
+- name: Nginx configuration plain
   template:
     src: redmine.conf
     dest: /etc/nginx/conf.d/
   notify:
     - Nginx restart
-  when: redmine_configure_nginx
+  when:
+    - redmine_configure_nginx
+    - redmine_nginx_config_template == "plain"
+
+- name: Nginx configuration TLS
+  template:
+    src: etc/nginx/conf.d/redmine_with_tls.conf
+    dest: /etc/nginx/conf.d/redmine.conf
+  notify:
+    - Nginx restart
+  when:
+    - redmine_configure_nginx
+    - redmine_nginx_config_template == "tls"
+
+- name: Nginx configuration custom
+  template:
+    src: "{{ redmine_nginx_custom_config_path }}"
+    dest: /etc/nginx/conf.d/redmine.conf
+  notify:
+    - Nginx restart
+  when:
+    - redmine_configure_nginx
+    - redmine_nginx_config_template == "custom"
 
 - name: Enable redmine systemd unit
   systemd:

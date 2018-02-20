@@ -52,6 +52,8 @@ These variables are available with the following default values:
 | redmine_unicorn_worker_processes| 2 | Number of Unicorn worker processes | No |
 | redmine_domain_name| redmine.example.com | domain name to use in Nginx | No |  
 | redmine_configure_nginx | yes | Whether to configure Nginx | No |
+| redmine_nginx_config_template| plain | Name of the Nginx template to use. Choice must be one of *plain*, *tls*, *custom*  | Yes |
+| redmine_nginx_custom_config_path | | Path to your Nginx custom configuration template file | No |
 | redmine_configure_unicorn | yes | Whether to configure Unicorn | No |
 | redmine_unicorn_port| 5000 | Port number on which Unicorn serves | No |
 | redmine_configure_firewalld | yes | Whether to configure Firewalld | No|
@@ -118,7 +120,7 @@ Developement
 To run molecule tests locally, you might want to set the ANSIBLE_ROLES_PATH
   variable.
 ```sh
-export ANSIBLE_ROLES_PATH=/path/to/ansible-role-redmine/molecule/default
+export ANSIBLE_ROLES_PATH=/path/to/ansible-role-redmine/molecule/default/roles
 ```
 
 Author Information

@@ -14,6 +14,8 @@ redmine_unicorn_worker_processes: 2
 redmine_domain_name: redmine.example.com
 
 redmine_configure_nginx: yes
+redmine_nginx_config_template: plain
+redmine_nginx_custom_config_path:
 redmine_configure_unicorn: yes
 redmine_configure_firewalld: yes
 
