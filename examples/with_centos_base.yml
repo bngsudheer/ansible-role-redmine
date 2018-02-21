@@ -1,0 +1,15 @@
+---
+hosts: all
+vars:
+  - centos_base_enable_epel: true
+  - centos_base_fail2ban_configuration: true
+  - centos_base_install_selinux_packages: true
+  - centos_base_basic_packages: true
+  - redmine_sql_database_name: "redmine"
+  - redmine_sql_database_host: "localhost"
+  - redmine_sql_username: "redmine"
+  - redmine_sql_password: "password"
+  - redmine_unicorn_port: 5777
+roles:
+  - bngsudheer.centos_base
+  - ansible-role-redmine

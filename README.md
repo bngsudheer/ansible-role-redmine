@@ -1,9 +1,11 @@
 Redmine On CentOS 7
 =========
 
-Install Redmine 3.x and Redmine plugins on CentOS. The role installs Redmine along with Unicorn and Nignx.
+Install Redmine 3.x and Redmine plugins on CentOS. The role installs Redmine
+along with Unicorn and Nignx.
 
-In future versions, we will support Ubuntu and other Linux distributions. Right now, only CentOS 7 is supported.
+In future versions, we will support Ubuntu and other Linux distributions.
+Right now, only CentOS 7 is supported.
 
 This role will install the required RPM packages from the official CentOS 7
 repositories. Redmine will be downloaded from redmine.org and required Ruby
@@ -22,7 +24,9 @@ To stop Redmine use the command:
 Requirements
 ------------
 Ruby >= 2.1 maybe required. If somewhere in the gems dependency chain,
-Ruby 2.1 is set as a required package, you could use [Ruby Ansible role](https://galaxy.ansible.com/bngsudheer/ruby/). At the moment, Redmine works on Ruby 2.0.
+Ruby 2.1 is set as a required package, you could use
+[Ruby Ansible role](https://galaxy.ansible.com/bngsudheer/ruby/). At the moment,
+ Redmine works on Ruby 2.0.
 
 If you are using MySQL or PostgreSQL, you have to provide the database server name,
 database name, database username and password via the variables:
@@ -35,7 +39,16 @@ Make sure port 80 is open in your firewall. If you serve Redmine over HTTPS
 make sure port 443 is open too.
 
 If you set *redmine_configure_selinux* to *yes* then *libselinux-python* and
-*policycoreutils-python* packages are required. These packages can be installed via [CentOS Base](https://galaxy.ansible.com/bngsudheer/centos_base/).
+*policycoreutils-python* packages are required. These packages can be installed
+via [CentOS Base](https://galaxy.ansible.com/bngsudheer/centos_base/).
+
+If you are using a container with minimal packages, you will have to install
+some essential packages like *@Developement Tools*, *zlib*, etc. You
+can install them via [CentOS Base](https://galaxy.ansible.com/bngsudheer/centos_base/)
+by setting the variable:
+```
+centos_base_basic_packages: true.
+```
 
 Role Variables
 --------------
@@ -75,6 +88,8 @@ Example playbook
 ```yml
     - hosts: servers
       vars:
+       - centos_base_enable_epel: true
+       - centos_base_basic_packages: true
        - redmine_sql_username: redmine
        - redmine_sql_password: password
        - redmine_sql_database_name: redmine
@@ -92,6 +107,8 @@ Example playbook
 ```yml
      - hosts: servers
        vars:
+        - centos_base_enable_epel: true
+        - centos_base_basic_packages: true
         - redmine_sql_username: redmine
         - redmine_sql_password: password
         - redmine_sql_database_name: redmine
