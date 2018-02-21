@@ -3,3 +3,4 @@ tests/test.sh
 molecule/default/.molecule/
 *.pyc
 molecule/default/.pytest_cache
+molecule/**/.molecule/
