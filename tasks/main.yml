@@ -220,13 +220,13 @@
 
 - name: firewall open http and https ports
   firewalld:
-    permanent: "{{ item[1] }}"
-    service: "{{ item[0] }}"
+    permanent: true
+    service: "{{ item }}"
     state: enabled
     zone: public
-  with_nested:
-    - [ 'http', 'https']
-    - [yes, no]
+  with_items:
+    - http
+    - https
   notify:
     - Firewalld restart
   when: redmine_configure_firewalld

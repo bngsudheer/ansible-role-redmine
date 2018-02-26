@@ -59,7 +59,7 @@ These variables are available with the following default values:
 |----------|---------------|---------|-----------|
 | redmine_version |  3.4.2 | Redmine version | No |
 | redmine_sql_username|redmine| MySQL or PostgreSQL username| No|
-| redmine_sql_password}redmine| localhost | Datagase server password| No|
+| redmine_sql_password_redmine| localhost | Datagase server password| No|
 | redmine_sql_database_name| redmine| Database name | No|
 | redmine_sql_database_host| localhost| Database hostname | No |
 | redmine_unicorn_worker_processes| 2 | Number of Unicorn worker processes | No |
