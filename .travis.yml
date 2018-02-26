@@ -18,16 +18,16 @@ branches:
 
 script:
   # Configure test script so we can run extra tests after playbook is run.
-  - export container_id=$(date +%s)
-  - export cleanup=false
+  # - export container_id=$(date +%s)
+  # - export cleanup=false
 
   # Download test shim.
   # - wget -O ${PWD}/tests/test.sh https://gist.githubusercontent.com/geerlingguy/73ef1e5ee45d8694570f334be385e181/raw/
-  - wget -O ${PWD}/tests/test.sh https://gist.github.com/bngsudheer/694a1eec8aa5de5f5fda9fc3d81ba12b/raw
-  - chmod +x ${PWD}/tests/test.sh
+  # - wget -O ${PWD}/tests/test.sh https://gist.github.com/bngsudheer/694a1eec8aa5de5f5fda9fc3d81ba12b/raw
+  # - chmod +x ${PWD}/tests/test.sh
 
   # Run tests.
-  - ${PWD}/tests/test.sh
+  # - ${PWD}/tests/test.sh
   - molecule test
 
 notifications:
