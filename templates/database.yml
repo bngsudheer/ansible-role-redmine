@@ -1,5 +1,5 @@
 production:
-  adapter: mysql2
+  adapter: {{ redmine_sql_driver }}
   database: {{ redmine_sql_database_name }}
   host: {{ redmine_sql_database_host }}
   username: {{ redmine_sql_username }}

@@ -25,3 +25,5 @@ redmine_plugins: []
 
 redmine_configure_selinux: no
 redmine_bundler_version: 1.16.1
+
+redmine_sql_driver: mysql2

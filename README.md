@@ -58,9 +58,10 @@ These variables are available with the following default values:
 | Variable | Default Value | Description | Required? |
 |----------|---------------|---------|-----------|
 | redmine_version |  3.4.2 | Redmine version | No |
-| redmine_sql_username |redmine| MySQL or PostgreSQL username| No|
-| redmine_sql_password | localhost | Datagase server password| No|
-| redmine_sql_database_name | redmine| Database name | No|
+| redmine_sql_driver | mysql2 | Database driver. Valid choice is either *mysql2* or *postgresql* | Yes |
+| redmine_sql_username |redmine| MySQL or PostgreSQL username| No |
+| redmine_sql_password | localhost | Datagase server password| No |
+| redmine_sql_database_name | redmine| Database name | No |
 | redmine_sql_database_host | localhost| Database hostname | No |
 | redmine_unicorn_worker_processes | 2 | Number of Unicorn worker processes | No |
 | redmine_domain_name| redmine.example.com | domain name to use in Nginx | No |  
