@@ -58,11 +58,11 @@ These variables are available with the following default values:
 | Variable | Default Value | Description | Required? |
 |----------|---------------|---------|-----------|
 | redmine_version |  3.4.2 | Redmine version | No |
-| redmine_sql_username|redmine| MySQL or PostgreSQL username| No|
-| redmine_sql_password_redmine| localhost | Datagase server password| No|
-| redmine_sql_database_name| redmine| Database name | No|
-| redmine_sql_database_host| localhost| Database hostname | No |
-| redmine_unicorn_worker_processes| 2 | Number of Unicorn worker processes | No |
+| redmine_sql_username |redmine| MySQL or PostgreSQL username| No|
+| redmine_sql_password | localhost | Datagase server password| No|
+| redmine_sql_database_name | redmine| Database name | No|
+| redmine_sql_database_host | localhost| Database hostname | No |
+| redmine_unicorn_worker_processes | 2 | Number of Unicorn worker processes | No |
 | redmine_domain_name| redmine.example.com | domain name to use in Nginx | No |  
 | redmine_configure_nginx | yes | Whether to configure Nginx | No |
 | redmine_nginx_config_template| plain | Name of the Nginx template to use. Choice must be one of *plain*, *tls*, *custom*  | Yes |
