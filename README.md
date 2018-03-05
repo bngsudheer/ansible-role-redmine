@@ -23,11 +23,6 @@ To stop Redmine use the command:
 
 Requirements
 ------------
-Ruby >= 2.1 maybe required. If somewhere in the gems dependency chain,
-Ruby 2.1 is set as a required package, you could use
-[Ruby Ansible role](https://galaxy.ansible.com/bngsudheer/ruby/). At the moment,
- Redmine works on Ruby 2.0.
-
 If you are using MySQL or PostgreSQL, you have to provide the database server name,
 database name, database username and password via the variables:
 * redmine_sql_username
@@ -41,6 +36,9 @@ make sure port 443 is open too.
 If you set *redmine_configure_selinux* to *yes* then *libselinux-python* and
 *policycoreutils-python* packages are required. These packages can be installed
 via [CentOS Base](https://galaxy.ansible.com/bngsudheer/centos_base/).
+```
+centos_base_selinux_packages: true.
+```
 
 If you are using a container with minimal packages, you will have to install
 some essential packages like *@Developement Tools*, *zlib*, etc. You
@@ -49,6 +47,13 @@ by setting the variable:
 ```
 centos_base_basic_packages: true.
 ```
+If you use *redmine_nginx_config_template: tls*, make sure the file
+/etc/ssl/private/dhparam.pem is present so that [Diffie-Hellman key exchage](https://en.wikipedia.org/wiki/Diffie%E2%80%93Hellman_key_exchange) works. 
+
+Ruby >= 2.1 maybe required at some point. If somewhere in the gems dependency chain,
+Ruby 2.1 is set as a required package, you could use
+[Ruby Ansible role](https://galaxy.ansible.com/bngsudheer/ruby/). At the moment,
+ Redmine works on Ruby 2.0.
 
 Role Variables
 --------------
