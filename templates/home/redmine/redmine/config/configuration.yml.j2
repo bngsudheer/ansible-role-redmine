@@ -1,0 +1,53 @@
+# = Redmine configuration file
+# default configuration options for all environments
+default:
+  # Outgoing emails configuration
+  # See the examples below and the Rails guide for more configuration options:
+  # http://guides.rubyonrails.org/action_mailer_basics.html#action-mailer-configuration
+  email_delivery:
+  {% if redmine_enable_smtp_email %}
+    delivery_method: :smtp
+    smtp_settings:
+      address: "{{ redmine_smtp_settings_address }}"
+      port: {{ redmine_smtp_settings_port }}
+      authentication: :{{ redmine_smtp_settings_authentication }}
+      domain: "{{ redmine_smtp_settings_domain }}"
+      user_name: "{{ redmine_smtp_settings_user_name }}"
+      password: "{{ redmine_smtp_settings_password }}"
+      enable_starttls_auto: "{{ redmine_smtp_settings_enable_starttls_auto }}"
+  {% endif %}
+
+  attachments_storage_path:
+
+  autologin_cookie_name:
+  autologin_cookie_path:
+  autologin_cookie_secure:
+
+  scm_subversion_command:
+  scm_mercurial_command:
+  scm_git_command:
+  scm_cvs_command:
+  scm_bazaar_command:
+  scm_darcs_command:
+
+  scm_subversion_path_regexp:
+  scm_mercurial_path_regexp:
+  scm_git_path_regexp:
+  scm_cvs_path_regexp:
+  scm_bazaar_path_regexp:
+  scm_darcs_path_regexp:
+  scm_filesystem_path_regexp:
+
+  scm_stderr_log_file:
+
+  database_cipher_key:
+
+  rmagick_font_path:
+
+# specific configuration options for production environment
+# that overrides the default ones
+production:
+
+# specific configuration options for development environment
+# that overrides the default ones
+development:

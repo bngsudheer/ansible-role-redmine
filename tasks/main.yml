@@ -32,7 +32,7 @@
   service:
     name: nginx
     state: started
-    enabled: yes
+    enabled: true
   when: redmine_configure_nginx
 
 - name: Redmine user
@@ -46,7 +46,7 @@
   get_url:
     url=http://www.redmine.org/releases/redmine-{{ redmine_version }}.tar.gz
     dest=/home/redmine/
-  become: yes
+  become: true
   become_user: redmine
   when: redmine_cat.stat.exists == False
 
@@ -55,7 +55,7 @@
     path: /home/redmine/redmine
     state: directory
   when: redmine_cat.stat.exists == False
-  become: yes
+  become: true
   become_user: redmine
 
 # First we create the fcontext before files are created in the directory
@@ -83,13 +83,13 @@
     src: /home/redmine/redmine-{{ redmine_version }}.tar.gz
     dest: /home/redmine/
     copy: no
-  become: yes
+  become: true
   become_user: redmine
   when: redmine_cat.stat.exists == False
 
 - name: copy source files to target directory
   shell: "mv /home/redmine/redmine-{{ redmine_version }}/* /home/redmine/redmine/"
-  become: yes
+  become: true
   become_user: redmine
   when: redmine_cat.stat.exists == False
 
@@ -97,24 +97,32 @@
   gem:
     name: bundler
     state: present
-    user_install: yes
+    user_install: true
     version: "{{ redmine_bundler_version }}"
-    env_shebang: yes
-  become: yes
+    env_shebang: true
+  become: true
+  become_user: redmine
+
+- name: Redmine database configuration file
+  template:
+    src: database.yml
+    dest: "{{ redmine_home }}/config/"
+  become: true
   become_user: redmine
 
 - name: Redmine configuration file
   template:
-    src: database.yml
-    dest: "{{ redmine_home }}/config/"
-  become: yes
+    src: home/redmine/redmine/config/configuration.yml.j2
+    dest: "{{ redmine_home }}/config/configuration.yml"
+  become: true
   become_user: redmine
+  when: redmine_additional_configuration
 
 - name: Local gemfile
   template:
     src: Gemfile.local
     dest: "{{ redmine_home }}"
-  become: yes
+  become: true
   become_user: redmine
 
 - name: Install the local gems via bundler
@@ -122,7 +130,7 @@
     executable: /home/redmine/bin/bundler
     gemfile: "{{ redmine_home }}/Gemfile.local"
     chdir: "{{ redmine_home }}"
-  become: yes
+  become: true
   become_user: redmine
 
 - name: Install the required gems via bundler
@@ -130,7 +138,7 @@
     executable: /home/redmine/bin/bundler
     gemfile: "{{ redmine_home }}/Gemfile"
     chdir: "{{ redmine_home }}"
-  become: yes
+  become: true
   become_user: redmine
 
 - name: stat secret token file
@@ -140,7 +148,7 @@
     secret_token_stat
 
 - name: Generate secret token
-  become: yes
+  become: true
   become_user: redmine
   shell: /home/redmine/bin/bundle exec /home/redmine/bin/rake generate_secret_token
   args:
@@ -157,7 +165,7 @@
   args:
     creates: "{{ redmine_home }}/ansible_db_migrate_creates"
     chdir: "{{ redmine_home }}"
-  become: yes
+  become: true
   become_user: redmine
   register:
     db_migrate
@@ -180,14 +188,14 @@
     - log/redmine
     - pid/redmine
     - socket/redmine
-  become: yes
+  become: true
   become_user: redmine
 
 - name: unicorn.conf.rb file
   template:
     src: unicorn.conf.rb
     dest: "{{ redmine_home }}/shared/config/redmine/"
-  become: yes
+  become: true
   become_user: redmine
 
 - name: Systemd script
@@ -213,7 +221,7 @@
 # RAILS_ENV=production REDMINE_LANG=fr bundle exec rake redmine:load_default_data
 # - name: Default data
 #   shell: RAILS_ENV=production REDMINE_LANG=en /home/redmine/bin/bundle exec /home/redmine/bin/rake redmine:load_default_data
-#   become: yes
+#   become: true
 #   become_user: redmine
 #   args:
 #     chdir: "{{ redmine_home }}"
@@ -274,15 +282,15 @@
 
 - name: Enable redmine systemd unit
   systemd:
-    daemon-reload: yes
+    daemon-reload: true
     name: redmine.service
     state: started
-    enabled: yes
+    enabled: true
 
 - name: Install Redmine plugins
   include_tasks: install_plugin.yml
   with_items: "{{ redmine_plugins }}"
-  become: yes
+  become: true
   become_user: redmine
 
 - name: Configure SELinux policies

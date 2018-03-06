@@ -48,7 +48,7 @@ by setting the variable:
 centos_base_basic_packages: true.
 ```
 If you use *redmine_nginx_config_template: tls*, make sure the file
-/etc/ssl/private/dhparam.pem is present so that [Diffie-Hellman key exchage](https://en.wikipedia.org/wiki/Diffie%E2%80%93Hellman_key_exchange) works. 
+/etc/ssl/private/dhparam.pem is present so that [Diffie-Hellman key exchage](https://en.wikipedia.org/wiki/Diffie%E2%80%93Hellman_key_exchange) works.
 
 Ruby >= 2.1 maybe required at some point. If somewhere in the gems dependency chain,
 Ruby 2.1 is set as a required package, you could use
@@ -80,6 +80,15 @@ These variables are available with the following default values:
 | redmine_plugins| [] | List of Redmine plugins to install. Each item in the list is a dictionary with keys *name*, *base_name* and *url*. The *base_name* is the directory name that will be used in the plugins directory. *name* is for human reference. *url* is the location from where the plugin has to be downloaded.| No |
 | redmine_configure_selinux| no | Whether to configure Redmine to support SELinux | No |
 | redmine_bundler_version| 1.16.1 | Bunder version. If you use a recent version, you will probably require Ruby >= 2.1 | No |
+| redmine_additional_configuration | false | In addition to database configuration, setup Redmine configuration | No |
+| redmine_enable_smtp_email | false | Enable SMTP email | No |
+| redmine_smtp_settings_address | localhost | SMTP server hostname | No |
+| redmine_smtp_settings_port | 25 | SMTP port | No |
+| redmine_smtp_settings_authentication |  plain | SMTP authentication method. Valid choices are *plain* and *login* | No |
+| redmine_smtp_settings_domain | redmine.example.com | SMTP domain name | No |
+| redmine_smtp_settings_user_name | | SMTP authentication username | No |
+| redmine_smtp_settings_password | | SMTP authentication password | No |
+| redmine_smtp_settings_enable_starttls_auto | false | Use TLS in SMTP | No |
 
 Dependencies
 ------------

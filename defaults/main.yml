@@ -27,3 +27,13 @@ redmine_configure_selinux: no
 redmine_bundler_version: 1.16.1
 
 redmine_sql_driver: mysql2
+
+redmine_additional_configuration: false
+redmine_enable_smtp_email: false
+redmine_smtp_settings_address: localhost
+redmine_smtp_settings_port: 25
+redmine_smtp_settings_authentication: plain
+redmine_smtp_settings_domain: redmine.example.com
+redmine_smtp_settings_user_name:
+redmine_smtp_settings_password:
+redmine_smtp_settings_enable_starttls_auto: false

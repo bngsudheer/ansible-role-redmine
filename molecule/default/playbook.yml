@@ -1,17 +1,7 @@
 ---
-# If Ruby is required. Perhaps move this to a diffeerent scenario
-# - name: Converge
-#   hosts: all
-#   roles:
-#     - bngsudheer.ruby
-
 - name: Converge
   hosts: all
   vars:
-    # pre_tasks:
-    # fails because of https://github.com/ansible/ansible/issues/27520
-    # - name: Reset connection
-    #   meta: reset_connection
     - centos_base_enable_epel: true
     - centos_base_fail2ban_configuration: true
     - centos_base_install_selinux_packages: true
@@ -35,12 +25,15 @@
         - name: redmine
           password: password
           priv: "redmine.*:ALL"
-  # pre_tasks:
-  #   - name:
-  #     yum:
-  #       name: '{{ item }}'
-  #     with_items:
-  #       - which
+    - redmine_additional_configuration: true
+    - redmine_enable_smtp_email: true
+    - redmine_smtp_settings_address: localhost
+    - redmine_smtp_settings_port: 25
+    - redmine_smtp_settings_authentication: plain
+    - redmine_smtp_settings_domain: redmine.example.com
+    - redmine_smtp_settings_user_name: redmine@redmine.example.com
+    - redmine_smtp_settings_password: password
+    - redmine_smtp_settings_enable_starttls_auto: true
   roles:
     - geerlingguy.mysql
     - bngsudheer.centos_base

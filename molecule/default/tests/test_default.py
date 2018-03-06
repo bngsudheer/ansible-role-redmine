@@ -49,6 +49,17 @@ def test_ruby_packages_installed(host):
 def test_redmine_user(host):
      assert 'redmine' == host.user("redmine").name
 
-def test_redmine_configuration_file(host):
+def test_redmine_db_configuration_file(host):
      # assert host.file("/home/redmine/redmine/config/configuration.yml").exists
-     assert host.file("/home/redmine/redmine/config/database.yml").exists
+     f = host.file("/home/redmine/redmine/config/database.yml")
+     assert f.exists
+     assert f.user == 'redmine'
+     assert f.group == 'redmine'
+
+
+def test_redmine_configuration_file(host):
+    f = host.file('/home/redmine/redmine/config/configuration.yml')
+
+    assert f.exists
+    assert f.user == 'redmine'
+    assert f.group == 'redmine'
