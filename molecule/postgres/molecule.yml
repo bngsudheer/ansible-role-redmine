@@ -1,6 +1,9 @@
 ---
 dependency:
   name: galaxy
+  options:
+    role-file: requirements.yml
+    ignore-errors: false
 driver:
   name: docker
 lint:
@@ -8,13 +11,24 @@ lint:
 platforms:
   - name: instance
     image: centos:7
+    privileged: True
+    capabilities:
+      - SYS_ADMIN
+    volume_mounts:
+      - /sys/fs/cgroup:/host/sys/fs/cgroup:ro
+    command: "/usr/sbin/init"
 provisioner:
   name: ansible
   lint:
     name: ansible-lint
+    options:
+      x: ANSIBLE0013
 scenario:
   name: postgres
 verifier:
   name: testinfra
+  options:
+    verbose: true
   lint:
     name: flake8
+    enabled: False
