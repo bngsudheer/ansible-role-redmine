@@ -1,0 +1,2028 @@
+versions pytest-3.4.0, py-1.5.2, python-2.7.14.final.0
+cwd=/home/sudheer/workspace/ansible-roles/ansible-role-redmine/molecule/default
+args=['--debug', '--connection=ansible', '--verbose', '--ansible-inventory=/home/sudheer/workspace/ansible-roles/ansible-role-redmine/molecule/default/.molecule/ansible_inventory.yml', '/home/sudheer/workspace/ansible-roles/ansible-role-redmine/molecule/default/tests/test_default.py']
+
+  pytest_cmdline_main [hook]
+      config: <_pytest.config.Config object at 0x7f3af2b4e450>
+    pytest_plugin_registered [hook]
+        manager: <_pytest.config.PytestPluginManager object at 0x7f3af4ea08d0>
+        plugin: <Session 'default'>
+    finish pytest_plugin_registered --> [] [hook]
+    pytest_configure [hook]
+        config: <_pytest.config.Config object at 0x7f3af2b4e450>
+      pytest_plugin_registered [hook]
+          manager: <_pytest.config.PytestPluginManager object at 0x7f3af4ea08d0>
+          plugin: <_pytest.cacheprovider.LFPlugin object at 0x7f3af1c695d0>
+      finish pytest_plugin_registered --> [] [hook]
+      pytest_plugin_registered [hook]
+          manager: <_pytest.config.PytestPluginManager object at 0x7f3af4ea08d0>
+          plugin: <_pytest.logging.LoggingPlugin object at 0x7f3af1c75c50>
+      finish pytest_plugin_registered --> [] [hook]
+    find_module called for: py._io.terminalwriter [assertion]
+    find_module called for: py._io.termios [assertion]
+    find_module called for: termios [assertion]
+    find_module called for: py._io.fcntl [assertion]
+    find_module called for: py._io.struct [assertion]
+      pytest_plugin_registered [hook]
+          manager: <_pytest.config.PytestPluginManager object at 0x7f3af4ea08d0>
+          plugin: <_pytest.config.PytestPluginManager object at 0x7f3af4ea08d0>
+      finish pytest_plugin_registered --> [] [hook]
+      pytest_plugin_registered [hook]
+          manager: <_pytest.config.PytestPluginManager object at 0x7f3af4ea08d0>
+          plugin: <_pytest.config.Config object at 0x7f3af2b4e450>
+      finish pytest_plugin_registered --> [] [hook]
+      pytest_plugin_registered [hook]
+          manager: <_pytest.config.PytestPluginManager object at 0x7f3af4ea08d0>
+          plugin: <module '_pytest.mark' from '/home/sudheer/workspace/pvenvs/ansibleenv/local/lib/python2.7/site-packages/_pytest/mark.pyc'>
+      finish pytest_plugin_registered --> [] [hook]
+      pytest_plugin_registered [hook]
+          manager: <_pytest.config.PytestPluginManager object at 0x7f3af4ea08d0>
+          plugin: <module '_pytest.main' from '/home/sudheer/workspace/pvenvs/ansibleenv/local/lib/python2.7/site-packages/_pytest/main.pyc'>
+      finish pytest_plugin_registered --> [] [hook]
+      pytest_plugin_registered [hook]
+          manager: <_pytest.config.PytestPluginManager object at 0x7f3af4ea08d0>
+          plugin: <module '_pytest.terminal' from '/home/sudheer/workspace/pvenvs/ansibleenv/local/lib/python2.7/site-packages/_pytest/terminal.pyc'>
+      finish pytest_plugin_registered --> [] [hook]
+      pytest_plugin_registered [hook]
+          manager: <_pytest.config.PytestPluginManager object at 0x7f3af4ea08d0>
+          plugin: <module '_pytest.runner' from '/home/sudheer/workspace/pvenvs/ansibleenv/local/lib/python2.7/site-packages/_pytest/runner.pyc'>
+      finish pytest_plugin_registered --> [] [hook]
+      pytest_plugin_registered [hook]
+          manager: <_pytest.config.PytestPluginManager object at 0x7f3af4ea08d0>
+          plugin: <module '_pytest.python' from '/home/sudheer/workspace/pvenvs/ansibleenv/local/lib/python2.7/site-packages/_pytest/python.pyc'>
+      finish pytest_plugin_registered --> [] [hook]
+      pytest_plugin_registered [hook]
+          manager: <_pytest.config.PytestPluginManager object at 0x7f3af4ea08d0>
+          plugin: <module '_pytest.fixtures' from '/home/sudheer/workspace/pvenvs/ansibleenv/local/lib/python2.7/site-packages/_pytest/fixtures.pyc'>
+      finish pytest_plugin_registered --> [] [hook]
+      pytest_plugin_registered [hook]
+          manager: <_pytest.config.PytestPluginManager object at 0x7f3af4ea08d0>
+          plugin: <module '_pytest.debugging' from '/home/sudheer/workspace/pvenvs/ansibleenv/local/lib/python2.7/site-packages/_pytest/debugging.pyc'>
+      finish pytest_plugin_registered --> [] [hook]
+      pytest_plugin_registered [hook]
+          manager: <_pytest.config.PytestPluginManager object at 0x7f3af4ea08d0>
+          plugin: <module '_pytest.unittest' from '/home/sudheer/workspace/pvenvs/ansibleenv/local/lib/python2.7/site-packages/_pytest/unittest.pyc'>
+      finish pytest_plugin_registered --> [] [hook]
+      pytest_plugin_registered [hook]
+          manager: <_pytest.config.PytestPluginManager object at 0x7f3af4ea08d0>
+          plugin: <module '_pytest.capture' from '/home/sudheer/workspace/pvenvs/ansibleenv/local/lib/python2.7/site-packages/_pytest/capture.pyc'>
+      finish pytest_plugin_registered --> [] [hook]
+      pytest_plugin_registered [hook]
+          manager: <_pytest.config.PytestPluginManager object at 0x7f3af4ea08d0>
+          plugin: <module '_pytest.skipping' from '/home/sudheer/workspace/pvenvs/ansibleenv/local/lib/python2.7/site-packages/_pytest/skipping.pyc'>
+      finish pytest_plugin_registered --> [] [hook]
+      pytest_plugin_registered [hook]
+          manager: <_pytest.config.PytestPluginManager object at 0x7f3af4ea08d0>
+          plugin: <module '_pytest.tmpdir' from '/home/sudheer/workspace/pvenvs/ansibleenv/local/lib/python2.7/site-packages/_pytest/tmpdir.pyc'>
+      finish pytest_plugin_registered --> [] [hook]
+      pytest_plugin_registered [hook]
+          manager: <_pytest.config.PytestPluginManager object at 0x7f3af4ea08d0>
+          plugin: <module '_pytest.monkeypatch' from '/home/sudheer/workspace/pvenvs/ansibleenv/local/lib/python2.7/site-packages/_pytest/monkeypatch.pyc'>
+      finish pytest_plugin_registered --> [] [hook]
+      pytest_plugin_registered [hook]
+          manager: <_pytest.config.PytestPluginManager object at 0x7f3af4ea08d0>
+          plugin: <module '_pytest.recwarn' from '/home/sudheer/workspace/pvenvs/ansibleenv/local/lib/python2.7/site-packages/_pytest/recwarn.pyc'>
+      finish pytest_plugin_registered --> [] [hook]
+      pytest_plugin_registered [hook]
+          manager: <_pytest.config.PytestPluginManager object at 0x7f3af4ea08d0>
+          plugin: <module '_pytest.pastebin' from '/home/sudheer/workspace/pvenvs/ansibleenv/local/lib/python2.7/site-packages/_pytest/pastebin.pyc'>
+      finish pytest_plugin_registered --> [] [hook]
+      pytest_plugin_registered [hook]
+          manager: <_pytest.config.PytestPluginManager object at 0x7f3af4ea08d0>
+          plugin: <module '_pytest.helpconfig' from '/home/sudheer/workspace/pvenvs/ansibleenv/local/lib/python2.7/site-packages/_pytest/helpconfig.pyc'>
+      finish pytest_plugin_registered --> [] [hook]
+      pytest_plugin_registered [hook]
+          manager: <_pytest.config.PytestPluginManager object at 0x7f3af4ea08d0>
+          plugin: <module '_pytest.nose' from '/home/sudheer/workspace/pvenvs/ansibleenv/local/lib/python2.7/site-packages/_pytest/nose.pyc'>
+      finish pytest_plugin_registered --> [] [hook]
+      pytest_plugin_registered [hook]
+          manager: <_pytest.config.PytestPluginManager object at 0x7f3af4ea08d0>
+          plugin: <module '_pytest.assertion' from '/home/sudheer/workspace/pvenvs/ansibleenv/local/lib/python2.7/site-packages/_pytest/assertion/__init__.pyc'>
+      finish pytest_plugin_registered --> [] [hook]
+      pytest_plugin_registered [hook]
+          manager: <_pytest.config.PytestPluginManager object at 0x7f3af4ea08d0>
+          plugin: <module '_pytest.junitxml' from '/home/sudheer/workspace/pvenvs/ansibleenv/local/lib/python2.7/site-packages/_pytest/junitxml.pyc'>
+      finish pytest_plugin_registered --> [] [hook]
+      pytest_plugin_registered [hook]
+          manager: <_pytest.config.PytestPluginManager object at 0x7f3af4ea08d0>
+          plugin: <module '_pytest.resultlog' from '/home/sudheer/workspace/pvenvs/ansibleenv/local/lib/python2.7/site-packages/_pytest/resultlog.pyc'>
+      finish pytest_plugin_registered --> [] [hook]
+      pytest_plugin_registered [hook]
+          manager: <_pytest.config.PytestPluginManager object at 0x7f3af4ea08d0>
+          plugin: <module '_pytest.doctest' from '/home/sudheer/workspace/pvenvs/ansibleenv/local/lib/python2.7/site-packages/_pytest/doctest.pyc'>
+      finish pytest_plugin_registered --> [] [hook]
+      pytest_plugin_registered [hook]
+          manager: <_pytest.config.PytestPluginManager object at 0x7f3af4ea08d0>
+          plugin: <module '_pytest.cacheprovider' from '/home/sudheer/workspace/pvenvs/ansibleenv/local/lib/python2.7/site-packages/_pytest/cacheprovider.pyc'>
+      finish pytest_plugin_registered --> [] [hook]
+      pytest_plugin_registered [hook]
+          manager: <_pytest.config.PytestPluginManager object at 0x7f3af4ea08d0>
+          plugin: <module '_pytest.freeze_support' from '/home/sudheer/workspace/pvenvs/ansibleenv/local/lib/python2.7/site-packages/_pytest/freeze_support.pyc'>
+      finish pytest_plugin_registered --> [] [hook]
+      pytest_plugin_registered [hook]
+          manager: <_pytest.config.PytestPluginManager object at 0x7f3af4ea08d0>
+          plugin: <module '_pytest.setuponly' from '/home/sudheer/workspace/pvenvs/ansibleenv/local/lib/python2.7/site-packages/_pytest/setuponly.pyc'>
+      finish pytest_plugin_registered --> [] [hook]
+      pytest_plugin_registered [hook]
+          manager: <_pytest.config.PytestPluginManager object at 0x7f3af4ea08d0>
+          plugin: <module '_pytest.setupplan' from '/home/sudheer/workspace/pvenvs/ansibleenv/local/lib/python2.7/site-packages/_pytest/setupplan.pyc'>
+      finish pytest_plugin_registered --> [] [hook]
+      pytest_plugin_registered [hook]
+          manager: <_pytest.config.PytestPluginManager object at 0x7f3af4ea08d0>
+          plugin: <module '_pytest.warnings' from '/home/sudheer/workspace/pvenvs/ansibleenv/local/lib/python2.7/site-packages/_pytest/warnings.pyc'>
+      finish pytest_plugin_registered --> [] [hook]
+      pytest_plugin_registered [hook]
+          manager: <_pytest.config.PytestPluginManager object at 0x7f3af4ea08d0>
+          plugin: <module '_pytest.logging' from '/home/sudheer/workspace/pvenvs/ansibleenv/local/lib/python2.7/site-packages/_pytest/logging.pyc'>
+      finish pytest_plugin_registered --> [] [hook]
+      pytest_plugin_registered [hook]
+          manager: <_pytest.config.PytestPluginManager object at 0x7f3af4ea08d0>
+          plugin: <module 'testinfra.plugin' from '/home/sudheer/workspace/pvenvs/ansibleenv/local/lib/python2.7/site-packages/testinfra/plugin.py'>
+      finish pytest_plugin_registered --> [] [hook]
+      pytest_plugin_registered [hook]
+          manager: <_pytest.config.PytestPluginManager object at 0x7f3af4ea08d0>
+          plugin: <_pytest.capture.CaptureManager object at 0x7f3af1d08d10>
+      finish pytest_plugin_registered --> [] [hook]
+      pytest_plugin_registered [hook]
+          manager: <_pytest.config.PytestPluginManager object at 0x7f3af4ea08d0>
+          plugin: <Session 'default'>
+      finish pytest_plugin_registered --> [] [hook]
+      pytest_plugin_registered [hook]
+          manager: <_pytest.config.PytestPluginManager object at 0x7f3af4ea08d0>
+          plugin: <_pytest.cacheprovider.LFPlugin object at 0x7f3af1c695d0>
+      finish pytest_plugin_registered --> [] [hook]
+      pytest_plugin_registered [hook]
+          manager: <_pytest.config.PytestPluginManager object at 0x7f3af4ea08d0>
+          plugin: <_pytest.logging.LoggingPlugin object at 0x7f3af1c75c50>
+      finish pytest_plugin_registered --> [] [hook]
+      pytest_plugin_registered [hook]
+          manager: <_pytest.config.PytestPluginManager object at 0x7f3af4ea08d0>
+          plugin: <_pytest.terminal.TerminalReporter object at 0x7f3af1c634d0>
+      finish pytest_plugin_registered --> [] [hook]
+    finish pytest_configure --> [] [hook]
+    pytest_sessionstart [hook]
+        session: <Session 'default'>
+      pytest_plugin_registered [hook]
+          manager: <_pytest.config.PytestPluginManager object at 0x7f3af4ea08d0>
+          plugin: <_pytest.config.PytestPluginManager object at 0x7f3af4ea08d0>
+      finish pytest_plugin_registered --> [] [hook]
+      pytest_plugin_registered [hook]
+          manager: <_pytest.config.PytestPluginManager object at 0x7f3af4ea08d0>
+          plugin: <_pytest.config.Config object at 0x7f3af2b4e450>
+      finish pytest_plugin_registered --> [] [hook]
+      pytest_plugin_registered [hook]
+          manager: <_pytest.config.PytestPluginManager object at 0x7f3af4ea08d0>
+          plugin: <module '_pytest.mark' from '/home/sudheer/workspace/pvenvs/ansibleenv/local/lib/python2.7/site-packages/_pytest/mark.pyc'>
+      finish pytest_plugin_registered --> [] [hook]
+      pytest_plugin_registered [hook]
+          manager: <_pytest.config.PytestPluginManager object at 0x7f3af4ea08d0>
+          plugin: <module '_pytest.main' from '/home/sudheer/workspace/pvenvs/ansibleenv/local/lib/python2.7/site-packages/_pytest/main.pyc'>
+      finish pytest_plugin_registered --> [] [hook]
+      pytest_plugin_registered [hook]
+          manager: <_pytest.config.PytestPluginManager object at 0x7f3af4ea08d0>
+          plugin: <module '_pytest.terminal' from '/home/sudheer/workspace/pvenvs/ansibleenv/local/lib/python2.7/site-packages/_pytest/terminal.pyc'>
+      finish pytest_plugin_registered --> [] [hook]
+      pytest_plugin_registered [hook]
+          manager: <_pytest.config.PytestPluginManager object at 0x7f3af4ea08d0>
+          plugin: <module '_pytest.runner' from '/home/sudheer/workspace/pvenvs/ansibleenv/local/lib/python2.7/site-packages/_pytest/runner.pyc'>
+      finish pytest_plugin_registered --> [] [hook]
+      pytest_plugin_registered [hook]
+          manager: <_pytest.config.PytestPluginManager object at 0x7f3af4ea08d0>
+          plugin: <module '_pytest.python' from '/home/sudheer/workspace/pvenvs/ansibleenv/local/lib/python2.7/site-packages/_pytest/python.pyc'>
+      finish pytest_plugin_registered --> [] [hook]
+      pytest_plugin_registered [hook]
+          manager: <_pytest.config.PytestPluginManager object at 0x7f3af4ea08d0>
+          plugin: <module '_pytest.fixtures' from '/home/sudheer/workspace/pvenvs/ansibleenv/local/lib/python2.7/site-packages/_pytest/fixtures.pyc'>
+      finish pytest_plugin_registered --> [] [hook]
+      pytest_plugin_registered [hook]
+          manager: <_pytest.config.PytestPluginManager object at 0x7f3af4ea08d0>
+          plugin: <module '_pytest.debugging' from '/home/sudheer/workspace/pvenvs/ansibleenv/local/lib/python2.7/site-packages/_pytest/debugging.pyc'>
+      finish pytest_plugin_registered --> [] [hook]
+      pytest_plugin_registered [hook]
+          manager: <_pytest.config.PytestPluginManager object at 0x7f3af4ea08d0>
+          plugin: <module '_pytest.unittest' from '/home/sudheer/workspace/pvenvs/ansibleenv/local/lib/python2.7/site-packages/_pytest/unittest.pyc'>
+      finish pytest_plugin_registered --> [] [hook]
+      pytest_plugin_registered [hook]
+          manager: <_pytest.config.PytestPluginManager object at 0x7f3af4ea08d0>
+          plugin: <module '_pytest.capture' from '/home/sudheer/workspace/pvenvs/ansibleenv/local/lib/python2.7/site-packages/_pytest/capture.pyc'>
+      finish pytest_plugin_registered --> [] [hook]
+      pytest_plugin_registered [hook]
+          manager: <_pytest.config.PytestPluginManager object at 0x7f3af4ea08d0>
+          plugin: <module '_pytest.skipping' from '/home/sudheer/workspace/pvenvs/ansibleenv/local/lib/python2.7/site-packages/_pytest/skipping.pyc'>
+      finish pytest_plugin_registered --> [] [hook]
+      pytest_plugin_registered [hook]
+          manager: <_pytest.config.PytestPluginManager object at 0x7f3af4ea08d0>
+          plugin: <module '_pytest.tmpdir' from '/home/sudheer/workspace/pvenvs/ansibleenv/local/lib/python2.7/site-packages/_pytest/tmpdir.pyc'>
+      finish pytest_plugin_registered --> [] [hook]
+      pytest_plugin_registered [hook]
+          manager: <_pytest.config.PytestPluginManager object at 0x7f3af4ea08d0>
+          plugin: <module '_pytest.monkeypatch' from '/home/sudheer/workspace/pvenvs/ansibleenv/local/lib/python2.7/site-packages/_pytest/monkeypatch.pyc'>
+      finish pytest_plugin_registered --> [] [hook]
+      pytest_plugin_registered [hook]
+          manager: <_pytest.config.PytestPluginManager object at 0x7f3af4ea08d0>
+          plugin: <module '_pytest.recwarn' from '/home/sudheer/workspace/pvenvs/ansibleenv/local/lib/python2.7/site-packages/_pytest/recwarn.pyc'>
+      finish pytest_plugin_registered --> [] [hook]
+      pytest_plugin_registered [hook]
+          manager: <_pytest.config.PytestPluginManager object at 0x7f3af4ea08d0>
+          plugin: <module '_pytest.pastebin' from '/home/sudheer/workspace/pvenvs/ansibleenv/local/lib/python2.7/site-packages/_pytest/pastebin.pyc'>
+      finish pytest_plugin_registered --> [] [hook]
+      pytest_plugin_registered [hook]
+          manager: <_pytest.config.PytestPluginManager object at 0x7f3af4ea08d0>
+          plugin: <module '_pytest.helpconfig' from '/home/sudheer/workspace/pvenvs/ansibleenv/local/lib/python2.7/site-packages/_pytest/helpconfig.pyc'>
+      finish pytest_plugin_registered --> [] [hook]
+      pytest_plugin_registered [hook]
+          manager: <_pytest.config.PytestPluginManager object at 0x7f3af4ea08d0>
+          plugin: <module '_pytest.nose' from '/home/sudheer/workspace/pvenvs/ansibleenv/local/lib/python2.7/site-packages/_pytest/nose.pyc'>
+      finish pytest_plugin_registered --> [] [hook]
+      pytest_plugin_registered [hook]
+          manager: <_pytest.config.PytestPluginManager object at 0x7f3af4ea08d0>
+          plugin: <module '_pytest.assertion' from '/home/sudheer/workspace/pvenvs/ansibleenv/local/lib/python2.7/site-packages/_pytest/assertion/__init__.pyc'>
+      finish pytest_plugin_registered --> [] [hook]
+      pytest_plugin_registered [hook]
+          manager: <_pytest.config.PytestPluginManager object at 0x7f3af4ea08d0>
+          plugin: <module '_pytest.junitxml' from '/home/sudheer/workspace/pvenvs/ansibleenv/local/lib/python2.7/site-packages/_pytest/junitxml.pyc'>
+      finish pytest_plugin_registered --> [] [hook]
+      pytest_plugin_registered [hook]
+          manager: <_pytest.config.PytestPluginManager object at 0x7f3af4ea08d0>
+          plugin: <module '_pytest.resultlog' from '/home/sudheer/workspace/pvenvs/ansibleenv/local/lib/python2.7/site-packages/_pytest/resultlog.pyc'>
+      finish pytest_plugin_registered --> [] [hook]
+      pytest_plugin_registered [hook]
+          manager: <_pytest.config.PytestPluginManager object at 0x7f3af4ea08d0>
+          plugin: <module '_pytest.doctest' from '/home/sudheer/workspace/pvenvs/ansibleenv/local/lib/python2.7/site-packages/_pytest/doctest.pyc'>
+      finish pytest_plugin_registered --> [] [hook]
+      pytest_plugin_registered [hook]
+          manager: <_pytest.config.PytestPluginManager object at 0x7f3af4ea08d0>
+          plugin: <module '_pytest.cacheprovider' from '/home/sudheer/workspace/pvenvs/ansibleenv/local/lib/python2.7/site-packages/_pytest/cacheprovider.pyc'>
+      finish pytest_plugin_registered --> [] [hook]
+      pytest_plugin_registered [hook]
+          manager: <_pytest.config.PytestPluginManager object at 0x7f3af4ea08d0>
+          plugin: <module '_pytest.freeze_support' from '/home/sudheer/workspace/pvenvs/ansibleenv/local/lib/python2.7/site-packages/_pytest/freeze_support.pyc'>
+      finish pytest_plugin_registered --> [] [hook]
+      pytest_plugin_registered [hook]
+          manager: <_pytest.config.PytestPluginManager object at 0x7f3af4ea08d0>
+          plugin: <module '_pytest.setuponly' from '/home/sudheer/workspace/pvenvs/ansibleenv/local/lib/python2.7/site-packages/_pytest/setuponly.pyc'>
+      finish pytest_plugin_registered --> [] [hook]
+      pytest_plugin_registered [hook]
+          manager: <_pytest.config.PytestPluginManager object at 0x7f3af4ea08d0>
+          plugin: <module '_pytest.setupplan' from '/home/sudheer/workspace/pvenvs/ansibleenv/local/lib/python2.7/site-packages/_pytest/setupplan.pyc'>
+      finish pytest_plugin_registered --> [] [hook]
+      pytest_plugin_registered [hook]
+          manager: <_pytest.config.PytestPluginManager object at 0x7f3af4ea08d0>
+          plugin: <module '_pytest.warnings' from '/home/sudheer/workspace/pvenvs/ansibleenv/local/lib/python2.7/site-packages/_pytest/warnings.pyc'>
+      finish pytest_plugin_registered --> [] [hook]
+      pytest_plugin_registered [hook]
+          manager: <_pytest.config.PytestPluginManager object at 0x7f3af4ea08d0>
+          plugin: <module '_pytest.logging' from '/home/sudheer/workspace/pvenvs/ansibleenv/local/lib/python2.7/site-packages/_pytest/logging.pyc'>
+      finish pytest_plugin_registered --> [] [hook]
+      pytest_plugin_registered [hook]
+          manager: <_pytest.config.PytestPluginManager object at 0x7f3af4ea08d0>
+          plugin: <module 'testinfra.plugin' from '/home/sudheer/workspace/pvenvs/ansibleenv/local/lib/python2.7/site-packages/testinfra/plugin.py'>
+      finish pytest_plugin_registered --> [] [hook]
+      pytest_plugin_registered [hook]
+          manager: <_pytest.config.PytestPluginManager object at 0x7f3af4ea08d0>
+          plugin: <_pytest.capture.CaptureManager object at 0x7f3af1d08d10>
+      finish pytest_plugin_registered --> [] [hook]
+      pytest_plugin_registered [hook]
+          manager: <_pytest.config.PytestPluginManager object at 0x7f3af4ea08d0>
+          plugin: <Session 'default'>
+      finish pytest_plugin_registered --> [] [hook]
+      pytest_plugin_registered [hook]
+          manager: <_pytest.config.PytestPluginManager object at 0x7f3af4ea08d0>
+          plugin: <_pytest.cacheprovider.LFPlugin object at 0x7f3af1c695d0>
+      finish pytest_plugin_registered --> [] [hook]
+      pytest_plugin_registered [hook]
+          manager: <_pytest.config.PytestPluginManager object at 0x7f3af4ea08d0>
+          plugin: <_pytest.logging.LoggingPlugin object at 0x7f3af1c75c50>
+      finish pytest_plugin_registered --> [] [hook]
+      pytest_plugin_registered [hook]
+          manager: <_pytest.config.PytestPluginManager object at 0x7f3af4ea08d0>
+          plugin: <_pytest.terminal.TerminalReporter object at 0x7f3af1c634d0>
+      finish pytest_plugin_registered --> [] [hook]
+      pytest_plugin_registered [hook]
+          manager: <_pytest.config.PytestPluginManager object at 0x7f3af4ea08d0>
+          plugin: <_pytest.fixtures.FixtureManager object at 0x7f3af1c69610>
+      finish pytest_plugin_registered --> [] [hook]
+      pytest_report_header [hook]
+          startdir: /home/sudheer/workspace/ansible-roles/ansible-role-redmine/molecule/default
+          config: <_pytest.config.Config object at 0x7f3af2b4e450>
+      finish pytest_report_header --> [['rootdir: /home/sudheer/workspace/ansible-roles/ansible-role-redmine/molecule/default, inifile:', 'plugins: testinfra-1.7.1'], 'cachedir: .pytest_cache', ['using: pytest-3.4.0 pylib-1.5.2', 'setuptools registered plugins:', '  testinfra-1.7.1 at /home/sudheer/workspace/pvenvs/ansibleenv/local/lib/python2.7/site-packages/testinfra/plugin.py']] [hook]
+    finish pytest_sessionstart --> [] [hook]
+    pytest_collection [hook]
+        session: <Session 'default'>
+    perform_collect <Session 'default'> ['/home/sudheer/workspace/ansible-roles/ansible-role-redmine/molecule/default/tests/test_default.py'] [collection]
+        pytest_collectstart [hook]
+            collector: <Session 'default'>
+        finish pytest_collectstart --> [] [hook]
+        pytest_make_collect_report [hook]
+            collector: <Session 'default'>
+        processing argument /home/sudheer/workspace/ansible-roles/ansible-role-redmine/molecule/default/tests/test_default.py [collection]
+            pytest_collect_file [hook]
+                path: /home/sudheer/workspace/ansible-roles/ansible-role-redmine/molecule/default/tests/test_default.py
+                parent: <Session 'default'>
+              pytest_pycollect_makemodule [hook]
+                  path: /home/sudheer/workspace/ansible-roles/ansible-role-redmine/molecule/default/tests/test_default.py
+                  parent: <Session 'default'>
+              finish pytest_pycollect_makemodule --> <Module 'tests/test_default.py'> [hook]
+            finish pytest_collect_file --> [<Module 'tests/test_default.py'>] [hook]
+          matchnodes [<Module 'tests/test_default.py'>] [] [collection]
+            matchnodes finished ->  1 nodes [collection]
+        finish pytest_make_collect_report --> <CollectReport '' lenresult=1 outcome='passed'> [hook]
+        pytest_collectreport [hook]
+            report: <CollectReport '' lenresult=1 outcome='passed'>
+        finish pytest_collectreport --> [] [hook]
+    genitems <Module 'tests/test_default.py'> [collection]
+      pytest_collectstart [hook]
+          collector: <Module 'tests/test_default.py'>
+      finish pytest_collectstart --> [] [hook]
+      pytest_make_collect_report [hook]
+          collector: <Module 'tests/test_default.py'>
+      find_module called for: test_default [assertion]
+      matched test file (was specified on cmdline): '/home/sudheer/workspace/ansible-roles/ansible-role-redmine/molecule/default/tests/test_default.py' [assertion]
+      found cached rewritten pyc for '/home/sudheer/workspace/ansible-roles/ansible-role-redmine/molecule/default/tests/test_default.py' [assertion]
+      find_module called for: testinfra.utils.ansible_runner [assertion]
+      matched marked file 'testinfra.utils.ansible_runner' (from 'testinfra') [assertion]
+      found cached rewritten pyc for '/home/sudheer/workspace/pvenvs/ansibleenv/local/lib/python2.7/site-packages/testinfra/utils/ansible_runner.py' [assertion]
+      find_module called for: ansible [assertion]
+      find_module called for: ansible.release [assertion]
+      find_module called for: ansible.constants [assertion]
+      find_module called for: jinja2 [assertion]
+      find_module called for: jinja2.jinja2 [assertion]
+      find_module called for: jinja2.environment [assertion]
+      find_module called for: jinja2.os [assertion]
+      find_module called for: jinja2.sys [assertion]
+      find_module called for: jinja2.weakref [assertion]
+      find_module called for: jinja2.functools [assertion]
+      find_module called for: jinja2.nodes [assertion]
+      find_module called for: jinja2.types [assertion]
+      find_module called for: jinja2.operator [assertion]
+      find_module called for: jinja2.collections [assertion]
+      find_module called for: jinja2.utils [assertion]
+      find_module called for: jinja2.re [assertion]
+      find_module called for: jinja2.json [assertion]
+      find_module called for: jinja2.errno [assertion]
+      find_module called for: jinja2.threading [assertion]
+      find_module called for: jinja2._compat [assertion]
+      find_module called for: jinja2.cPickle [assertion]
+      find_module called for: cPickle [assertion]
+      find_module called for: jinja2.cStringIO [assertion]
+      find_module called for: jinja2.itertools [assertion]
+      find_module called for: jinja2.urllib [assertion]
+      find_module called for: jinja2.markupsafe [assertion]
+      find_module called for: markupsafe [assertion]
+      find_module called for: markupsafe.re [assertion]
+      find_module called for: markupsafe.string [assertion]
+      find_module called for: markupsafe.collections [assertion]
+      find_module called for: markupsafe.markupsafe [assertion]
+      find_module called for: markupsafe._compat [assertion]
+      find_module called for: markupsafe.sys [assertion]
+      find_module called for: markupsafe._speedups [assertion]
+      find_module called for: jinja2.defaults [assertion]
+      find_module called for: jinja2.filters [assertion]
+      find_module called for: jinja2.math [assertion]
+      find_module called for: jinja2.random [assertion]
+      find_module called for: jinja2.runtime [assertion]
+      find_module called for: jinja2.exceptions [assertion]
+      find_module called for: jinja2.tests [assertion]
+      find_module called for: jinja2.decimal [assertion]
+      find_module called for: decimal [assertion]
+      find_module called for: numbers [assertion]
+      find_module called for: jinja2.lexer [assertion]
+      find_module called for: jinja2.parser [assertion]
+      find_module called for: jinja2.compiler [assertion]
+      find_module called for: jinja2.copy [assertion]
+      find_module called for: jinja2.keyword [assertion]
+      find_module called for: jinja2.visitor [assertion]
+      find_module called for: jinja2.optimizer [assertion]
+      find_module called for: jinja2.idtracking [assertion]
+      find_module called for: jinja2.loaders [assertion]
+      find_module called for: jinja2.hashlib [assertion]
+      find_module called for: jinja2.bccache [assertion]
+      find_module called for: jinja2.stat [assertion]
+      find_module called for: jinja2.marshal [assertion]
+      find_module called for: jinja2.tempfile [assertion]
+      find_module called for: jinja2.fnmatch [assertion]
+      find_module called for: encodings.ascii [assertion]
+      find_module called for: ansible.module_utils [assertion]
+      find_module called for: ansible.module_utils._text [assertion]
+      find_module called for: ansible.module_utils.codecs [assertion]
+      find_module called for: ansible.module_utils.ansible [assertion]
+      find_module called for: ansible.module_utils.six [assertion]
+      find_module called for: ansible.module_utils.parsing [assertion]
+      find_module called for: ansible.module_utils.parsing.convert_bool [assertion]
+      find_module called for: ansible.module_utils.parsing.ansible [assertion]
+      find_module called for: ansible.config [assertion]
+      find_module called for: ansible.config.manager [assertion]
+      find_module called for: yaml [assertion]
+      find_module called for: yaml.error [assertion]
+      find_module called for: yaml.tokens [assertion]
+      find_module called for: yaml.events [assertion]
+      find_module called for: yaml.nodes [assertion]
+      find_module called for: yaml.loader [assertion]
+      find_module called for: yaml.reader [assertion]
+      find_module called for: yaml.codecs [assertion]
+      find_module called for: yaml.re [assertion]
+      find_module called for: yaml.scanner [assertion]
+      find_module called for: yaml.parser [assertion]
+      find_module called for: yaml.composer [assertion]
+      find_module called for: yaml.constructor [assertion]
+      find_module called for: yaml.datetime [assertion]
+      find_module called for: yaml.binascii [assertion]
+      find_module called for: yaml.sys [assertion]
+      find_module called for: yaml.types [assertion]
+      find_module called for: yaml.resolver [assertion]
+      find_module called for: yaml.dumper [assertion]
+      find_module called for: yaml.emitter [assertion]
+      find_module called for: yaml.serializer [assertion]
+      find_module called for: yaml.representer [assertion]
+      find_module called for: yaml.copy_reg [assertion]
+      find_module called for: yaml.cyaml [assertion]
+      find_module called for: yaml._yaml [assertion]
+      find_module called for: _yaml [assertion]
+      find_module called for: ansible.config.data [assertion]
+      find_module called for: ansible.errors [assertion]
+      find_module called for: ansible.errors.yaml_strings [assertion]
+      find_module called for: ansible.module_utils.six.moves [assertion]
+      find_module called for: ConfigParser [assertion]
+      find_module called for: ansible.parsing [assertion]
+      find_module called for: ansible.parsing.quoting [assertion]
+      find_module called for: ansible.utils [assertion]
+      find_module called for: ansible.utils.path [assertion]
+      find_module called for: encodings.unicode_escape [assertion]
+      find_module called for: ansible.cli [assertion]
+      find_module called for: getpass [assertion]
+      find_module called for: optparse [assertion]
+      find_module called for: ansible.inventory [assertion]
+      find_module called for: ansible.inventory.manager [assertion]
+      find_module called for: ansible.inventory.data [assertion]
+      find_module called for: ansible.inventory.group [assertion]
+      find_module called for: ansible.inventory.host [assertion]
+      find_module called for: ansible.utils.vars [assertion]
+      find_module called for: ansible.parsing.splitter [assertion]
+      find_module called for: ansible.utils.display [assertion]
+      find_module called for: ansible.utils.color [assertion]
+      find_module called for: ansible.parsing.utils [assertion]
+      find_module called for: ansible.parsing.utils.addresses [assertion]
+      find_module called for: ansible.plugins [assertion]
+      find_module called for: ansible.plugins.loader [assertion]
+      find_module called for: ansible.parsing.plugin_docs [assertion]
+      find_module called for: ansible.parsing.metadata [assertion]
+      find_module called for: ansible.parsing.yaml [assertion]
+      find_module called for: ansible.parsing.yaml.loader [assertion]
+      find_module called for: _yaml [assertion]
+      find_module called for: ansible.parsing.yaml.constructor [assertion]
+      find_module called for: ansible.parsing.yaml.objects [assertion]
+      find_module called for: ansible.utils.unsafe_proxy [assertion]
+      find_module called for: ansible.parsing.vault [assertion]
+      find_module called for: cryptography [assertion]
+      find_module called for: cryptography.__about__ [assertion]
+      find_module called for: cryptography.exceptions [assertion]
+      find_module called for: cryptography.hazmat [assertion]
+      find_module called for: cryptography.hazmat.backends [assertion]
+      find_module called for: cryptography.hazmat.primitives [assertion]
+      find_module called for: cryptography.hazmat.primitives.hashes [assertion]
+      find_module called for: cryptography.utils [assertion]
+      find_module called for: cryptography.hazmat.backends.interfaces [assertion]
+      find_module called for: cryptography.hazmat.primitives.padding [assertion]
+      find_module called for: cryptography.hazmat.bindings [assertion]
+      find_module called for: cryptography.hazmat.bindings._padding [assertion]
+      find_module called for: _cffi_backend [assertion]
+      find_module called for: cryptography.hazmat.primitives.hmac [assertion]
+      find_module called for: cryptography.hazmat.primitives.mac [assertion]
+      find_module called for: cryptography.hazmat.primitives.kdf [assertion]
+      find_module called for: cryptography.hazmat.primitives.kdf.pbkdf2 [assertion]
+      find_module called for: cryptography.hazmat.primitives.constant_time [assertion]
+      find_module called for: hmac [assertion]
+      find_module called for: cryptography.hazmat.bindings._constant_time [assertion]
+      find_module called for: cryptography.hazmat.primitives.ciphers [assertion]
+      find_module called for: cryptography.hazmat.primitives.ciphers.base [assertion]
+      find_module called for: cryptography.hazmat.primitives.ciphers.modes [assertion]
+      find_module called for: cryptography.hazmat.primitives.ciphers.algorithms [assertion]
+      find_module called for: cryptography.hazmat.backends.openssl [assertion]
+      find_module called for: cryptography.hazmat.backends.openssl.backend [assertion]
+      find_module called for: cryptography.x509 [assertion]
+      find_module called for: cryptography.x509.certificate_transparency [assertion]
+      find_module called for: cryptography.x509.base [assertion]
+      find_module called for: cryptography.hazmat.primitives.asymmetric [assertion]
+      find_module called for: cryptography.hazmat.primitives.asymmetric.dsa [assertion]
+      find_module called for: cryptography.hazmat.primitives.asymmetric.ec [assertion]
+      find_module called for: cryptography.hazmat.primitives.asymmetric.rsa [assertion]
+      find_module called for: fractions [assertion]
+      find_module called for: cryptography.x509.extensions [assertion]
+      find_module called for: ipaddress [assertion]
+      find_module called for: asn1crypto [assertion]
+      find_module called for: asn1crypto.version [assertion]
+      find_module called for: asn1crypto.keys [assertion]
+      find_module called for: asn1crypto._elliptic_curve [assertion]
+      find_module called for: asn1crypto._int [assertion]
+      find_module called for: asn1crypto.util [assertion]
+      find_module called for: asn1crypto._errors [assertion]
+      find_module called for: asn1crypto._iri [assertion]
+      find_module called for: encodings.idna [assertion]
+      find_module called for: encodings.stringprep [assertion]
+      find_module called for: stringprep [assertion]
+      find_module called for: unicodedata [assertion]
+      find_module called for: encodings.re [assertion]
+      find_module called for: encodings.unicodedata [assertion]
+      find_module called for: asn1crypto._types [assertion]
+      find_module called for: asn1crypto._ordereddict [assertion]
+      find_module called for: asn1crypto.sys [assertion]
+      find_module called for: asn1crypto.collections [assertion]
+      find_module called for: asn1crypto._ffi [assertion]
+      find_module called for: asn1crypto._perf [assertion]
+      find_module called for: asn1crypto._perf._big_num_ctypes [assertion]
+      find_module called for: asn1crypto.algos [assertion]
+      find_module called for: asn1crypto.core [assertion]
+      find_module called for: asn1crypto._teletex_codec [assertion]
+      find_module called for: asn1crypto.parser [assertion]
+      find_module called for: cryptography.hazmat.primitives.serialization [assertion]
+      find_module called for: cryptography.x509.general_name [assertion]
+      find_module called for: idna [assertion]
+      find_module called for: idna.package_data [assertion]
+      find_module called for: idna.core [assertion]
+      find_module called for: idna.idnadata [assertion]
+      find_module called for: idna.bisect [assertion]
+      find_module called for: idna.unicodedata [assertion]
+      find_module called for: idna.re [assertion]
+      find_module called for: idna.sys [assertion]
+      find_module called for: idna.intranges [assertion]
+      find_module called for: six.moves.urllib_parse [assertion]
+      find_module called for: cryptography.x509.name [assertion]
+      find_module called for: cryptography.x509.oid [assertion]
+      find_module called for: cryptography.hazmat.backends.openssl.aead [assertion]
+      find_module called for: cryptography.hazmat.backends.openssl.ciphers [assertion]
+      find_module called for: cryptography.hazmat.backends.openssl.cmac [assertion]
+      find_module called for: cryptography.hazmat.backends.openssl.decode_asn1 [assertion]
+      find_module called for: cryptography.hazmat.backends.openssl.dh [assertion]
+      find_module called for: cryptography.hazmat.primitives.asymmetric.dh [assertion]
+      find_module called for: cryptography.hazmat.backends.openssl.dsa [assertion]
+      find_module called for: cryptography.hazmat.backends.openssl.utils [assertion]
+      find_module called for: cryptography.hazmat.primitives.asymmetric.utils [assertion]
+      find_module called for: cryptography.hazmat.backends.openssl.ec [assertion]
+      find_module called for: cryptography.hazmat.backends.openssl.encode_asn1 [assertion]
+      find_module called for: cryptography.hazmat.backends.openssl.hashes [assertion]
+      find_module called for: cryptography.hazmat.backends.openssl.hmac [assertion]
+      find_module called for: cryptography.hazmat.backends.openssl.rsa [assertion]
+      find_module called for: cryptography.hazmat.primitives.asymmetric.padding [assertion]
+      find_module called for: cryptography.hazmat.backends.openssl.x25519 [assertion]
+      find_module called for: cryptography.hazmat.primitives.asymmetric.x25519 [assertion]
+      find_module called for: cryptography.hazmat.backends.openssl.x509 [assertion]
+      find_module called for: cryptography.hazmat.bindings.openssl [assertion]
+      find_module called for: cryptography.hazmat.bindings.openssl.binding [assertion]
+      find_module called for: cryptography.hazmat.bindings._openssl [assertion]
+      find_module called for: cryptography.hazmat.bindings.openssl._conditional [assertion]
+      find_module called for: cryptography.hazmat.primitives.kdf.scrypt [assertion]
+      find_module called for: Crypto [assertion]
+      find_module called for: ansible.parsing.dataloader [assertion]
+      find_module called for: ansible.module_utils.basic [assertion]
+      find_module called for: ansible.module_utils.locale [assertion]
+      find_module called for: ansible.module_utils.os [assertion]
+      find_module called for: ansible.module_utils.re [assertion]
+      find_module called for: ansible.module_utils.shlex [assertion]
+      find_module called for: ansible.module_utils.subprocess [assertion]
+      find_module called for: ansible.module_utils.sys [assertion]
+      find_module called for: ansible.module_utils.types [assertion]
+      find_module called for: ansible.module_utils.time [assertion]
+      find_module called for: ansible.module_utils.select [assertion]
+      find_module called for: ansible.module_utils.shutil [assertion]
+      find_module called for: ansible.module_utils.stat [assertion]
+      find_module called for: ansible.module_utils.tempfile [assertion]
+      find_module called for: ansible.module_utils.traceback [assertion]
+      find_module called for: ansible.module_utils.grp [assertion]
+      find_module called for: ansible.module_utils.pwd [assertion]
+      find_module called for: ansible.module_utils.platform [assertion]
+      find_module called for: ansible.module_utils.errno [assertion]
+      find_module called for: ansible.module_utils.datetime [assertion]
+      find_module called for: ansible.module_utils.collections [assertion]
+      find_module called for: ansible.module_utils.itertools [assertion]
+      find_module called for: ansible.module_utils.syslog [assertion]
+      find_module called for: syslog [assertion]
+      find_module called for: ansible.module_utils.systemd [assertion]
+      find_module called for: systemd [assertion]
+      find_module called for: ansible.module_utils.selinux [assertion]
+      find_module called for: selinux [assertion]
+      find_module called for: ansible.module_utils.json [assertion]
+      find_module called for: ansible.module_utils.hashlib [assertion]
+      find_module called for: ansible.module_utils.pycompat24 [assertion]
+      find_module called for: ansible.module_utils.ast [assertion]
+      find_module called for: pipes [assertion]
+      find_module called for: ansible.vars [assertion]
+      find_module called for: ansible.vars.manager [assertion]
+      find_module called for: ansible.inventory.helpers [assertion]
+      find_module called for: ansible.plugins.cache [assertion]
+      find_module called for: ansible.template [assertion]
+      find_module called for: ansible.template.safe_eval [assertion]
+      find_module called for: ansible.template.template [assertion]
+      find_module called for: ansible.template.vars [assertion]
+      find_module called for: ansible.utils.listify [assertion]
+      find_module called for: ansible.cli.playbook [assertion]
+      find_module called for: ansible.executor [assertion]
+      find_module called for: ansible.executor.playbook_executor [assertion]
+      find_module called for: ansible.executor.task_queue_manager [assertion]
+      find_module called for: multiprocessing [assertion]
+      find_module called for: multiprocessing.os [assertion]
+      find_module called for: multiprocessing.sys [assertion]
+      find_module called for: multiprocessing.multiprocessing [assertion]
+      find_module called for: multiprocessing.process [assertion]
+      find_module called for: multiprocessing.signal [assertion]
+      find_module called for: multiprocessing.itertools [assertion]
+      find_module called for: multiprocessing.util [assertion]
+      find_module called for: multiprocessing.weakref [assertion]
+      find_module called for: multiprocessing.atexit [assertion]
+      find_module called for: multiprocessing.threading [assertion]
+      find_module called for: multiprocessing.subprocess [assertion]
+      find_module called for: multiprocessing._multiprocessing [assertion]
+      find_module called for: _multiprocessing [assertion]
+      find_module called for: ansible.executor.play_iterator [assertion]
+      find_module called for: ansible.playbook [assertion]
+      find_module called for: ansible.playbook.play [assertion]
+      find_module called for: ansible.playbook.attribute [assertion]
+      find_module called for: ansible.playbook.base [assertion]
+      find_module called for: ansible.playbook.become [assertion]
+      find_module called for: ansible.playbook.block [assertion]
+      find_module called for: ansible.playbook.conditional [assertion]
+      find_module called for: ansible.playbook.helpers [assertion]
+      find_module called for: ansible.playbook.role [assertion]
+      find_module called for: ansible.playbook.role.metadata [assertion]
+      find_module called for: ansible.playbook.role.include [assertion]
+      find_module called for: ansible.playbook.role.definition [assertion]
+      find_module called for: ansible.playbook.taggable [assertion]
+      find_module called for: ansible.playbook.role.requirement [assertion]
+      find_module called for: ansible.playbook.playbook_include [assertion]
+      find_module called for: ansible.playbook.task [assertion]
+      find_module called for: ansible.parsing.mod_args [assertion]
+      find_module called for: ansible.playbook.loop_control [assertion]
+      find_module called for: ansible.executor.stats [assertion]
+      find_module called for: ansible.executor.task_result [assertion]
+      find_module called for: ansible.playbook.play_context [assertion]
+      find_module called for: ansible.utils.ssh_functions [assertion]
+      find_module called for: ansible.plugins.callback [assertion]
+      find_module called for: difflib [assertion]
+      find_module called for: ansible.utils.helpers [assertion]
+      find_module called for: ansible.vars.hostvars [assertion]
+      find_module called for: ansible.vars.reserved [assertion]
+      find_module called for: ansible.constants [assertion]
+      find_module called for: ansible.plugins.inventory [assertion]
+      find_module called for: ansible.utils.shlex [assertion]
+        pytest_pycollect_makeitem [hook]
+            obj: <function test_hosts_file at 0x7f3af1c86b90>
+            collector: <Module 'tests/test_default.py'>
+            name: test_hosts_file
+          pytest_generate_tests [hook]
+              metafunc: <_pytest.python.Metafunc object at 0x7f3af19e1050>
+          find_module called for: testinfra.backend.ansible [assertion]
+          matched marked file 'testinfra.backend.ansible' (from 'testinfra') [assertion]
+          found cached rewritten pyc for '/home/sudheer/workspace/pvenvs/ansibleenv/local/lib/python2.7/site-packages/testinfra/backend/ansible.py' [assertion]
+          find_module called for: testinfra.backend.base [assertion]
+          matched marked file 'testinfra.backend.base' (from 'testinfra') [assertion]
+          found cached rewritten pyc for '/home/sudheer/workspace/pvenvs/ansibleenv/local/lib/python2.7/site-packages/testinfra/backend/base.py' [assertion]
+          find_module called for: testinfra.backend.__builtin__ [assertion]
+          matched marked file 'testinfra.backend.__builtin__' (from 'testinfra') [assertion]
+          rewriting '/home/sudheer/workspace/pvenvs/ansibleenv/local/lib/python2.7/site-packages/testinfra/backend/__builtin__.py' [assertion]
+          find_module called for: testinfra.backend._pytest [assertion]
+          matched marked file 'testinfra.backend._pytest' (from 'testinfra') [assertion]
+          rewriting '/home/sudheer/workspace/pvenvs/ansibleenv/local/lib/python2.7/site-packages/testinfra/backend/_pytest.py' [assertion]
+          find_module called for: testinfra.backend.collections [assertion]
+          matched marked file 'testinfra.backend.collections' (from 'testinfra') [assertion]
+          rewriting '/home/sudheer/workspace/pvenvs/ansibleenv/local/lib/python2.7/site-packages/testinfra/backend/collections.py' [assertion]
+          find_module called for: testinfra.backend.locale [assertion]
+          matched marked file 'testinfra.backend.locale' (from 'testinfra') [assertion]
+          rewriting '/home/sudheer/workspace/pvenvs/ansibleenv/local/lib/python2.7/site-packages/testinfra/backend/locale.py' [assertion]
+          find_module called for: testinfra.backend.logging [assertion]
+          matched marked file 'testinfra.backend.logging' (from 'testinfra') [assertion]
+          rewriting '/home/sudheer/workspace/pvenvs/ansibleenv/local/lib/python2.7/site-packages/testinfra/backend/logging.py' [assertion]
+          find_module called for: testinfra.backend.pipes [assertion]
+          matched marked file 'testinfra.backend.pipes' (from 'testinfra') [assertion]
+          rewriting '/home/sudheer/workspace/pvenvs/ansibleenv/local/lib/python2.7/site-packages/testinfra/backend/pipes.py' [assertion]
+          find_module called for: testinfra.backend.subprocess [assertion]
+          matched marked file 'testinfra.backend.subprocess' (from 'testinfra') [assertion]
+          rewriting '/home/sudheer/workspace/pvenvs/ansibleenv/local/lib/python2.7/site-packages/testinfra/backend/subprocess.py' [assertion]
+          find_module called for: testinfra.backend.warnings [assertion]
+          matched marked file 'testinfra.backend.warnings' (from 'testinfra') [assertion]
+          rewriting '/home/sudheer/workspace/pvenvs/ansibleenv/local/lib/python2.7/site-packages/testinfra/backend/warnings.py' [assertion]
+          find_module called for: testinfra.backend.testinfra [assertion]
+          matched marked file 'testinfra.backend.testinfra' (from 'testinfra') [assertion]
+          rewriting '/home/sudheer/workspace/pvenvs/ansibleenv/local/lib/python2.7/site-packages/testinfra/backend/testinfra.py' [assertion]
+          find_module called for: ansible.constants [assertion]
+          find_module called for: py._io.saferepr [assertion]
+          finish pytest_generate_tests --> [] [hook]
+        finish pytest_pycollect_makeitem --> [<Function 'test_hosts_file[ansible://instance]'>] [hook]
+        pytest_pycollect_makeitem [hook]
+            obj: <function test_nginx_is_installed at 0x7f3aefd592a8>
+            collector: <Module 'tests/test_default.py'>
+            name: test_nginx_is_installed
+          pytest_generate_tests [hook]
+              metafunc: <_pytest.python.Metafunc object at 0x7f3af14a1fd0>
+          finish pytest_generate_tests --> [] [hook]
+        finish pytest_pycollect_makeitem --> [<Function 'test_nginx_is_installed[ansible://instance]'>] [hook]
+        pytest_pycollect_makeitem [hook]
+            obj: <module 'testinfra' from '/home/sudheer/workspace/pvenvs/ansibleenv/local/lib/python2.7/site-packages/testinfra/__init__.pyc'>
+            collector: <Module 'tests/test_default.py'>
+            name: testinfra
+        finish pytest_pycollect_makeitem --> None [hook]
+        pytest_pycollect_makeitem [hook]
+            obj: None
+            collector: <Module 'tests/test_default.py'>
+            name: __package__
+        finish pytest_pycollect_makeitem --> None [hook]
+        pytest_pycollect_makeitem [hook]
+            obj: <function unicorn_is_listening at 0x7f3aefd59a28>
+            collector: <Module 'tests/test_default.py'>
+            name: unicorn_is_listening
+        finish pytest_pycollect_makeitem --> None [hook]
+        pytest_pycollect_makeitem [hook]
+            obj: <_pytest.assertion.rewrite.AssertionRewritingHook object at 0x7f3af284c850>
+            collector: <Module 'tests/test_default.py'>
+            name: __loader__
+        finish pytest_pycollect_makeitem --> None [hook]
+        pytest_pycollect_makeitem [hook]
+            obj: <function test_redmine_configuration_file at 0x7f3aefd59c80>
+            collector: <Module 'tests/test_default.py'>
+            name: test_redmine_configuration_file
+          pytest_generate_tests [hook]
+              metafunc: <_pytest.python.Metafunc object at 0x7f3aefd6f210>
+          finish pytest_generate_tests --> [] [hook]
+        finish pytest_pycollect_makeitem --> [<Function 'test_redmine_configuration_file[ansible://instance]'>] [hook]
+        pytest_pycollect_makeitem [hook]
+            obj: <function test_redmine_db_configuration_file at 0x7f3aefd59c08>
+            collector: <Module 'tests/test_default.py'>
+            name: test_redmine_db_configuration_file
+          pytest_generate_tests [hook]
+              metafunc: <_pytest.python.Metafunc object at 0x7f3aefd6f290>
+          finish pytest_generate_tests --> [] [hook]
+        finish pytest_pycollect_makeitem --> [<Function 'test_redmine_db_configuration_file[ansible://instance]'>] [hook]
+        pytest_pycollect_makeitem [hook]
+            obj: None
+            collector: <Module 'tests/test_default.py'>
+            name: __doc__
+        finish pytest_pycollect_makeitem --> None [hook]
+        pytest_pycollect_makeitem [hook]
+            obj: <function test_redmine_running_and_enabled at 0x7f3aefd59aa0>
+            collector: <Module 'tests/test_default.py'>
+            name: test_redmine_running_and_enabled
+          pytest_generate_tests [hook]
+              metafunc: <_pytest.python.Metafunc object at 0x7f3af1191050>
+          finish pytest_generate_tests --> [] [hook]
+        finish pytest_pycollect_makeitem --> [<Function 'test_redmine_running_and_enabled[ansible://instance]'>] [hook]
+        pytest_pycollect_makeitem [hook]
+            obj: {'bytearray': <type 'bytearray'>, 'IndexError': <type 'exceptions.IndexError'>, 'all': <built-in function all>, 'help': Type help() for interactive help, or help(object) for help about object., 'vars': <built-in function vars>, 'SyntaxError': <type 'exceptions.SyntaxError'>, 'unicode': <type 'unicode'>, 'UnicodeDecodeError': <type 'exceptions.UnicodeDecodeError'>, 'memoryview': <type 'memoryview'>, 'isinstance': <built-in function isinstance>, 'copyright': Copyright (c) 2001-2017 Python Software Foundation.
+All Rights Reserved.
+
+Copyright (c) 2000 BeOpen.com.
+All Rights Reserved.
+
+Copyright (c) 1995-2001 Corporation for National Research Initiatives.
+All Rights Reserved.
+
+Copyright (c) 1991-1995 Stichting Mathematisch Centrum, Amsterdam.
+All Rights Reserved., 'NameError': <type 'exceptions.NameError'>, 'BytesWarning': <type 'exceptions.BytesWarning'>, 'dict': <type 'dict'>, 'input': <built-in function input>, 'oct': <built-in function oct>, 'bin': <built-in function bin>, 'SystemExit': <type 'exceptions.SystemExit'>, 'StandardError': <type 'exceptions.StandardError'>, 'format': <built-in function format>, 'repr': <built-in function repr>, 'sorted': <built-in function sorted>, 'False': False, 'RuntimeWarning': <type 'exceptions.RuntimeWarning'>, 'list': <type 'list'>, 'iter': <built-in function iter>, 'reload': <built-in function reload>, 'Warning': <type 'exceptions.Warning'>, '__package__': None, 'round': <built-in function round>, 'dir': <built-in function dir>, 'cmp': <built-in function cmp>, 'set': <type 'set'>, 'bytes': <type 'str'>, 'reduce': <built-in function reduce>, 'intern': <built-in function intern>, 'issubclass': <built-in function issubclass>, 'Ellipsis': Ellipsis, 'EOFError': <type 'exceptions.EOFError'>, 'locals': <built-in function locals>, 'BufferError': <type 'exceptions.BufferError'>, 'slice': <type 'slice'>, 'FloatingPointError': <type 'exceptions.FloatingPointError'>, 'sum': <built-in function sum>, 'getattr': <built-in function getattr>, 'abs': <built-in function abs>, 'exit': Use exit() or Ctrl-D (i.e. EOF) to exit, 'print': <built-in function print>, 'True': True, 'FutureWarning': <type 'exceptions.FutureWarning'>, 'ImportWarning': <type 'exceptions.ImportWarning'>, 'None': None, 'hash': <built-in function hash>, 'ReferenceError': <type 'exceptions.ReferenceError'>, 'len': <built-in function len>, 'credits':     Thanks to CWI, CNRI, BeOpen.com, Zope Corporation and a cast of thousands
+    for supporting Python development.  See www.python.org for more information., 'frozenset': <type 'frozenset'>, '__name__': '__builtin__', 'ord': <built-in function ord>, 'super': <type 'super'>, 'TypeError': <type 'exceptions.TypeError'>, 'license': See http://www.python.org/2.7/license.html, 'KeyboardInterrupt': <type 'exceptions.KeyboardInterrupt'>, 'UserWarning': <type 'exceptions.UserWarning'>, 'filter': <built-in function filter>, 'range': <built-in function range>, 'staticmethod': <type 'staticmethod'>, 'SystemError': <type 'exceptions.SystemError'>, 'BaseException': <type 'exceptions.BaseException'>, 'pow': <built-in function pow>, 'RuntimeError': <type 'exceptions.RuntimeError'>, 'float': <type 'float'>, 'MemoryError': <type 'exceptions.MemoryError'>, 'StopIteration': <type 'exceptions.StopIteration'>, 'globals': <built-in function globals>, 'divmod': <built-in function divmod>, 'enumerate': <type 'enumerate'>, 'apply': <built-in function apply>, 'LookupError': <type 'exceptions.LookupError'>, 'open': <built-in function open>, 'quit': Use quit() or Ctrl-D (i.e. EOF) to exit, 'basestring': <type 'basestring'>, 'UnicodeError': <type 'exceptions.UnicodeError'>, 'zip': <built-in function zip>, 'hex': <built-in function hex>, 'long': <type 'long'>, 'next': <built-in function next>, 'ImportError': <type 'exceptions.ImportError'>, 'chr': <built-in function chr>, 'xrange': <type 'xrange'>, 'type': <type 'type'>, '__doc__': "Built-in functions, exceptions, and other objects.\n\nNoteworthy: None is the `nil' object; Ellipsis represents `...' in slices.", 'Exception': <type 'exceptions.Exception'>, 'tuple': <type 'tuple'>, 'UnicodeTranslateError': <type 'exceptions.UnicodeTranslateError'>, 'reversed': <type 'reversed'>, 'UnicodeEncodeError': <type 'exceptions.UnicodeEncodeError'>, 'IOError': <type 'exceptions.IOError'>, 'hasattr': <built-in function hasattr>, 'delattr': <built-in function delattr>, 'setattr': <built-in function setattr>, 'raw_input': <built-in function raw_input>, 'SyntaxWarning': <type 'exceptions.SyntaxWarning'>, 'compile': <built-in function compile>, 'ArithmeticError': <type 'exceptions.ArithmeticError'>, 'str': <type 'str'>, 'property': <type 'property'>, 'GeneratorExit': <type 'exceptions.GeneratorExit'>, 'int': <type 'int'>, '__import__': <built-in function __import__>, 'KeyError': <type 'exceptions.KeyError'>, 'coerce': <built-in function coerce>, 'PendingDeprecationWarning': <type 'exceptions.PendingDeprecationWarning'>, 'file': <type 'file'>, 'EnvironmentError': <type 'exceptions.EnvironmentError'>, 'unichr': <built-in function unichr>, 'id': <built-in function id>, 'OSError': <type 'exceptions.OSError'>, 'DeprecationWarning': <type 'exceptions.DeprecationWarning'>, 'min': <built-in function min>, 'UnicodeWarning': <type 'exceptions.UnicodeWarning'>, 'execfile': <built-in function execfile>, 'any': <built-in function any>, 'complex': <type 'complex'>, 'bool': <type 'bool'>, 'ValueError': <type 'exceptions.ValueError'>, 'NotImplemented': NotImplemented, 'map': <built-in function map>, 'buffer': <type 'buffer'>, 'max': <built-in function max>, 'object': <type 'object'>, 'TabError': <type 'exceptions.TabError'>, 'callable': <built-in function callable>, 'ZeroDivisionError': <type 'exceptions.ZeroDivisionError'>, 'eval': <built-in function eval>, '__debug__': True, 'IndentationError': <type 'exceptions.IndentationError'>, 'AssertionError': <type 'exceptions.AssertionError'>, 'classmethod': <type 'classmethod'>, 'UnboundLocalError': <type 'exceptions.UnboundLocalError'>, 'NotImplementedError': <type 'exceptions.NotImplementedError'>, 'AttributeError': <type 'exceptions.AttributeError'>, 'OverflowError': <type 'exceptions.OverflowError'>}
+            collector: <Module 'tests/test_default.py'>
+            name: __builtins__
+        finish pytest_pycollect_makeitem --> None [hook]
+        pytest_pycollect_makeitem [hook]
+            obj: /home/sudheer/workspace/ansible-roles/ansible-role-redmine/molecule/default/tests/test_default.py
+            collector: <Module 'tests/test_default.py'>
+            name: __file__
+        finish pytest_pycollect_makeitem --> None [hook]
+        pytest_pycollect_makeitem [hook]
+            obj: /home/sudheer/workspace/ansible-roles/ansible-role-redmine/molecule/default/tests/__pycache__/test_default.cpython-27-PYTEST.pyc
+            collector: <Module 'tests/test_default.py'>
+            name: __cached__
+        finish pytest_pycollect_makeitem --> None [hook]
+        pytest_pycollect_makeitem [hook]
+            obj: test_default
+            collector: <Module 'tests/test_default.py'>
+            name: __name__
+        finish pytest_pycollect_makeitem --> None [hook]
+        pytest_pycollect_makeitem [hook]
+            obj: <module '_pytest.assertion.rewrite' from '/home/sudheer/workspace/pvenvs/ansibleenv/local/lib/python2.7/site-packages/_pytest/assertion/rewrite.pyc'>
+            collector: <Module 'tests/test_default.py'>
+            name: @pytest_ar
+        finish pytest_pycollect_makeitem --> None [hook]
+        pytest_pycollect_makeitem [hook]
+            obj: <module '__builtin__' (built-in)>
+            collector: <Module 'tests/test_default.py'>
+            name: @py_builtins
+        finish pytest_pycollect_makeitem --> None [hook]
+        pytest_pycollect_makeitem [hook]
+            obj: <function test_unicorn_is_running at 0x7f3aefd59938>
+            collector: <Module 'tests/test_default.py'>
+            name: test_unicorn_is_running
+          pytest_generate_tests [hook]
+              metafunc: <_pytest.python.Metafunc object at 0x7f3af1191410>
+          finish pytest_generate_tests --> [] [hook]
+        finish pytest_pycollect_makeitem --> [<Function 'test_unicorn_is_running[ansible://instance]'>] [hook]
+        pytest_pycollect_makeitem [hook]
+            obj: <function test_ruby_packages_installed at 0x7f3aefd59b18>
+            collector: <Module 'tests/test_default.py'>
+            name: test_ruby_packages_installed
+          pytest_generate_tests [hook]
+              metafunc: <_pytest.python.Metafunc object at 0x7f3af1191790>
+          finish pytest_generate_tests --> [] [hook]
+        finish pytest_pycollect_makeitem --> [<Function 'test_ruby_packages_installed[ansible://instance]'>] [hook]
+        pytest_pycollect_makeitem [hook]
+            obj: <function test_redmine_user at 0x7f3aefd59b90>
+            collector: <Module 'tests/test_default.py'>
+            name: test_redmine_user
+          pytest_generate_tests [hook]
+              metafunc: <_pytest.python.Metafunc object at 0x7f3af11916d0>
+          finish pytest_generate_tests --> [] [hook]
+        finish pytest_pycollect_makeitem --> [<Function 'test_redmine_user[ansible://instance]'>] [hook]
+        pytest_pycollect_makeitem [hook]
+            obj: [u'instance']
+            collector: <Module 'tests/test_default.py'>
+            name: testinfra_hosts
+        finish pytest_pycollect_makeitem --> None [hook]
+        pytest_pycollect_makeitem [hook]
+            obj: <module 'os' from '/home/sudheer/workspace/pvenvs/ansibleenv/lib/python2.7/os.pyc'>
+            collector: <Module 'tests/test_default.py'>
+            name: os
+        finish pytest_pycollect_makeitem --> None [hook]
+        pytest_pycollect_makeitem [hook]
+            obj: <function test_nginx_running_and_enabled at 0x7f3aefd599b0>
+            collector: <Module 'tests/test_default.py'>
+            name: test_nginx_running_and_enabled
+          pytest_generate_tests [hook]
+              metafunc: <_pytest.python.Metafunc object at 0x7f3af11914d0>
+          finish pytest_generate_tests --> [] [hook]
+        finish pytest_pycollect_makeitem --> [<Function 'test_nginx_running_and_enabled[ansible://instance]'>] [hook]
+        pytest_pycollect_makeitem [hook]
+            obj: <slot wrapper '__setattr__' of 'module' objects>
+            collector: <Module 'tests/test_default.py'>
+            name: __setattr__
+        finish pytest_pycollect_makeitem --> None [hook]
+        pytest_pycollect_makeitem [hook]
+            obj: <built-in method __new__ of type object at 0x56550ff902a0>
+            collector: <Module 'tests/test_default.py'>
+            name: __new__
+        finish pytest_pycollect_makeitem --> None [hook]
+        pytest_pycollect_makeitem [hook]
+            obj: <slot wrapper '__getattribute__' of 'module' objects>
+            collector: <Module 'tests/test_default.py'>
+            name: __getattribute__
+        finish pytest_pycollect_makeitem --> None [hook]
+        pytest_pycollect_makeitem [hook]
+            obj: <slot wrapper '__delattr__' of 'module' objects>
+            collector: <Module 'tests/test_default.py'>
+            name: __delattr__
+        finish pytest_pycollect_makeitem --> None [hook]
+        pytest_pycollect_makeitem [hook]
+            obj: <slot wrapper '__repr__' of 'module' objects>
+            collector: <Module 'tests/test_default.py'>
+            name: __repr__
+        finish pytest_pycollect_makeitem --> None [hook]
+        pytest_pycollect_makeitem [hook]
+            obj: <member '__dict__' of 'module' objects>
+            collector: <Module 'tests/test_default.py'>
+            name: __dict__
+        finish pytest_pycollect_makeitem --> None [hook]
+        pytest_pycollect_makeitem [hook]
+            obj: <slot wrapper '__init__' of 'module' objects>
+            collector: <Module 'tests/test_default.py'>
+            name: __init__
+        finish pytest_pycollect_makeitem --> None [hook]
+        pytest_pycollect_makeitem [hook]
+            obj: <method '__reduce_ex__' of 'object' objects>
+            collector: <Module 'tests/test_default.py'>
+            name: __reduce_ex__
+        finish pytest_pycollect_makeitem --> None [hook]
+        pytest_pycollect_makeitem [hook]
+            obj: <method '__reduce__' of 'object' objects>
+            collector: <Module 'tests/test_default.py'>
+            name: __reduce__
+        finish pytest_pycollect_makeitem --> None [hook]
+        pytest_pycollect_makeitem [hook]
+            obj: <slot wrapper '__str__' of 'object' objects>
+            collector: <Module 'tests/test_default.py'>
+            name: __str__
+        finish pytest_pycollect_makeitem --> None [hook]
+        pytest_pycollect_makeitem [hook]
+            obj: <method '__format__' of 'object' objects>
+            collector: <Module 'tests/test_default.py'>
+            name: __format__
+        finish pytest_pycollect_makeitem --> None [hook]
+        pytest_pycollect_makeitem [hook]
+            obj: <attribute '__class__' of 'object' objects>
+            collector: <Module 'tests/test_default.py'>
+            name: __class__
+        finish pytest_pycollect_makeitem --> None [hook]
+        pytest_pycollect_makeitem [hook]
+            obj: <method '__subclasshook__' of 'object' objects>
+            collector: <Module 'tests/test_default.py'>
+            name: __subclasshook__
+        finish pytest_pycollect_makeitem --> None [hook]
+        pytest_pycollect_makeitem [hook]
+            obj: <slot wrapper '__hash__' of 'object' objects>
+            collector: <Module 'tests/test_default.py'>
+            name: __hash__
+        finish pytest_pycollect_makeitem --> None [hook]
+        pytest_pycollect_makeitem [hook]
+            obj: <method '__sizeof__' of 'object' objects>
+            collector: <Module 'tests/test_default.py'>
+            name: __sizeof__
+        finish pytest_pycollect_makeitem --> None [hook]
+      finish pytest_make_collect_report --> <CollectReport 'tests/test_default.py' lenresult=9 outcome='passed'> [hook]
+    genitems <Function 'test_hosts_file[ansible://instance]'> [collection]
+      pytest_itemcollected [hook]
+          item: <Function 'test_hosts_file[ansible://instance]'>
+      finish pytest_itemcollected --> [] [hook]
+    genitems <Function 'test_nginx_is_installed[ansible://instance]'> [collection]
+      pytest_itemcollected [hook]
+          item: <Function 'test_nginx_is_installed[ansible://instance]'>
+      finish pytest_itemcollected --> [] [hook]
+    genitems <Function 'test_nginx_running_and_enabled[ansible://instance]'> [collection]
+      pytest_itemcollected [hook]
+          item: <Function 'test_nginx_running_and_enabled[ansible://instance]'>
+      finish pytest_itemcollected --> [] [hook]
+    genitems <Function 'test_unicorn_is_running[ansible://instance]'> [collection]
+      pytest_itemcollected [hook]
+          item: <Function 'test_unicorn_is_running[ansible://instance]'>
+      finish pytest_itemcollected --> [] [hook]
+    genitems <Function 'test_redmine_running_and_enabled[ansible://instance]'> [collection]
+      pytest_itemcollected [hook]
+          item: <Function 'test_redmine_running_and_enabled[ansible://instance]'>
+      finish pytest_itemcollected --> [] [hook]
+    genitems <Function 'test_ruby_packages_installed[ansible://instance]'> [collection]
+      pytest_itemcollected [hook]
+          item: <Function 'test_ruby_packages_installed[ansible://instance]'>
+      finish pytest_itemcollected --> [] [hook]
+    genitems <Function 'test_redmine_user[ansible://instance]'> [collection]
+      pytest_itemcollected [hook]
+          item: <Function 'test_redmine_user[ansible://instance]'>
+      finish pytest_itemcollected --> [] [hook]
+    genitems <Function 'test_redmine_db_configuration_file[ansible://instance]'> [collection]
+      pytest_itemcollected [hook]
+          item: <Function 'test_redmine_db_configuration_file[ansible://instance]'>
+      finish pytest_itemcollected --> [] [hook]
+    genitems <Function 'test_redmine_configuration_file[ansible://instance]'> [collection]
+      pytest_itemcollected [hook]
+          item: <Function 'test_redmine_configuration_file[ansible://instance]'>
+      finish pytest_itemcollected --> [] [hook]
+      pytest_collectreport [hook]
+          report: <CollectReport 'tests/test_default.py' lenresult=9 outcome='passed'>
+      finish pytest_collectreport --> [] [hook]
+      pytest_collection_modifyitems [hook]
+          items: [<Function 'test_hosts_file[ansible://instance]'>, <Function 'test_nginx_is_installed[ansible://instance]'>, <Function 'test_nginx_running_and_enabled[ansible://instance]'>, <Function 'test_unicorn_is_running[ansible://instance]'>, <Function 'test_redmine_running_and_enabled[ansible://instance]'>, <Function 'test_ruby_packages_installed[ansible://instance]'>, <Function 'test_redmine_user[ansible://instance]'>, <Function 'test_redmine_db_configuration_file[ansible://instance]'>, <Function 'test_redmine_configuration_file[ansible://instance]'>]
+          session: <Session 'default'>
+          config: <_pytest.config.Config object at 0x7f3af2b4e450>
+      finish pytest_collection_modifyitems --> [] [hook]
+      pytest_collection_finish [hook]
+          session: <Session 'default'>
+        pytest_report_collectionfinish [hook]
+            items: [<Function 'test_hosts_file[ansible://instance]'>, <Function 'test_nginx_is_installed[ansible://instance]'>, <Function 'test_nginx_running_and_enabled[ansible://instance]'>, <Function 'test_unicorn_is_running[ansible://instance]'>, <Function 'test_redmine_running_and_enabled[ansible://instance]'>, <Function 'test_ruby_packages_installed[ansible://instance]'>, <Function 'test_redmine_user[ansible://instance]'>, <Function 'test_redmine_db_configuration_file[ansible://instance]'>, <Function 'test_redmine_configuration_file[ansible://instance]'>]
+            config: <_pytest.config.Config object at 0x7f3af2b4e450>
+            startdir: /home/sudheer/workspace/ansible-roles/ansible-role-redmine/molecule/default
+        finish pytest_report_collectionfinish --> [] [hook]
+      finish pytest_collection_finish --> [] [hook]
+    finish pytest_collection --> [<Function 'test_hosts_file[ansible://instance]'>, <Function 'test_nginx_is_installed[ansible://instance]'>, <Function 'test_nginx_running_and_enabled[ansible://instance]'>, <Function 'test_unicorn_is_running[ansible://instance]'>, <Function 'test_redmine_running_and_enabled[ansible://instance]'>, <Function 'test_ruby_packages_installed[ansible://instance]'>, <Function 'test_redmine_user[ansible://instance]'>, <Function 'test_redmine_db_configuration_file[ansible://instance]'>, <Function 'test_redmine_configuration_file[ansible://instance]'>] [hook]
+    pytest_runtestloop [hook]
+        session: <Session 'default'>
+      pytest_runtest_protocol [hook]
+          item: <Function 'test_hosts_file[ansible://instance]'>
+          nextitem: <Function 'test_nginx_is_installed[ansible://instance]'>
+        pytest_runtest_logstart [hook]
+            location: ('tests/test_default.py', 8, 'test_hosts_file[ansible://instance]')
+            nodeid: tests/test_default.py::test_hosts_file[ansible://instance]
+        finish pytest_runtest_logstart --> [] [hook]
+        pytest_runtest_setup [hook]
+            item: <Function 'test_hosts_file[ansible://instance]'>
+          pytest_fixture_setup [hook]
+              fixturedef: <FixtureDef name=u'_testinfra_host' scope='module' baseid='' >
+              request: <SubRequest u'_testinfra_host' for <Function 'test_hosts_file[ansible://instance]'>>
+          finish pytest_fixture_setup --> <testinfra.host.Host object at 0x7f3aefde2450> [hook]
+          pytest_fixture_setup [hook]
+              fixturedef: <FixtureDef name='host' scope=u'module' baseid='' >
+              request: <SubRequest 'host' for <Function 'test_hosts_file[ansible://instance]'>>
+          finish pytest_fixture_setup --> <testinfra.host.Host object at 0x7f3aefde2450> [hook]
+        finish pytest_runtest_setup --> [] [hook]
+        pytest_runtest_makereport [hook]
+            item: <Function 'test_hosts_file[ansible://instance]'>
+            call: <CallInfo when='setup' result: []>
+        finish pytest_runtest_makereport --> <TestReport 'tests/test_default.py::test_hosts_file[ansible://instance]' when='setup' outcome='passed'> [hook]
+        pytest_runtest_logreport [hook]
+            report: <TestReport 'tests/test_default.py::test_hosts_file[ansible://instance]' when='setup' outcome='passed'>
+          pytest_report_teststatus [hook]
+              report: <TestReport 'tests/test_default.py::test_hosts_file[ansible://instance]' when='setup' outcome='passed'>
+          finish pytest_report_teststatus --> ('', '', '') [hook]
+        finish pytest_runtest_logreport --> [] [hook]
+        pytest_runtest_call [hook]
+            item: <Function 'test_hosts_file[ansible://instance]'>
+          pytest_pyfunc_call [hook]
+              pyfuncitem: <Function 'test_hosts_file[ansible://instance]'>
+          find_module called for: testinfra.modules.file [assertion]
+          matched marked file 'testinfra.modules.file' (from 'testinfra') [assertion]
+          found cached rewritten pyc for '/home/sudheer/workspace/pvenvs/ansibleenv/local/lib/python2.7/site-packages/testinfra/modules/file.py' [assertion]
+          find_module called for: testinfra.modules.__builtin__ [assertion]
+          matched marked file 'testinfra.modules.__builtin__' (from 'testinfra') [assertion]
+          rewriting '/home/sudheer/workspace/pvenvs/ansibleenv/local/lib/python2.7/site-packages/testinfra/modules/__builtin__.py' [assertion]
+          find_module called for: testinfra.modules._pytest [assertion]
+          matched marked file 'testinfra.modules._pytest' (from 'testinfra') [assertion]
+          rewriting '/home/sudheer/workspace/pvenvs/ansibleenv/local/lib/python2.7/site-packages/testinfra/modules/_pytest.py' [assertion]
+          find_module called for: testinfra.modules.datetime [assertion]
+          matched marked file 'testinfra.modules.datetime' (from 'testinfra') [assertion]
+          rewriting '/home/sudheer/workspace/pvenvs/ansibleenv/local/lib/python2.7/site-packages/testinfra/modules/datetime.py' [assertion]
+          find_module called for: testinfra.modules.base [assertion]
+          matched marked file 'testinfra.modules.base' (from 'testinfra') [assertion]
+          found cached rewritten pyc for '/home/sudheer/workspace/pvenvs/ansibleenv/local/lib/python2.7/site-packages/testinfra/modules/base.py' [assertion]
+          find_module called for: testinfra.modules.systeminfo [assertion]
+          matched marked file 'testinfra.modules.systeminfo' (from 'testinfra') [assertion]
+          found cached rewritten pyc for '/home/sudheer/workspace/pvenvs/ansibleenv/local/lib/python2.7/site-packages/testinfra/modules/systeminfo.py' [assertion]
+          find_module called for: testinfra.modules.re [assertion]
+          matched marked file 'testinfra.modules.re' (from 'testinfra') [assertion]
+          rewriting '/home/sudheer/workspace/pvenvs/ansibleenv/local/lib/python2.7/site-packages/testinfra/modules/re.py' [assertion]
+          find_module called for: ansible.constants [assertion]
+          find_module called for: ansible.playbook.task_include [assertion]
+          find_module called for: ansible.playbook.role_include [assertion]
+          find_module called for: ansible.playbook.handler [assertion]
+          find_module called for: ansible.playbook.handler_task_include [assertion]
+          find_module called for: ansible.modules [assertion]
+          find_module called for: ansible.plugins.action [assertion]
+          find_module called for: ansible.executor.module_common [assertion]
+          find_module called for: ansible.plugins.shell [assertion]
+          find_module called for: ansible.plugins.shell.powershell [assertion]
+          find_module called for: ansible.executor.action_write_locks [assertion]
+          find_module called for: ansible.module_utils.facts [assertion]
+          find_module called for: ansible.module_utils.facts.compat [assertion]
+          find_module called for: ansible.module_utils.facts.namespace [assertion]
+          find_module called for: ansible.module_utils.facts.default_collectors [assertion]
+          find_module called for: ansible.module_utils.facts.other [assertion]
+          find_module called for: ansible.module_utils.facts.other.facter [assertion]
+          find_module called for: ansible.module_utils.facts.collector [assertion]
+          find_module called for: ansible.module_utils.facts.timeout [assertion]
+          find_module called for: ansible.module_utils.facts.other.ohai [assertion]
+          find_module called for: ansible.module_utils.facts.system [assertion]
+          find_module called for: ansible.module_utils.facts.system.apparmor [assertion]
+          find_module called for: ansible.module_utils.facts.system.caps [assertion]
+          find_module called for: ansible.module_utils.facts.system.cmdline [assertion]
+          find_module called for: ansible.module_utils.facts.utils [assertion]
+          find_module called for: ansible.module_utils.facts.os [assertion]
+          find_module called for: ansible.module_utils.facts.system.distribution [assertion]
+          find_module called for: ansible.module_utils.facts.system.date_time [assertion]
+          find_module called for: ansible.module_utils.facts.system.env [assertion]
+          find_module called for: ansible.module_utils.facts.system.dns [assertion]
+          find_module called for: ansible.module_utils.facts.system.fips [assertion]
+          find_module called for: ansible.module_utils.facts.system.local [assertion]
+          find_module called for: ansible.module_utils.facts.system.lsb [assertion]
+          find_module called for: ansible.module_utils.facts.system.pkg_mgr [assertion]
+          find_module called for: ansible.module_utils.facts.system.platform [assertion]
+          find_module called for: ansible.module_utils.facts.system.python [assertion]
+          find_module called for: ansible.module_utils.facts.system.selinux [assertion]
+          find_module called for: selinux [assertion]
+          find_module called for: ansible.module_utils.facts.system.service_mgr [assertion]
+          find_module called for: distutils [assertion]
+          find_module called for: distutils.os [assertion]
+          find_module called for: distutils.sys [assertion]
+          find_module called for: distutils.warnings [assertion]
+          find_module called for: distutils.imp [assertion]
+          find_module called for: distutils.opcode [assertion]
+          find_module called for: _virtualenv_distutils.sys [assertion]
+          find_module called for: distutils.distutils [assertion]
+          find_module called for: distutils.dist [assertion]
+          find_module called for: distutils.re [assertion]
+          find_module called for: distutils.email [assertion]
+          find_module called for: distutils.errors [assertion]
+          find_module called for: distutils.fancy_getopt [assertion]
+          find_module called for: distutils.string [assertion]
+          find_module called for: distutils.getopt [assertion]
+          find_module called for: getopt [assertion]
+          find_module called for: distutils.util [assertion]
+          find_module called for: distutils.dep_util [assertion]
+          find_module called for: distutils.stat [assertion]
+          find_module called for: distutils.spawn [assertion]
+          find_module called for: distutils.debug [assertion]
+          find_module called for: distutils.log [assertion]
+          find_module called for: distutils.sysconfig [assertion]
+          find_module called for: distutils.fnmatch [assertion]
+          find_module called for: distutils.version [assertion]
+          find_module called for: distutils.types [assertion]
+          find_module called for: ansible.module_utils.facts.system.ssh_pub_keys [assertion]
+          find_module called for: ansible.module_utils.facts.system.user [assertion]
+          find_module called for: ansible.module_utils.facts.hardware [assertion]
+          find_module called for: ansible.module_utils.facts.hardware.base [assertion]
+          find_module called for: ansible.module_utils.facts.hardware.aix [assertion]
+          find_module called for: ansible.module_utils.facts.hardware.darwin [assertion]
+          find_module called for: ansible.module_utils.facts.sysctl [assertion]
+          find_module called for: ansible.module_utils.facts.re [assertion]
+          find_module called for: ansible.module_utils.facts.hardware.dragonfly [assertion]
+          find_module called for: ansible.module_utils.facts.hardware.freebsd [assertion]
+          find_module called for: ansible.module_utils.facts.hardware.hpux [assertion]
+          find_module called for: ansible.module_utils.facts.hardware.hurd [assertion]
+          find_module called for: ansible.module_utils.facts.hardware.linux [assertion]
+          find_module called for: ansible.module_utils.facts.hardware.netbsd [assertion]
+          find_module called for: ansible.module_utils.facts.hardware.openbsd [assertion]
+          find_module called for: ansible.module_utils.facts.hardware.sunos [assertion]
+          find_module called for: ansible.module_utils.facts.network [assertion]
+          find_module called for: ansible.module_utils.facts.network.base [assertion]
+          find_module called for: ansible.module_utils.facts.network.aix [assertion]
+          find_module called for: ansible.module_utils.facts.network.generic_bsd [assertion]
+          find_module called for: ansible.module_utils.facts.network.darwin [assertion]
+          find_module called for: ansible.module_utils.facts.network.dragonfly [assertion]
+          find_module called for: ansible.module_utils.facts.network.freebsd [assertion]
+          find_module called for: ansible.module_utils.facts.network.hpux [assertion]
+          find_module called for: ansible.module_utils.facts.network.hurd [assertion]
+          find_module called for: ansible.module_utils.facts.network.linux [assertion]
+          find_module called for: ansible.module_utils.facts.network.netbsd [assertion]
+          find_module called for: ansible.module_utils.facts.network.openbsd [assertion]
+          find_module called for: ansible.module_utils.facts.network.sunos [assertion]
+          find_module called for: ansible.module_utils.facts.virtual [assertion]
+          find_module called for: ansible.module_utils.facts.virtual.base [assertion]
+          find_module called for: ansible.module_utils.facts.virtual.dragonfly [assertion]
+          find_module called for: ansible.module_utils.facts.virtual.freebsd [assertion]
+          find_module called for: ansible.module_utils.facts.virtual.hpux [assertion]
+          find_module called for: ansible.module_utils.facts.virtual.linux [assertion]
+          find_module called for: ansible.module_utils.facts.virtual.netbsd [assertion]
+          find_module called for: ansible.module_utils.facts.virtual.sysctl [assertion]
+          find_module called for: ansible.module_utils.facts.virtual.openbsd [assertion]
+          find_module called for: ansible.module_utils.facts.virtual.sunos [assertion]
+          find_module called for: ansible.module_utils.facts.ansible_collector [assertion]
+          find_module called for: multiprocessing.synchronize [assertion]
+          find_module called for: multiprocessing.time [assertion]
+          find_module called for: multiprocessing.forking [assertion]
+          find_module called for: multiprocessing.errno [assertion]
+          find_module called for: multiprocessing.pickle [assertion]
+          find_module called for: multiprocessing.functools [assertion]
+          find_module called for: ansible.module_utils.json_utils [assertion]
+          find_module called for: ansible.parsing.utils.jsonify [assertion]
+          find_module called for: multiprocessing.queues [assertion]
+          find_module called for: multiprocessing.collections [assertion]
+          find_module called for: multiprocessing.Queue [assertion]
+          find_module called for: Queue [assertion]
+          find_module called for: multiprocessing.connection [assertion]
+          find_module called for: multiprocessing.socket [assertion]
+          find_module called for: multiprocessing.tempfile [assertion]
+          find_module called for: ansible.plugins.callback.default [assertion]
+          find_module called for: requests [assertion]
+          find_module called for: requests.urllib3 [assertion]
+          find_module called for: urllib3 [assertion]
+          find_module called for: urllib3.connectionpool [assertion]
+          find_module called for: urllib3.exceptions [assertion]
+          find_module called for: urllib3.packages [assertion]
+          find_module called for: urllib3.packages.ssl_match_hostname [assertion]
+          find_module called for: urllib3.packages.ssl_match_hostname.sys [assertion]
+          find_module called for: urllib3.packages.ssl_match_hostname.backports [assertion]
+          find_module called for: backports.ssl_match_hostname [assertion]
+          find_module called for: backports.ssl_match_hostname.re [assertion]
+          find_module called for: backports.ssl_match_hostname.sys [assertion]
+          find_module called for: backports.ssl_match_hostname.ipaddress [assertion]
+          find_module called for: urllib3.packages.six [assertion]
+          find_module called for: urllib3.packages.six.moves [assertion]
+          find_module called for: urllib3.packages.six.moves.http_client [assertion]
+          find_module called for: httplib [assertion]
+          find_module called for: mimetools [assertion]
+          find_module called for: rfc822 [assertion]
+          find_module called for: urllib3.connection [assertion]
+          find_module called for: urllib3.util [assertion]
+          find_module called for: urllib3.util.connection [assertion]
+          find_module called for: urllib3.util.wait [assertion]
+          find_module called for: urllib3.util.selectors [assertion]
+          find_module called for: urllib3.util.errno [assertion]
+          find_module called for: urllib3.util.math [assertion]
+          find_module called for: urllib3.util.select [assertion]
+          find_module called for: urllib3.util.socket [assertion]
+          find_module called for: urllib3.util.sys [assertion]
+          find_module called for: urllib3.util.time [assertion]
+          find_module called for: urllib3.util.collections [assertion]
+          find_module called for: urllib3.util.request [assertion]
+          find_module called for: urllib3.util.response [assertion]
+          find_module called for: urllib3.util.ssl_ [assertion]
+          find_module called for: urllib3.util.timeout [assertion]
+          find_module called for: urllib3.util.retry [assertion]
+          find_module called for: urllib3.util.url [assertion]
+          find_module called for: urllib3._collections [assertion]
+          find_module called for: urllib3.request [assertion]
+          find_module called for: urllib3.filepost [assertion]
+          find_module called for: urllib3.fields [assertion]
+          find_module called for: mimetypes [assertion]
+          find_module called for: _winreg [assertion]
+          find_module called for: urllib3.packages.six.moves.urllib [assertion]
+          find_module called for: urllib3.packages.six.moves.urllib.parse [assertion]
+          find_module called for: urllib3.response [assertion]
+          find_module called for: urllib3.poolmanager [assertion]
+          find_module called for: requests.chardet [assertion]
+          find_module called for: chardet [assertion]
+          find_module called for: chardet.compat [assertion]
+          find_module called for: chardet.sys [assertion]
+          find_module called for: chardet.universaldetector [assertion]
+          find_module called for: chardet.codecs [assertion]
+          find_module called for: chardet.logging [assertion]
+          find_module called for: chardet.re [assertion]
+          find_module called for: chardet.charsetgroupprober [assertion]
+          find_module called for: chardet.enums [assertion]
+          find_module called for: chardet.charsetprober [assertion]
+          find_module called for: chardet.escprober [assertion]
+          find_module called for: chardet.codingstatemachine [assertion]
+          find_module called for: chardet.escsm [assertion]
+          find_module called for: chardet.latin1prober [assertion]
+          find_module called for: chardet.mbcsgroupprober [assertion]
+          find_module called for: chardet.utf8prober [assertion]
+          find_module called for: chardet.mbcssm [assertion]
+          find_module called for: chardet.sjisprober [assertion]
+          find_module called for: chardet.mbcharsetprober [assertion]
+          find_module called for: chardet.chardistribution [assertion]
+          find_module called for: chardet.euctwfreq [assertion]
+          find_module called for: chardet.euckrfreq [assertion]
+          find_module called for: chardet.gb2312freq [assertion]
+          find_module called for: chardet.big5freq [assertion]
+          find_module called for: chardet.jisfreq [assertion]
+          find_module called for: chardet.jpcntx [assertion]
+          find_module called for: chardet.eucjpprober [assertion]
+          find_module called for: chardet.gb2312prober [assertion]
+          find_module called for: chardet.euckrprober [assertion]
+          find_module called for: chardet.cp949prober [assertion]
+          find_module called for: chardet.big5prober [assertion]
+          find_module called for: chardet.euctwprober [assertion]
+          find_module called for: chardet.sbcsgroupprober [assertion]
+          find_module called for: chardet.sbcharsetprober [assertion]
+          find_module called for: chardet.langcyrillicmodel [assertion]
+          find_module called for: chardet.langgreekmodel [assertion]
+          find_module called for: chardet.langbulgarianmodel [assertion]
+          find_module called for: chardet.langthaimodel [assertion]
+          find_module called for: chardet.langhebrewmodel [assertion]
+          find_module called for: chardet.hebrewprober [assertion]
+          find_module called for: chardet.langturkishmodel [assertion]
+          find_module called for: chardet.version [assertion]
+          find_module called for: requests.warnings [assertion]
+          find_module called for: requests.exceptions [assertion]
+          find_module called for: urllib3.contrib [assertion]
+          find_module called for: urllib3.contrib.pyopenssl [assertion]
+          find_module called for: OpenSSL [assertion]
+          find_module called for: OpenSSL.OpenSSL [assertion]
+          find_module called for: OpenSSL.crypto [assertion]
+          find_module called for: OpenSSL.datetime [assertion]
+          find_module called for: OpenSSL.base64 [assertion]
+          find_module called for: OpenSSL.functools [assertion]
+          find_module called for: OpenSSL.operator [assertion]
+          find_module called for: OpenSSL.six [assertion]
+          find_module called for: OpenSSL.cryptography [assertion]
+          find_module called for: OpenSSL._util [assertion]
+          find_module called for: OpenSSL.sys [assertion]
+          find_module called for: OpenSSL.warnings [assertion]
+          find_module called for: OpenSSL.SSL [assertion]
+          find_module called for: OpenSSL.os [assertion]
+          find_module called for: OpenSSL.socket [assertion]
+          find_module called for: OpenSSL.itertools [assertion]
+          find_module called for: OpenSSL.weakref [assertion]
+          find_module called for: OpenSSL.errno [assertion]
+          find_module called for: OpenSSL.version [assertion]
+          find_module called for: requests.__version__ [assertion]
+          find_module called for: requests.utils [assertion]
+          find_module called for: requests.cgi [assertion]
+          find_module called for: cgi [assertion]
+          find_module called for: requests.codecs [assertion]
+          find_module called for: requests.collections [assertion]
+          find_module called for: requests.contextlib [assertion]
+          find_module called for: requests.io [assertion]
+          find_module called for: requests.os [assertion]
+          find_module called for: requests.platform [assertion]
+          find_module called for: requests.re [assertion]
+          find_module called for: requests.socket [assertion]
+          find_module called for: requests.struct [assertion]
+          find_module called for: requests.certs [assertion]
+          find_module called for: requests.certifi [assertion]
+          find_module called for: certifi [assertion]
+          find_module called for: certifi.core [assertion]
+          find_module called for: certifi.os [assertion]
+          find_module called for: certifi.warnings [assertion]
+          find_module called for: requests._internal_utils [assertion]
+          find_module called for: requests.compat [assertion]
+          find_module called for: requests.sys [assertion]
+          find_module called for: requests.simplejson [assertion]
+          find_module called for: simplejson [assertion]
+          find_module called for: requests.json [assertion]
+          find_module called for: requests.urllib [assertion]
+          find_module called for: requests.urlparse [assertion]
+          find_module called for: requests.urllib2 [assertion]
+          find_module called for: urllib2 [assertion]
+          find_module called for: requests.cookielib [assertion]
+          find_module called for: cookielib [assertion]
+          find_module called for: _LWPCookieJar [assertion]
+          find_module called for: _MozillaCookieJar [assertion]
+          find_module called for: requests.Cookie [assertion]
+          find_module called for: Cookie [assertion]
+          find_module called for: requests.StringIO [assertion]
+          find_module called for: urllib3.packages.ordered_dict [assertion]
+          find_module called for: urllib3.packages.thread [assertion]
+          find_module called for: urllib3.packages._abcoll [assertion]
+          find_module called for: requests.cookies [assertion]
+          find_module called for: requests.copy [assertion]
+          find_module called for: requests.time [assertion]
+          find_module called for: requests.calendar [assertion]
+          find_module called for: requests.threading [assertion]
+          find_module called for: requests.structures [assertion]
+          find_module called for: requests.packages [assertion]
+          find_module called for: requests.models [assertion]
+          find_module called for: requests.datetime [assertion]
+          find_module called for: requests.encodings [assertion]
+          find_module called for: requests.hooks [assertion]
+          find_module called for: requests.auth [assertion]
+          find_module called for: requests.hashlib [assertion]
+          find_module called for: requests.base64 [assertion]
+          find_module called for: requests.status_codes [assertion]
+          find_module called for: requests.api [assertion]
+          find_module called for: requests.sessions [assertion]
+          find_module called for: requests.adapters [assertion]
+          find_module called for: urllib3.contrib.socks [assertion]
+          find_module called for: socks [assertion]
+          find_module called for: requests.logging [assertion]
+          find_module called for: prettytable [assertion]
+          find_module called for: ansible.module_utils.six.moves.urllib [assertion]
+          find_module called for: ansible.module_utils.six.moves.urllib.parse [assertion]
+          find_module called for: ansible.module_utils.urls [assertion]
+          find_module called for: ansible.module_utils.base64 [assertion]
+          find_module called for: ansible.module_utils.netrc [assertion]
+          find_module called for: netrc [assertion]
+          find_module called for: ansible.module_utils.socket [assertion]
+          find_module called for: ansible.module_utils.httplib [assertion]
+          find_module called for: ansible.module_utils.six.moves.http_cookiejar [assertion]
+          find_module called for: ansible.module_utils.six.moves.urllib.request [assertion]
+          find_module called for: ansible.module_utils.six.moves.urllib.error [assertion]
+          find_module called for: ansible.module_utils.urllib [assertion]
+          find_module called for: ansible.module_utils.urllib2 [assertion]
+          find_module called for: ansible.module_utils.ssl [assertion]
+          find_module called for: ansible.module_utils.urllib3 [assertion]
+          find_module called for: xmpp [assertion]
+          find_module called for: junit_xml [assertion]
+          find_module called for: flatdict [assertion]
+          find_module called for: logstash [assertion]
+          find_module called for: smtplib [assertion]
+          find_module called for: prettytable [assertion]
+          find_module called for: logging.handlers [assertion]
+          find_module called for: logging.errno [assertion]
+          find_module called for: logging.logging [assertion]
+          find_module called for: logging.socket [assertion]
+          find_module called for: logging.cPickle [assertion]
+          find_module called for: logging.struct [assertion]
+          find_module called for: logging.re [assertion]
+          find_module called for: logging.stat [assertion]
+          find_module called for: ansible.plugins.filter [assertion]
+          find_module called for: crypt [assertion]
+          find_module called for: ntpath [assertion]
+          find_module called for: nt [assertion]
+          find_module called for: nt [assertion]
+          find_module called for: passlib [assertion]
+          find_module called for: ansible.parsing.yaml.dumper [assertion]
+          find_module called for: ansible.utils.hashing [assertion]
+          find_module called for: ansible.utils.unicode [assertion]
+          find_module called for: netaddr [assertion]
+          find_module called for: jmespath [assertion]
+          find_module called for: ansible.plugins.filter.os [assertion]
+          find_module called for: ansible.plugins.filter.molecule [assertion]
+          find_module called for: molecule [assertion]
+          find_module called for: molecule.pbr [assertion]
+          find_module called for: pbr [assertion]
+          find_module called for: pbr.version [assertion]
+          find_module called for: pbr.itertools [assertion]
+          find_module called for: pbr.operator [assertion]
+          find_module called for: pbr.sys [assertion]
+          find_module called for: pbr.pkg_resources [assertion]
+          find_module called for: molecule.interpolation [assertion]
+          find_module called for: molecule.string [assertion]
+          find_module called for: molecule.util [assertion]
+          find_module called for: molecule.__future__ [assertion]
+          find_module called for: molecule.contextlib [assertion]
+          find_module called for: molecule.fnmatch [assertion]
+          find_module called for: molecule.jinja2 [assertion]
+          find_module called for: molecule.os [assertion]
+          find_module called for: molecule.re [assertion]
+          find_module called for: molecule.sys [assertion]
+          find_module called for: molecule.colorama [assertion]
+          find_module called for: colorama [assertion]
+          find_module called for: colorama.initialise [assertion]
+          find_module called for: colorama.atexit [assertion]
+          find_module called for: colorama.contextlib [assertion]
+          find_module called for: colorama.sys [assertion]
+          find_module called for: colorama.ansitowin32 [assertion]
+          find_module called for: colorama.re [assertion]
+          find_module called for: colorama.os [assertion]
+          find_module called for: colorama.ansi [assertion]
+          find_module called for: colorama.winterm [assertion]
+          find_module called for: colorama.win32 [assertion]
+          find_module called for: colorama.ctypes [assertion]
+          find_module called for: molecule.yaml [assertion]
+          find_module called for: molecule.molecule [assertion]
+          find_module called for: molecule.logger [assertion]
+          find_module called for: molecule.logging [assertion]
+          find_module called for: ansible.module_utils.network_common [assertion]
+          find_module called for: ansible.module_utils.operator [assertion]
+          find_module called for: ansible.module_utils.jinja2 [assertion]
+          find_module called for: textfsm [assertion]
+          find_module called for: ansible.plugins.test [assertion]
+          find_module called for: ansible.plugins.strategy [assertion]
+          find_module called for: ansible.executor.process [assertion]
+          find_module called for: ansible.executor.process.worker [assertion]
+          find_module called for: Crypto [assertion]
+          find_module called for: ansible.executor.task_executor [assertion]
+          find_module called for: ansible.plugins.connection [assertion]
+          find_module called for: ansible.utils.encrypt [assertion]
+          find_module called for: passlib [assertion]
+          find_module called for: Crypto [assertion]
+          find_module called for: keyczar [assertion]
+          find_module called for: ansible.playbook.included_file [assertion]
+          find_module called for: ansible.plugins.vars [assertion]
+          finish pytest_pyfunc_call --> True [hook]
+        finish pytest_runtest_call --> [] [hook]
+        pytest_runtest_makereport [hook]
+            item: <Function 'test_hosts_file[ansible://instance]'>
+            call: <CallInfo when='call' result: []>
+        finish pytest_runtest_makereport --> <TestReport 'tests/test_default.py::test_hosts_file[ansible://instance]' when='call' outcome='passed'> [hook]
+        pytest_runtest_logreport [hook]
+            report: <TestReport 'tests/test_default.py::test_hosts_file[ansible://instance]' when='call' outcome='passed'>
+          pytest_report_teststatus [hook]
+              report: <TestReport 'tests/test_default.py::test_hosts_file[ansible://instance]' when='call' outcome='passed'>
+          finish pytest_report_teststatus --> ('passed', '.', 'PASSED') [hook]
+        finish pytest_runtest_logreport --> [] [hook]
+        pytest_runtest_teardown [hook]
+            item: <Function 'test_hosts_file[ansible://instance]'>
+            nextitem: <Function 'test_nginx_is_installed[ansible://instance]'>
+        finish pytest_runtest_teardown --> [] [hook]
+        pytest_runtest_makereport [hook]
+            item: <Function 'test_hosts_file[ansible://instance]'>
+            call: <CallInfo when='teardown' result: []>
+        finish pytest_runtest_makereport --> <TestReport 'tests/test_default.py::test_hosts_file[ansible://instance]' when='teardown' outcome='passed'> [hook]
+        pytest_runtest_logreport [hook]
+            report: <TestReport 'tests/test_default.py::test_hosts_file[ansible://instance]' when='teardown' outcome='passed'>
+          pytest_report_teststatus [hook]
+              report: <TestReport 'tests/test_default.py::test_hosts_file[ansible://instance]' when='teardown' outcome='passed'>
+          finish pytest_report_teststatus --> ('', '', '') [hook]
+        finish pytest_runtest_logreport --> [] [hook]
+        pytest_runtest_logfinish [hook]
+            location: ('tests/test_default.py', 8, 'test_hosts_file[ansible://instance]')
+            nodeid: tests/test_default.py::test_hosts_file[ansible://instance]
+        finish pytest_runtest_logfinish --> [] [hook]
+      finish pytest_runtest_protocol --> True [hook]
+      pytest_runtest_protocol [hook]
+          item: <Function 'test_nginx_is_installed[ansible://instance]'>
+          nextitem: <Function 'test_nginx_running_and_enabled[ansible://instance]'>
+        pytest_runtest_logstart [hook]
+            location: ('tests/test_default.py', 15, 'test_nginx_is_installed[ansible://instance]')
+            nodeid: tests/test_default.py::test_nginx_is_installed[ansible://instance]
+        finish pytest_runtest_logstart --> [] [hook]
+        pytest_runtest_setup [hook]
+            item: <Function 'test_nginx_is_installed[ansible://instance]'>
+        finish pytest_runtest_setup --> [] [hook]
+        pytest_runtest_makereport [hook]
+            item: <Function 'test_nginx_is_installed[ansible://instance]'>
+            call: <CallInfo when='setup' result: []>
+        finish pytest_runtest_makereport --> <TestReport 'tests/test_default.py::test_nginx_is_installed[ansible://instance]' when='setup' outcome='passed'> [hook]
+        pytest_runtest_logreport [hook]
+            report: <TestReport 'tests/test_default.py::test_nginx_is_installed[ansible://instance]' when='setup' outcome='passed'>
+          pytest_report_teststatus [hook]
+              report: <TestReport 'tests/test_default.py::test_nginx_is_installed[ansible://instance]' when='setup' outcome='passed'>
+          finish pytest_report_teststatus --> ('', '', '') [hook]
+        finish pytest_runtest_logreport --> [] [hook]
+        pytest_runtest_call [hook]
+            item: <Function 'test_nginx_is_installed[ansible://instance]'>
+          pytest_pyfunc_call [hook]
+              pyfuncitem: <Function 'test_nginx_is_installed[ansible://instance]'>
+          find_module called for: testinfra.modules.package [assertion]
+          matched marked file 'testinfra.modules.package' (from 'testinfra') [assertion]
+          found cached rewritten pyc for '/home/sudheer/workspace/pvenvs/ansibleenv/local/lib/python2.7/site-packages/testinfra/modules/package.py' [assertion]
+          finish pytest_pyfunc_call --> True [hook]
+        finish pytest_runtest_call --> [] [hook]
+        pytest_runtest_makereport [hook]
+            item: <Function 'test_nginx_is_installed[ansible://instance]'>
+            call: <CallInfo when='call' result: []>
+        finish pytest_runtest_makereport --> <TestReport 'tests/test_default.py::test_nginx_is_installed[ansible://instance]' when='call' outcome='passed'> [hook]
+        pytest_runtest_logreport [hook]
+            report: <TestReport 'tests/test_default.py::test_nginx_is_installed[ansible://instance]' when='call' outcome='passed'>
+          pytest_report_teststatus [hook]
+              report: <TestReport 'tests/test_default.py::test_nginx_is_installed[ansible://instance]' when='call' outcome='passed'>
+          finish pytest_report_teststatus --> ('passed', '.', 'PASSED') [hook]
+        finish pytest_runtest_logreport --> [] [hook]
+        pytest_runtest_teardown [hook]
+            item: <Function 'test_nginx_is_installed[ansible://instance]'>
+            nextitem: <Function 'test_nginx_running_and_enabled[ansible://instance]'>
+        finish pytest_runtest_teardown --> [] [hook]
+        pytest_runtest_makereport [hook]
+            item: <Function 'test_nginx_is_installed[ansible://instance]'>
+            call: <CallInfo when='teardown' result: []>
+        finish pytest_runtest_makereport --> <TestReport 'tests/test_default.py::test_nginx_is_installed[ansible://instance]' when='teardown' outcome='passed'> [hook]
+        pytest_runtest_logreport [hook]
+            report: <TestReport 'tests/test_default.py::test_nginx_is_installed[ansible://instance]' when='teardown' outcome='passed'>
+          pytest_report_teststatus [hook]
+              report: <TestReport 'tests/test_default.py::test_nginx_is_installed[ansible://instance]' when='teardown' outcome='passed'>
+          finish pytest_report_teststatus --> ('', '', '') [hook]
+        finish pytest_runtest_logreport --> [] [hook]
+        pytest_runtest_logfinish [hook]
+            location: ('tests/test_default.py', 15, 'test_nginx_is_installed[ansible://instance]')
+            nodeid: tests/test_default.py::test_nginx_is_installed[ansible://instance]
+        finish pytest_runtest_logfinish --> [] [hook]
+      finish pytest_runtest_protocol --> True [hook]
+      pytest_runtest_protocol [hook]
+          item: <Function 'test_nginx_running_and_enabled[ansible://instance]'>
+          nextitem: <Function 'test_unicorn_is_running[ansible://instance]'>
+        pytest_runtest_logstart [hook]
+            location: ('tests/test_default.py', 24, 'test_nginx_running_and_enabled[ansible://instance]')
+            nodeid: tests/test_default.py::test_nginx_running_and_enabled[ansible://instance]
+        finish pytest_runtest_logstart --> [] [hook]
+        pytest_runtest_setup [hook]
+            item: <Function 'test_nginx_running_and_enabled[ansible://instance]'>
+        finish pytest_runtest_setup --> [] [hook]
+        pytest_runtest_makereport [hook]
+            item: <Function 'test_nginx_running_and_enabled[ansible://instance]'>
+            call: <CallInfo when='setup' result: []>
+        finish pytest_runtest_makereport --> <TestReport 'tests/test_default.py::test_nginx_running_and_enabled[ansible://instance]' when='setup' outcome='passed'> [hook]
+        pytest_runtest_logreport [hook]
+            report: <TestReport 'tests/test_default.py::test_nginx_running_and_enabled[ansible://instance]' when='setup' outcome='passed'>
+          pytest_report_teststatus [hook]
+              report: <TestReport 'tests/test_default.py::test_nginx_running_and_enabled[ansible://instance]' when='setup' outcome='passed'>
+          finish pytest_report_teststatus --> ('', '', '') [hook]
+        finish pytest_runtest_logreport --> [] [hook]
+        pytest_runtest_call [hook]
+            item: <Function 'test_nginx_running_and_enabled[ansible://instance]'>
+          pytest_pyfunc_call [hook]
+              pyfuncitem: <Function 'test_nginx_running_and_enabled[ansible://instance]'>
+          find_module called for: testinfra.modules.service [assertion]
+          matched marked file 'testinfra.modules.service' (from 'testinfra') [assertion]
+          found cached rewritten pyc for '/home/sudheer/workspace/pvenvs/ansibleenv/local/lib/python2.7/site-packages/testinfra/modules/service.py' [assertion]
+          finish pytest_pyfunc_call --> True [hook]
+        finish pytest_runtest_call --> [] [hook]
+        pytest_runtest_makereport [hook]
+            item: <Function 'test_nginx_running_and_enabled[ansible://instance]'>
+            call: <CallInfo when='call' result: []>
+        finish pytest_runtest_makereport --> <TestReport 'tests/test_default.py::test_nginx_running_and_enabled[ansible://instance]' when='call' outcome='passed'> [hook]
+        pytest_runtest_logreport [hook]
+            report: <TestReport 'tests/test_default.py::test_nginx_running_and_enabled[ansible://instance]' when='call' outcome='passed'>
+          pytest_report_teststatus [hook]
+              report: <TestReport 'tests/test_default.py::test_nginx_running_and_enabled[ansible://instance]' when='call' outcome='passed'>
+          finish pytest_report_teststatus --> ('passed', '.', 'PASSED') [hook]
+        finish pytest_runtest_logreport --> [] [hook]
+        pytest_runtest_teardown [hook]
+            item: <Function 'test_nginx_running_and_enabled[ansible://instance]'>
+            nextitem: <Function 'test_unicorn_is_running[ansible://instance]'>
+        finish pytest_runtest_teardown --> [] [hook]
+        pytest_runtest_makereport [hook]
+            item: <Function 'test_nginx_running_and_enabled[ansible://instance]'>
+            call: <CallInfo when='teardown' result: []>
+        finish pytest_runtest_makereport --> <TestReport 'tests/test_default.py::test_nginx_running_and_enabled[ansible://instance]' when='teardown' outcome='passed'> [hook]
+        pytest_runtest_logreport [hook]
+            report: <TestReport 'tests/test_default.py::test_nginx_running_and_enabled[ansible://instance]' when='teardown' outcome='passed'>
+          pytest_report_teststatus [hook]
+              report: <TestReport 'tests/test_default.py::test_nginx_running_and_enabled[ansible://instance]' when='teardown' outcome='passed'>
+          finish pytest_report_teststatus --> ('', '', '') [hook]
+        finish pytest_runtest_logreport --> [] [hook]
+        pytest_runtest_logfinish [hook]
+            location: ('tests/test_default.py', 24, 'test_nginx_running_and_enabled[ansible://instance]')
+            nodeid: tests/test_default.py::test_nginx_running_and_enabled[ansible://instance]
+        finish pytest_runtest_logfinish --> [] [hook]
+      finish pytest_runtest_protocol --> True [hook]
+      pytest_runtest_protocol [hook]
+          item: <Function 'test_unicorn_is_running[ansible://instance]'>
+          nextitem: <Function 'test_redmine_running_and_enabled[ansible://instance]'>
+        pytest_runtest_logstart [hook]
+            location: ('tests/test_default.py', 29, 'test_unicorn_is_running[ansible://instance]')
+            nodeid: tests/test_default.py::test_unicorn_is_running[ansible://instance]
+        finish pytest_runtest_logstart --> [] [hook]
+        pytest_runtest_setup [hook]
+            item: <Function 'test_unicorn_is_running[ansible://instance]'>
+        finish pytest_runtest_setup --> [] [hook]
+        pytest_runtest_makereport [hook]
+            item: <Function 'test_unicorn_is_running[ansible://instance]'>
+            call: <CallInfo when='setup' result: []>
+        finish pytest_runtest_makereport --> <TestReport 'tests/test_default.py::test_unicorn_is_running[ansible://instance]' when='setup' outcome='passed'> [hook]
+        pytest_runtest_logreport [hook]
+            report: <TestReport 'tests/test_default.py::test_unicorn_is_running[ansible://instance]' when='setup' outcome='passed'>
+          pytest_report_teststatus [hook]
+              report: <TestReport 'tests/test_default.py::test_unicorn_is_running[ansible://instance]' when='setup' outcome='passed'>
+          finish pytest_report_teststatus --> ('', '', '') [hook]
+        finish pytest_runtest_logreport --> [] [hook]
+        pytest_runtest_call [hook]
+            item: <Function 'test_unicorn_is_running[ansible://instance]'>
+          pytest_pyfunc_call [hook]
+              pyfuncitem: <Function 'test_unicorn_is_running[ansible://instance]'>
+          find_module called for: testinfra.modules.process [assertion]
+          matched marked file 'testinfra.modules.process' (from 'testinfra') [assertion]
+          found cached rewritten pyc for '/home/sudheer/workspace/pvenvs/ansibleenv/local/lib/python2.7/site-packages/testinfra/modules/process.py' [assertion]
+          find_module called for: testinfra.modules.six [assertion]
+          matched marked file 'testinfra.modules.six' (from 'testinfra') [assertion]
+          rewriting '/home/sudheer/workspace/pvenvs/ansibleenv/local/lib/python2.7/site-packages/testinfra/modules/six.py' [assertion]
+          finish pytest_pyfunc_call --> True [hook]
+        finish pytest_runtest_call --> [] [hook]
+        pytest_runtest_makereport [hook]
+            item: <Function 'test_unicorn_is_running[ansible://instance]'>
+            call: <CallInfo when='call' result: []>
+        finish pytest_runtest_makereport --> <TestReport 'tests/test_default.py::test_unicorn_is_running[ansible://instance]' when='call' outcome='passed'> [hook]
+        pytest_runtest_logreport [hook]
+            report: <TestReport 'tests/test_default.py::test_unicorn_is_running[ansible://instance]' when='call' outcome='passed'>
+          pytest_report_teststatus [hook]
+              report: <TestReport 'tests/test_default.py::test_unicorn_is_running[ansible://instance]' when='call' outcome='passed'>
+          finish pytest_report_teststatus --> ('passed', '.', 'PASSED') [hook]
+        finish pytest_runtest_logreport --> [] [hook]
+        pytest_runtest_teardown [hook]
+            item: <Function 'test_unicorn_is_running[ansible://instance]'>
+            nextitem: <Function 'test_redmine_running_and_enabled[ansible://instance]'>
+        finish pytest_runtest_teardown --> [] [hook]
+        pytest_runtest_makereport [hook]
+            item: <Function 'test_unicorn_is_running[ansible://instance]'>
+            call: <CallInfo when='teardown' result: []>
+        finish pytest_runtest_makereport --> <TestReport 'tests/test_default.py::test_unicorn_is_running[ansible://instance]' when='teardown' outcome='passed'> [hook]
+        pytest_runtest_logreport [hook]
+            report: <TestReport 'tests/test_default.py::test_unicorn_is_running[ansible://instance]' when='teardown' outcome='passed'>
+          pytest_report_teststatus [hook]
+              report: <TestReport 'tests/test_default.py::test_unicorn_is_running[ansible://instance]' when='teardown' outcome='passed'>
+          finish pytest_report_teststatus --> ('', '', '') [hook]
+        finish pytest_runtest_logreport --> [] [hook]
+        pytest_runtest_logfinish [hook]
+            location: ('tests/test_default.py', 29, 'test_unicorn_is_running[ansible://instance]')
+            nodeid: tests/test_default.py::test_unicorn_is_running[ansible://instance]
+        finish pytest_runtest_logfinish --> [] [hook]
+      finish pytest_runtest_protocol --> True [hook]
+      pytest_runtest_protocol [hook]
+          item: <Function 'test_redmine_running_and_enabled[ansible://instance]'>
+          nextitem: <Function 'test_ruby_packages_installed[ansible://instance]'>
+        pytest_runtest_logstart [hook]
+            location: ('tests/test_default.py', 38, 'test_redmine_running_and_enabled[ansible://instance]')
+            nodeid: tests/test_default.py::test_redmine_running_and_enabled[ansible://instance]
+        finish pytest_runtest_logstart --> [] [hook]
+        pytest_runtest_setup [hook]
+            item: <Function 'test_redmine_running_and_enabled[ansible://instance]'>
+        finish pytest_runtest_setup --> [] [hook]
+        pytest_runtest_makereport [hook]
+            item: <Function 'test_redmine_running_and_enabled[ansible://instance]'>
+            call: <CallInfo when='setup' result: []>
+        finish pytest_runtest_makereport --> <TestReport 'tests/test_default.py::test_redmine_running_and_enabled[ansible://instance]' when='setup' outcome='passed'> [hook]
+        pytest_runtest_logreport [hook]
+            report: <TestReport 'tests/test_default.py::test_redmine_running_and_enabled[ansible://instance]' when='setup' outcome='passed'>
+          pytest_report_teststatus [hook]
+              report: <TestReport 'tests/test_default.py::test_redmine_running_and_enabled[ansible://instance]' when='setup' outcome='passed'>
+          finish pytest_report_teststatus --> ('', '', '') [hook]
+        finish pytest_runtest_logreport --> [] [hook]
+        pytest_runtest_call [hook]
+            item: <Function 'test_redmine_running_and_enabled[ansible://instance]'>
+          pytest_pyfunc_call [hook]
+              pyfuncitem: <Function 'test_redmine_running_and_enabled[ansible://instance]'>
+          finish pytest_pyfunc_call --> True [hook]
+        finish pytest_runtest_call --> [] [hook]
+        pytest_runtest_makereport [hook]
+            item: <Function 'test_redmine_running_and_enabled[ansible://instance]'>
+            call: <CallInfo when='call' result: []>
+        finish pytest_runtest_makereport --> <TestReport 'tests/test_default.py::test_redmine_running_and_enabled[ansible://instance]' when='call' outcome='passed'> [hook]
+        pytest_runtest_logreport [hook]
+            report: <TestReport 'tests/test_default.py::test_redmine_running_and_enabled[ansible://instance]' when='call' outcome='passed'>
+          pytest_report_teststatus [hook]
+              report: <TestReport 'tests/test_default.py::test_redmine_running_and_enabled[ansible://instance]' when='call' outcome='passed'>
+          finish pytest_report_teststatus --> ('passed', '.', 'PASSED') [hook]
+        finish pytest_runtest_logreport --> [] [hook]
+        pytest_runtest_teardown [hook]
+            item: <Function 'test_redmine_running_and_enabled[ansible://instance]'>
+            nextitem: <Function 'test_ruby_packages_installed[ansible://instance]'>
+        finish pytest_runtest_teardown --> [] [hook]
+        pytest_runtest_makereport [hook]
+            item: <Function 'test_redmine_running_and_enabled[ansible://instance]'>
+            call: <CallInfo when='teardown' result: []>
+        finish pytest_runtest_makereport --> <TestReport 'tests/test_default.py::test_redmine_running_and_enabled[ansible://instance]' when='teardown' outcome='passed'> [hook]
+        pytest_runtest_logreport [hook]
+            report: <TestReport 'tests/test_default.py::test_redmine_running_and_enabled[ansible://instance]' when='teardown' outcome='passed'>
+          pytest_report_teststatus [hook]
+              report: <TestReport 'tests/test_default.py::test_redmine_running_and_enabled[ansible://instance]' when='teardown' outcome='passed'>
+          finish pytest_report_teststatus --> ('', '', '') [hook]
+        finish pytest_runtest_logreport --> [] [hook]
+        pytest_runtest_logfinish [hook]
+            location: ('tests/test_default.py', 38, 'test_redmine_running_and_enabled[ansible://instance]')
+            nodeid: tests/test_default.py::test_redmine_running_and_enabled[ansible://instance]
+        finish pytest_runtest_logfinish --> [] [hook]
+      finish pytest_runtest_protocol --> True [hook]
+      pytest_runtest_protocol [hook]
+          item: <Function 'test_ruby_packages_installed[ansible://instance]'>
+          nextitem: <Function 'test_redmine_user[ansible://instance]'>
+        pytest_runtest_logstart [hook]
+            location: ('tests/test_default.py', 43, 'test_ruby_packages_installed[ansible://instance]')
+            nodeid: tests/test_default.py::test_ruby_packages_installed[ansible://instance]
+        finish pytest_runtest_logstart --> [] [hook]
+        pytest_runtest_setup [hook]
+            item: <Function 'test_ruby_packages_installed[ansible://instance]'>
+        finish pytest_runtest_setup --> [] [hook]
+        pytest_runtest_makereport [hook]
+            item: <Function 'test_ruby_packages_installed[ansible://instance]'>
+            call: <CallInfo when='setup' result: []>
+        finish pytest_runtest_makereport --> <TestReport 'tests/test_default.py::test_ruby_packages_installed[ansible://instance]' when='setup' outcome='passed'> [hook]
+        pytest_runtest_logreport [hook]
+            report: <TestReport 'tests/test_default.py::test_ruby_packages_installed[ansible://instance]' when='setup' outcome='passed'>
+          pytest_report_teststatus [hook]
+              report: <TestReport 'tests/test_default.py::test_ruby_packages_installed[ansible://instance]' when='setup' outcome='passed'>
+          finish pytest_report_teststatus --> ('', '', '') [hook]
+        finish pytest_runtest_logreport --> [] [hook]
+        pytest_runtest_call [hook]
+            item: <Function 'test_ruby_packages_installed[ansible://instance]'>
+          pytest_pyfunc_call [hook]
+              pyfuncitem: <Function 'test_ruby_packages_installed[ansible://instance]'>
+          finish pytest_pyfunc_call --> True [hook]
+        finish pytest_runtest_call --> [] [hook]
+        pytest_runtest_makereport [hook]
+            item: <Function 'test_ruby_packages_installed[ansible://instance]'>
+            call: <CallInfo when='call' result: []>
+        finish pytest_runtest_makereport --> <TestReport 'tests/test_default.py::test_ruby_packages_installed[ansible://instance]' when='call' outcome='passed'> [hook]
+        pytest_runtest_logreport [hook]
+            report: <TestReport 'tests/test_default.py::test_ruby_packages_installed[ansible://instance]' when='call' outcome='passed'>
+          pytest_report_teststatus [hook]
+              report: <TestReport 'tests/test_default.py::test_ruby_packages_installed[ansible://instance]' when='call' outcome='passed'>
+          finish pytest_report_teststatus --> ('passed', '.', 'PASSED') [hook]
+        finish pytest_runtest_logreport --> [] [hook]
+        pytest_runtest_teardown [hook]
+            item: <Function 'test_ruby_packages_installed[ansible://instance]'>
+            nextitem: <Function 'test_redmine_user[ansible://instance]'>
+        finish pytest_runtest_teardown --> [] [hook]
+        pytest_runtest_makereport [hook]
+            item: <Function 'test_ruby_packages_installed[ansible://instance]'>
+            call: <CallInfo when='teardown' result: []>
+        finish pytest_runtest_makereport --> <TestReport 'tests/test_default.py::test_ruby_packages_installed[ansible://instance]' when='teardown' outcome='passed'> [hook]
+        pytest_runtest_logreport [hook]
+            report: <TestReport 'tests/test_default.py::test_ruby_packages_installed[ansible://instance]' when='teardown' outcome='passed'>
+          pytest_report_teststatus [hook]
+              report: <TestReport 'tests/test_default.py::test_ruby_packages_installed[ansible://instance]' when='teardown' outcome='passed'>
+          finish pytest_report_teststatus --> ('', '', '') [hook]
+        finish pytest_runtest_logreport --> [] [hook]
+        pytest_runtest_logfinish [hook]
+            location: ('tests/test_default.py', 43, 'test_ruby_packages_installed[ansible://instance]')
+            nodeid: tests/test_default.py::test_ruby_packages_installed[ansible://instance]
+        finish pytest_runtest_logfinish --> [] [hook]
+      finish pytest_runtest_protocol --> True [hook]
+      pytest_runtest_protocol [hook]
+          item: <Function 'test_redmine_user[ansible://instance]'>
+          nextitem: <Function 'test_redmine_db_configuration_file[ansible://instance]'>
+        pytest_runtest_logstart [hook]
+            location: ('tests/test_default.py', 48, 'test_redmine_user[ansible://instance]')
+            nodeid: tests/test_default.py::test_redmine_user[ansible://instance]
+        finish pytest_runtest_logstart --> [] [hook]
+        pytest_runtest_setup [hook]
+            item: <Function 'test_redmine_user[ansible://instance]'>
+        finish pytest_runtest_setup --> [] [hook]
+        pytest_runtest_makereport [hook]
+            item: <Function 'test_redmine_user[ansible://instance]'>
+            call: <CallInfo when='setup' result: []>
+        finish pytest_runtest_makereport --> <TestReport 'tests/test_default.py::test_redmine_user[ansible://instance]' when='setup' outcome='passed'> [hook]
+        pytest_runtest_logreport [hook]
+            report: <TestReport 'tests/test_default.py::test_redmine_user[ansible://instance]' when='setup' outcome='passed'>
+          pytest_report_teststatus [hook]
+              report: <TestReport 'tests/test_default.py::test_redmine_user[ansible://instance]' when='setup' outcome='passed'>
+          finish pytest_report_teststatus --> ('', '', '') [hook]
+        finish pytest_runtest_logreport --> [] [hook]
+        pytest_runtest_call [hook]
+            item: <Function 'test_redmine_user[ansible://instance]'>
+          pytest_pyfunc_call [hook]
+              pyfuncitem: <Function 'test_redmine_user[ansible://instance]'>
+          find_module called for: testinfra.modules.user [assertion]
+          matched marked file 'testinfra.modules.user' (from 'testinfra') [assertion]
+          found cached rewritten pyc for '/home/sudheer/workspace/pvenvs/ansibleenv/local/lib/python2.7/site-packages/testinfra/modules/user.py' [assertion]
+          finish pytest_pyfunc_call --> True [hook]
+        finish pytest_runtest_call --> [] [hook]
+        pytest_runtest_makereport [hook]
+            item: <Function 'test_redmine_user[ansible://instance]'>
+            call: <CallInfo when='call' result: []>
+        finish pytest_runtest_makereport --> <TestReport 'tests/test_default.py::test_redmine_user[ansible://instance]' when='call' outcome='passed'> [hook]
+        pytest_runtest_logreport [hook]
+            report: <TestReport 'tests/test_default.py::test_redmine_user[ansible://instance]' when='call' outcome='passed'>
+          pytest_report_teststatus [hook]
+              report: <TestReport 'tests/test_default.py::test_redmine_user[ansible://instance]' when='call' outcome='passed'>
+          finish pytest_report_teststatus --> ('passed', '.', 'PASSED') [hook]
+        finish pytest_runtest_logreport --> [] [hook]
+        pytest_runtest_teardown [hook]
+            item: <Function 'test_redmine_user[ansible://instance]'>
+            nextitem: <Function 'test_redmine_db_configuration_file[ansible://instance]'>
+        finish pytest_runtest_teardown --> [] [hook]
+        pytest_runtest_makereport [hook]
+            item: <Function 'test_redmine_user[ansible://instance]'>
+            call: <CallInfo when='teardown' result: []>
+        finish pytest_runtest_makereport --> <TestReport 'tests/test_default.py::test_redmine_user[ansible://instance]' when='teardown' outcome='passed'> [hook]
+        pytest_runtest_logreport [hook]
+            report: <TestReport 'tests/test_default.py::test_redmine_user[ansible://instance]' when='teardown' outcome='passed'>
+          pytest_report_teststatus [hook]
+              report: <TestReport 'tests/test_default.py::test_redmine_user[ansible://instance]' when='teardown' outcome='passed'>
+          finish pytest_report_teststatus --> ('', '', '') [hook]
+        finish pytest_runtest_logreport --> [] [hook]
+        pytest_runtest_logfinish [hook]
+            location: ('tests/test_default.py', 48, 'test_redmine_user[ansible://instance]')
+            nodeid: tests/test_default.py::test_redmine_user[ansible://instance]
+        finish pytest_runtest_logfinish --> [] [hook]
+      finish pytest_runtest_protocol --> True [hook]
+      pytest_runtest_protocol [hook]
+          item: <Function 'test_redmine_db_configuration_file[ansible://instance]'>
+          nextitem: <Function 'test_redmine_configuration_file[ansible://instance]'>
+        pytest_runtest_logstart [hook]
+            location: ('tests/test_default.py', 51, 'test_redmine_db_configuration_file[ansible://instance]')
+            nodeid: tests/test_default.py::test_redmine_db_configuration_file[ansible://instance]
+        finish pytest_runtest_logstart --> [] [hook]
+        pytest_runtest_setup [hook]
+            item: <Function 'test_redmine_db_configuration_file[ansible://instance]'>
+        finish pytest_runtest_setup --> [] [hook]
+        pytest_runtest_makereport [hook]
+            item: <Function 'test_redmine_db_configuration_file[ansible://instance]'>
+            call: <CallInfo when='setup' result: []>
+        finish pytest_runtest_makereport --> <TestReport 'tests/test_default.py::test_redmine_db_configuration_file[ansible://instance]' when='setup' outcome='passed'> [hook]
+        pytest_runtest_logreport [hook]
+            report: <TestReport 'tests/test_default.py::test_redmine_db_configuration_file[ansible://instance]' when='setup' outcome='passed'>
+          pytest_report_teststatus [hook]
+              report: <TestReport 'tests/test_default.py::test_redmine_db_configuration_file[ansible://instance]' when='setup' outcome='passed'>
+          finish pytest_report_teststatus --> ('', '', '') [hook]
+        finish pytest_runtest_logreport --> [] [hook]
+        pytest_runtest_call [hook]
+            item: <Function 'test_redmine_db_configuration_file[ansible://instance]'>
+          pytest_pyfunc_call [hook]
+              pyfuncitem: <Function 'test_redmine_db_configuration_file[ansible://instance]'>
+          finish pytest_pyfunc_call --> True [hook]
+        finish pytest_runtest_call --> [] [hook]
+        pytest_runtest_makereport [hook]
+            item: <Function 'test_redmine_db_configuration_file[ansible://instance]'>
+            call: <CallInfo when='call' result: []>
+        finish pytest_runtest_makereport --> <TestReport 'tests/test_default.py::test_redmine_db_configuration_file[ansible://instance]' when='call' outcome='passed'> [hook]
+        pytest_runtest_logreport [hook]
+            report: <TestReport 'tests/test_default.py::test_redmine_db_configuration_file[ansible://instance]' when='call' outcome='passed'>
+          pytest_report_teststatus [hook]
+              report: <TestReport 'tests/test_default.py::test_redmine_db_configuration_file[ansible://instance]' when='call' outcome='passed'>
+          finish pytest_report_teststatus --> ('passed', '.', 'PASSED') [hook]
+        finish pytest_runtest_logreport --> [] [hook]
+        pytest_runtest_teardown [hook]
+            item: <Function 'test_redmine_db_configuration_file[ansible://instance]'>
+            nextitem: <Function 'test_redmine_configuration_file[ansible://instance]'>
+        finish pytest_runtest_teardown --> [] [hook]
+        pytest_runtest_makereport [hook]
+            item: <Function 'test_redmine_db_configuration_file[ansible://instance]'>
+            call: <CallInfo when='teardown' result: []>
+        finish pytest_runtest_makereport --> <TestReport 'tests/test_default.py::test_redmine_db_configuration_file[ansible://instance]' when='teardown' outcome='passed'> [hook]
+        pytest_runtest_logreport [hook]
+            report: <TestReport 'tests/test_default.py::test_redmine_db_configuration_file[ansible://instance]' when='teardown' outcome='passed'>
+          pytest_report_teststatus [hook]
+              report: <TestReport 'tests/test_default.py::test_redmine_db_configuration_file[ansible://instance]' when='teardown' outcome='passed'>
+          finish pytest_report_teststatus --> ('', '', '') [hook]
+        finish pytest_runtest_logreport --> [] [hook]
+        pytest_runtest_logfinish [hook]
+            location: ('tests/test_default.py', 51, 'test_redmine_db_configuration_file[ansible://instance]')
+            nodeid: tests/test_default.py::test_redmine_db_configuration_file[ansible://instance]
+        finish pytest_runtest_logfinish --> [] [hook]
+      finish pytest_runtest_protocol --> True [hook]
+      pytest_runtest_protocol [hook]
+          item: <Function 'test_redmine_configuration_file[ansible://instance]'>
+          nextitem: None
+        pytest_runtest_logstart [hook]
+            location: ('tests/test_default.py', 59, 'test_redmine_configuration_file[ansible://instance]')
+            nodeid: tests/test_default.py::test_redmine_configuration_file[ansible://instance]
+        finish pytest_runtest_logstart --> [] [hook]
+        pytest_runtest_setup [hook]
+            item: <Function 'test_redmine_configuration_file[ansible://instance]'>
+        finish pytest_runtest_setup --> [] [hook]
+        pytest_runtest_makereport [hook]
+            item: <Function 'test_redmine_configuration_file[ansible://instance]'>
+            call: <CallInfo when='setup' result: []>
+        finish pytest_runtest_makereport --> <TestReport 'tests/test_default.py::test_redmine_configuration_file[ansible://instance]' when='setup' outcome='passed'> [hook]
+        pytest_runtest_logreport [hook]
+            report: <TestReport 'tests/test_default.py::test_redmine_configuration_file[ansible://instance]' when='setup' outcome='passed'>
+          pytest_report_teststatus [hook]
+              report: <TestReport 'tests/test_default.py::test_redmine_configuration_file[ansible://instance]' when='setup' outcome='passed'>
+          finish pytest_report_teststatus --> ('', '', '') [hook]
+        finish pytest_runtest_logreport --> [] [hook]
+        pytest_runtest_call [hook]
+            item: <Function 'test_redmine_configuration_file[ansible://instance]'>
+          pytest_pyfunc_call [hook]
+              pyfuncitem: <Function 'test_redmine_configuration_file[ansible://instance]'>
+          finish pytest_pyfunc_call --> True [hook]
+        finish pytest_runtest_call --> [] [hook]
+        pytest_runtest_makereport [hook]
+            item: <Function 'test_redmine_configuration_file[ansible://instance]'>
+            call: <CallInfo when='call' result: []>
+        finish pytest_runtest_makereport --> <TestReport 'tests/test_default.py::test_redmine_configuration_file[ansible://instance]' when='call' outcome='passed'> [hook]
+        pytest_runtest_logreport [hook]
+            report: <TestReport 'tests/test_default.py::test_redmine_configuration_file[ansible://instance]' when='call' outcome='passed'>
+          pytest_report_teststatus [hook]
+              report: <TestReport 'tests/test_default.py::test_redmine_configuration_file[ansible://instance]' when='call' outcome='passed'>
+          finish pytest_report_teststatus --> ('passed', '.', 'PASSED') [hook]
+        finish pytest_runtest_logreport --> [] [hook]
+        pytest_runtest_teardown [hook]
+            item: <Function 'test_redmine_configuration_file[ansible://instance]'>
+            nextitem: None
+          pytest_fixture_post_finalizer [hook]
+              fixturedef: <FixtureDef name='host' scope=u'module' baseid='' >
+              request: <SubRequest 'host' for <Function 'test_redmine_configuration_file[ansible://instance]'>>
+          finish pytest_fixture_post_finalizer --> [] [hook]
+          pytest_fixture_post_finalizer [hook]
+              fixturedef: <FixtureDef name='host' scope=u'module' baseid='' >
+              request: <SubRequest 'host' for <Function 'test_redmine_configuration_file[ansible://instance]'>>
+          finish pytest_fixture_post_finalizer --> [] [hook]
+          pytest_fixture_post_finalizer [hook]
+              fixturedef: <FixtureDef name='host' scope=u'module' baseid='' >
+              request: <SubRequest 'host' for <Function 'test_redmine_db_configuration_file[ansible://instance]'>>
+          finish pytest_fixture_post_finalizer --> [] [hook]
+          pytest_fixture_post_finalizer [hook]
+              fixturedef: <FixtureDef name='host' scope=u'module' baseid='' >
+              request: <SubRequest 'host' for <Function 'test_redmine_user[ansible://instance]'>>
+          finish pytest_fixture_post_finalizer --> [] [hook]
+          pytest_fixture_post_finalizer [hook]
+              fixturedef: <FixtureDef name='host' scope=u'module' baseid='' >
+              request: <SubRequest 'host' for <Function 'test_ruby_packages_installed[ansible://instance]'>>
+          finish pytest_fixture_post_finalizer --> [] [hook]
+          pytest_fixture_post_finalizer [hook]
+              fixturedef: <FixtureDef name='host' scope=u'module' baseid='' >
+              request: <SubRequest 'host' for <Function 'test_redmine_running_and_enabled[ansible://instance]'>>
+          finish pytest_fixture_post_finalizer --> [] [hook]
+          pytest_fixture_post_finalizer [hook]
+              fixturedef: <FixtureDef name='host' scope=u'module' baseid='' >
+              request: <SubRequest 'host' for <Function 'test_unicorn_is_running[ansible://instance]'>>
+          finish pytest_fixture_post_finalizer --> [] [hook]
+          pytest_fixture_post_finalizer [hook]
+              fixturedef: <FixtureDef name='host' scope=u'module' baseid='' >
+              request: <SubRequest 'host' for <Function 'test_nginx_running_and_enabled[ansible://instance]'>>
+          finish pytest_fixture_post_finalizer --> [] [hook]
+          pytest_fixture_post_finalizer [hook]
+              fixturedef: <FixtureDef name='host' scope=u'module' baseid='' >
+              request: <SubRequest 'host' for <Function 'test_nginx_is_installed[ansible://instance]'>>
+          finish pytest_fixture_post_finalizer --> [] [hook]
+          pytest_fixture_post_finalizer [hook]
+              fixturedef: <FixtureDef name='host' scope=u'module' baseid='' >
+              request: <SubRequest 'host' for <Function 'test_hosts_file[ansible://instance]'>>
+          finish pytest_fixture_post_finalizer --> [] [hook]
+          pytest_fixture_post_finalizer [hook]
+              fixturedef: <FixtureDef name=u'_testinfra_host' scope='module' baseid='' >
+              request: <SubRequest u'_testinfra_host' for <Function 'test_redmine_configuration_file[ansible://instance]'>>
+          finish pytest_fixture_post_finalizer --> [] [hook]
+          pytest_fixture_post_finalizer [hook]
+              fixturedef: <FixtureDef name='host' scope=u'module' baseid='' >
+              request: <SubRequest 'host' for <Function 'test_redmine_db_configuration_file[ansible://instance]'>>
+          finish pytest_fixture_post_finalizer --> [] [hook]
+          pytest_fixture_post_finalizer [hook]
+              fixturedef: <FixtureDef name=u'_testinfra_host' scope='module' baseid='' >
+              request: <SubRequest u'_testinfra_host' for <Function 'test_redmine_db_configuration_file[ansible://instance]'>>
+          finish pytest_fixture_post_finalizer --> [] [hook]
+          pytest_fixture_post_finalizer [hook]
+              fixturedef: <FixtureDef name='host' scope=u'module' baseid='' >
+              request: <SubRequest 'host' for <Function 'test_redmine_user[ansible://instance]'>>
+          finish pytest_fixture_post_finalizer --> [] [hook]
+          pytest_fixture_post_finalizer [hook]
+              fixturedef: <FixtureDef name=u'_testinfra_host' scope='module' baseid='' >
+              request: <SubRequest u'_testinfra_host' for <Function 'test_redmine_user[ansible://instance]'>>
+          finish pytest_fixture_post_finalizer --> [] [hook]
+          pytest_fixture_post_finalizer [hook]
+              fixturedef: <FixtureDef name='host' scope=u'module' baseid='' >
+              request: <SubRequest 'host' for <Function 'test_ruby_packages_installed[ansible://instance]'>>
+          finish pytest_fixture_post_finalizer --> [] [hook]
+          pytest_fixture_post_finalizer [hook]
+              fixturedef: <FixtureDef name=u'_testinfra_host' scope='module' baseid='' >
+              request: <SubRequest u'_testinfra_host' for <Function 'test_ruby_packages_installed[ansible://instance]'>>
+          finish pytest_fixture_post_finalizer --> [] [hook]
+          pytest_fixture_post_finalizer [hook]
+              fixturedef: <FixtureDef name='host' scope=u'module' baseid='' >
+              request: <SubRequest 'host' for <Function 'test_redmine_running_and_enabled[ansible://instance]'>>
+          finish pytest_fixture_post_finalizer --> [] [hook]
+          pytest_fixture_post_finalizer [hook]
+              fixturedef: <FixtureDef name=u'_testinfra_host' scope='module' baseid='' >
+              request: <SubRequest u'_testinfra_host' for <Function 'test_redmine_running_and_enabled[ansible://instance]'>>
+          finish pytest_fixture_post_finalizer --> [] [hook]
+          pytest_fixture_post_finalizer [hook]
+              fixturedef: <FixtureDef name='host' scope=u'module' baseid='' >
+              request: <SubRequest 'host' for <Function 'test_unicorn_is_running[ansible://instance]'>>
+          finish pytest_fixture_post_finalizer --> [] [hook]
+          pytest_fixture_post_finalizer [hook]
+              fixturedef: <FixtureDef name=u'_testinfra_host' scope='module' baseid='' >
+              request: <SubRequest u'_testinfra_host' for <Function 'test_unicorn_is_running[ansible://instance]'>>
+          finish pytest_fixture_post_finalizer --> [] [hook]
+          pytest_fixture_post_finalizer [hook]
+              fixturedef: <FixtureDef name='host' scope=u'module' baseid='' >
+              request: <SubRequest 'host' for <Function 'test_nginx_running_and_enabled[ansible://instance]'>>
+          finish pytest_fixture_post_finalizer --> [] [hook]
+          pytest_fixture_post_finalizer [hook]
+              fixturedef: <FixtureDef name=u'_testinfra_host' scope='module' baseid='' >
+              request: <SubRequest u'_testinfra_host' for <Function 'test_nginx_running_and_enabled[ansible://instance]'>>
+          finish pytest_fixture_post_finalizer --> [] [hook]
+          pytest_fixture_post_finalizer [hook]
+              fixturedef: <FixtureDef name='host' scope=u'module' baseid='' >
+              request: <SubRequest 'host' for <Function 'test_nginx_is_installed[ansible://instance]'>>
+          finish pytest_fixture_post_finalizer --> [] [hook]
+          pytest_fixture_post_finalizer [hook]
+              fixturedef: <FixtureDef name=u'_testinfra_host' scope='module' baseid='' >
+              request: <SubRequest u'_testinfra_host' for <Function 'test_nginx_is_installed[ansible://instance]'>>
+          finish pytest_fixture_post_finalizer --> [] [hook]
+          pytest_fixture_post_finalizer [hook]
+              fixturedef: <FixtureDef name='host' scope=u'module' baseid='' >
+              request: <SubRequest 'host' for <Function 'test_hosts_file[ansible://instance]'>>
+          finish pytest_fixture_post_finalizer --> [] [hook]
+          pytest_fixture_post_finalizer [hook]
+              fixturedef: <FixtureDef name=u'_testinfra_host' scope='module' baseid='' >
+              request: <SubRequest u'_testinfra_host' for <Function 'test_hosts_file[ansible://instance]'>>
+          finish pytest_fixture_post_finalizer --> [] [hook]
+        finish pytest_runtest_teardown --> [] [hook]
+        pytest_runtest_makereport [hook]
+            item: <Function 'test_redmine_configuration_file[ansible://instance]'>
+            call: <CallInfo when='teardown' result: []>
+        finish pytest_runtest_makereport --> <TestReport 'tests/test_default.py::test_redmine_configuration_file[ansible://instance]' when='teardown' outcome='passed'> [hook]
+        pytest_runtest_logreport [hook]
+            report: <TestReport 'tests/test_default.py::test_redmine_configuration_file[ansible://instance]' when='teardown' outcome='passed'>
+          pytest_report_teststatus [hook]
+              report: <TestReport 'tests/test_default.py::test_redmine_configuration_file[ansible://instance]' when='teardown' outcome='passed'>
+          finish pytest_report_teststatus --> ('', '', '') [hook]
+        finish pytest_runtest_logreport --> [] [hook]
+        pytest_runtest_logfinish [hook]
+            location: ('tests/test_default.py', 59, 'test_redmine_configuration_file[ansible://instance]')
+            nodeid: tests/test_default.py::test_redmine_configuration_file[ansible://instance]
+        finish pytest_runtest_logfinish --> [] [hook]
+      finish pytest_runtest_protocol --> True [hook]
+    finish pytest_runtestloop --> True [hook]
+    pytest_sessionfinish [hook]
+        session: <Session 'default'>
+        exitstatus: 0
+      pytest_terminal_summary [hook]
+          exitstatus: 0
+          terminalreporter: <_pytest.terminal.TerminalReporter object at 0x7f3af1c634d0>
+      finish pytest_terminal_summary --> [] [hook]
+    finish pytest_sessionfinish --> [] [hook]
+    pytest_unconfigure [hook]
+        config: <_pytest.config.Config object at 0x7f3af2b4e450>
+    finish pytest_unconfigure --> [] [hook]
+  finish [config:tmpdir]
