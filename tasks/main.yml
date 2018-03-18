@@ -23,7 +23,7 @@
     - epel-release
     # - libwmf-devel
     - which
-    - "{{ sql_driver_dependencies }}"
+    - "{{ _sql_driver_dependencies }}"
 
 - name: Ensure Nginx is installed
   yum:
