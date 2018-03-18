@@ -1,4 +1,7 @@
 ---
+- name: include {{ redmine_sql_driver }}-specific dependencies
+  include_vars: "{{ redmine_sql_driver }}.yml"
+
 # Split playbook with Ruby and Redmmine bug -
 # https://github.com/ansible/ansible/issues/27520
 # TODO: TCP Socket with unicorn
@@ -17,10 +20,10 @@
     - ImageMagick-c++-devel
     - gcc
     - patch
-    - mariadb-devel
     - epel-release
     # - libwmf-devel
     - which
+    - "{{ _sql_driver_dependencies }}"
 
 - name: Ensure Nginx is installed
   yum:
