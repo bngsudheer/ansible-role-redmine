@@ -40,10 +40,6 @@
     - redmine_smtp_settings_user_name: redmine@redmine.example.com
     - redmine_smtp_settings_password: password
     - redmine_smtp_settings_enable_starttls_auto: true
-  pre_tasks:
-    - name: install pglib
-      yum:
-        name: postgresql-devel
   roles:
     - geerlingguy.postgresql
     - bngsudheer.centos_base
