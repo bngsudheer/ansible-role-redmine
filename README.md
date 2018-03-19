@@ -11,7 +11,7 @@ Note On Debian And Ubuntu:
 ===========
 * Debian Stretch provides the [Redmine package](https://packages.debian.org/stable/web/redmine)
 and can be installed via apt.
-* Ubuntu multiverse provides the [Redmine package](https://packages.ubuntu.com/xenial/web/redmine)
+* Ubuntu multiverse provides the [Redmine package](https://packages.ubuntu.com/xenial/web/redmine) and can be installed via apt.
 
 
 This role will install the required RPM packages from the official CentOS 7
