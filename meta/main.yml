@@ -12,5 +12,4 @@ galaxy_info:
   galaxy_tags:
     - development
     - web
-dependencies:
-  - bngsudheer.centos_base
+dependencies: []
