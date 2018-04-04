@@ -90,7 +90,7 @@
   become_user: redmine
   when: redmine_cat.stat.exists == False
 
-- name: copy source files to target directory
+- name: Copy Redmine source files to runtime directory
   shell: "mv /home/redmine/redmine-{{ redmine_version }}/* /home/redmine/redmine/"
   become: true
   become_user: redmine
@@ -136,7 +136,7 @@
   become: true
   become_user: redmine
 
-- name: Install the required gems via bundler
+- name: Install the gems needed by Redmine via bundler
   bundler:
     executable: /home/redmine/bin/bundler
     gemfile: "{{ redmine_home }}/Gemfile"
@@ -144,7 +144,7 @@
   become: true
   become_user: redmine
 
-- name: stat secret token file
+- name: Stat secret token file
   stat:
     path: "{{ redmine_home }}/config/initializers/secret_token.rb"
   register:
@@ -177,12 +177,12 @@
   tags:
     - skip_ansible_lint
 
-- name: show db_migrate
+- name: Show db_migrate
   debug:
     msg: "{{ db_migrate }}"
     verbosity: 3
 
-- name: directories for shared resources
+- name: Directories for shared resources
   file:
     path: "{{ redmine_home }}/shared/{{ item }}"
     state: directory
@@ -229,7 +229,7 @@
 #   args:
 #     chdir: "{{ redmine_home }}"
 
-- name: firewall open http and https ports
+- name: Firewall open http and https ports
   firewalld:
     permanent: true
     service: "{{ item }}"
