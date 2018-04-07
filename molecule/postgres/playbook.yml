@@ -3,7 +3,6 @@
   hosts: all
   vars:
     - centos_base_enable_epel: true
-    - centos_base_fail2ban_configuration: true
     - centos_base_install_selinux_packages: true
     - centos_base_basic_packages: true
     - redmine_sql_database_name: "redmine"
