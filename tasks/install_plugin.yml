@@ -30,7 +30,9 @@
   when: plugin_directory_stat.stat.exists == False
 
 - name: Plugins migrate
-  shell: RAILS_ENV=production /home/redmine/bin/bundle exec /home/redmine/bin/rake redmine:plugins:migrate
+  environment:
+    RAILS_ENV: production
+  shell: /home/redmine/bin/bundle exec /home/redmine/bin/rake redmine:plugins:migrate
   args:
     chdir: "{{ redmine_home }}"
   notify:
