@@ -293,9 +293,7 @@
 - name: Install Redmine plugins
   include_tasks: install_plugin.yml
   with_items: "{{ redmine_plugins }}"
-  become: true
-  become_user: redmine
-
+  
 - name: Configure SELinux policies
   include_tasks: selinux.yml
   when: redmine_configure_selinux

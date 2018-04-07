@@ -10,6 +10,8 @@
     dest: "{{ redmine_home }}/plugins/"
   when: plugin_directory_stat.stat.exists == False
   register: plugin_download
+  become: true
+  become_user: redmine
 
 - name: Debug plugin_download
   debug:
@@ -21,6 +23,8 @@
   file:
     path: "{{ redmine_home }}/plugins/{{ item.base_name }}"
     state: directory
+  become: true
+  become_user: redmine
 
 - name: Extract plugin
   unarchive:
@@ -28,6 +32,8 @@
     dest: "{{ redmine_home }}/plugins/{{ item.base_name }}"
     src: "{{ plugin_download.dest }}"
   when: plugin_directory_stat.stat.exists == False
+  become: true
+  become_user: redmine
 
 - name: Plugins migrate
   environment:
@@ -40,3 +46,5 @@
   when: plugin_download.changed
   tags:
     - skip_ansible_lint
+  become: true
+  become_user: redmine
