@@ -84,7 +84,7 @@ These variables are available with the following default values:
 | redmine_unicorn_port| 5000 | Port number on which Unicorn serves | No |
 | redmine_configure_firewalld | yes | Whether to configure Firewalld | No|
 | redmine_nginx_bind_ip | (Empty string) |  IP address to bind Nginx to | No | |
-| redmine_plugins| [] | List of Redmine plugins to install. Each item in the list is a dictionary with keys *name*, *base_name* and *url*. The *base_name* is the directory name that will be used in the plugins directory. *name* is for human reference. *url* is the location from where the plugin has to be downloaded.| No |
+| redmine_plugins| [] | List of Redmine plugins to install. Each item in the list is a dictionary with keys *name*, *base_name*, *url* and *create_base_directory*. The *base_name* is the directory name that will be used in the plugins directory. *name* is for human reference. *url* is the location from where the plugin has to be downloaded. *create_base_directory* is a boolean to determine whether a the base_name directory has to be created in the plugins directory. | No |
 | redmine_configure_selinux| no | Whether to configure Redmine to support SELinux | No |
 | redmine_bundler_version| 1.16.1 | Bunder version. If you use a recent version, you will probably require Ruby >= 2.1 | No |
 | redmine_additional_configuration | false | In addition to database configuration, setup Redmine configuration | No |
@@ -142,6 +142,7 @@ Example playbook
           - name: scrum
             base_name: scrum
             url: https://redmine.ociotec.com/attachments/download/481/scrum-v0.18.1.tar.gz
+            create_base_directory: false
        remote_user: root
        roles:
           - bngsudheer.centos_base
