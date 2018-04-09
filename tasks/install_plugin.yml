@@ -66,8 +66,8 @@
 
 - name: Creates file for plugin mapping directory task
   file:
-      path: "{{ redmine_home }}/.ansible-plugin-{{ item.base_name }}.creates"
-      state: touch
+    path: "{{ redmine_home }}/.ansible-plugin-{{ item.base_name }}.creates"
+    state: touch
   when: mapping_creates.changed
   tags:
     - skip_ansible_lint
