@@ -1,7 +1,8 @@
 ---
-- name: debug plugin info
+- name: Debug plugin info
   debug:
     msg: item details "{{ item }}"
+    verbosity: 3
 
 - name: Stat the plugin directory
   stat:
@@ -41,9 +42,10 @@
     plugin_directory: "{{ redmine_home }}/plugins/"
   when: item.create_base_directory
 
-- name: debug target dir
+- name: Debug target dir
   debug:
     msg: "{{plugin_directory}}"
+    verbosity: 3
 
 - name: Extract plugin
   unarchive:

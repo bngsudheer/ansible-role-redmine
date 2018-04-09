@@ -16,9 +16,11 @@
         - name: scrum
           base_name: scrum
           url: https://redmine.ociotec.com/attachments/download/481/scrum-v0.18.1.tar.gz
+          create_base_directory: false
         - name: timesheet
           base_name: timesheet
           url: https://github.com/Contargo/redmine-timesheet-plugin/archive/master.zip
+          create_base_directory: false
     - postgresql_hba_entries:
         - { type: local, database: all, user: postgres, auth_method: peer }
         - { type: local, database: all, user: all, auth_method: peer }
