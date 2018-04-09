@@ -21,7 +21,6 @@
     - gcc
     - patch
     - epel-release
-    # - libwmf-devel
     - which
     - "{{ _sql_driver_dependencies }}"
 
@@ -53,7 +52,7 @@
   become_user: redmine
   when: redmine_cat.stat.exists == False
 
-- name: redmine directory
+- name: Ensure redmine runtime directory exists
   file:
     path: /home/redmine/redmine
     state: directory
@@ -206,7 +205,7 @@
     src: usr/lib/systemd/system/redmine.service
     dest: /usr/lib/systemd/system/
 
-- name: temp, log and other directories
+- name: Ensure temp, log and other Redmine directories exist
   file:
     path: "{{ redmine_home }}/{{ item }}"
     state: directory

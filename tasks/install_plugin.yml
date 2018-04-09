@@ -1,4 +1,8 @@
 ---
+- name: debug plugin info
+  debug:
+    msg: item details "{{ item }}"
+
 - name: Stat the plugin directory
   stat:
     path: "{{ redmine_home }}/plugins/{{ item.base_name }}"
@@ -19,21 +23,54 @@
     verbosity: 3
   when: plugin_directory_stat.stat.exists == False
 
-- name: Create plugin directory
+- name: Create plugin base directory
   file:
     path: "{{ redmine_home }}/plugins/{{ item.base_name }}"
     state: directory
   become: true
   become_user: redmine
+  when: item.create_base_directory
+
+- name: Set plugin archvie extraction target path - archive contains base_name root directory
+  set_fact:
+    plugin_directory: "{{ redmine_home }}/plugins/"
+  when: item.create_base_directory == False
+
+- name: Set plugin archvie extraction target path - archive does not contains base_name root directory
+  set_fact:
+    plugin_directory: "{{ redmine_home }}/plugins/"
+  when: item.create_base_directory
+
+- name: debug target dir
+  debug:
+    msg: "{{plugin_directory}}"
 
 - name: Extract plugin
   unarchive:
     remote_src: true
-    dest: "{{ redmine_home }}/plugins/{{ item.base_name }}"
+    dest: "{{ plugin_directory }}"
     src: "{{ plugin_download.dest }}"
   when: plugin_directory_stat.stat.exists == False
   become: true
   become_user: redmine
+
+
+- name: Rename plugin mapping directory
+  command: mv "{{ redmine_home }}/plugins/{{ item.map_directory.src}}" "{{ redmine_home }}/plugins/{{ item.map_directory.dest}}"
+  args:
+    creates: "{{ redmine_home }}/.ansible-plugin-{{ item.base_name }}.creates"
+  register: mapping_creates
+  when:
+    - item.map_directory is defined
+    - item.map_directory
+
+- name: Creates file for plugin mapping directory task
+  file:
+      path: "{{ redmine_home }}/.ansible-plugin-{{ item.base_name }}.creates"
+      state: touch
+  when: mapping_creates.changed
+  tags:
+    - skip_ansible_lint
 
 - name: Plugins migrate
   environment:
