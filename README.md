@@ -131,6 +131,7 @@ Example playbook
        vars:
         - centos_base_enable_epel: true
         - centos_base_basic_packages: true
+        - centos_base_selinux_packages: true
         - redmine_sql_username: redmine
         - redmine_sql_password: password
         - redmine_sql_database_name: redmine
