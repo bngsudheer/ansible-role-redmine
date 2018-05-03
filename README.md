@@ -44,7 +44,7 @@ If you set *redmine_configure_selinux* to *yes* then *libselinux-python* and
 *policycoreutils-python* packages are required. These packages can be installed
 via [CentOS Base](https://galaxy.ansible.com/bngsudheer/centos_base/).
 ```
-centos_base_selinux_packages: true.
+centos_base_selinux_packages: true
 ```
 
 If you are using a container with minimal packages, you will have to install
@@ -52,7 +52,7 @@ some essential packages like *@Developement Tools*, *zlib*, etc. You
 can install them via [CentOS Base](https://galaxy.ansible.com/bngsudheer/centos_base/)
 by setting the variable:
 ```
-centos_base_basic_packages: true.
+centos_base_basic_packages: true
 ```
 If you use *redmine_nginx_config_template: tls*, make sure the file
 /etc/ssl/private/dhparam.pem is present so that [Diffie-Hellman key exchage](https://en.wikipedia.org/wiki/Diffie%E2%80%93Hellman_key_exchange) works.
