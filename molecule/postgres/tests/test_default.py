@@ -13,6 +13,7 @@ def test_hosts_file(host):
     assert f.user == 'root'
     assert f.group == 'root'
 
+
 def test_postgresql_devel_is_installed(host):
     package = host.package("postgresql-devel")
     assert package.is_installed
