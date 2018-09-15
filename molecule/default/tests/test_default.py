@@ -29,7 +29,6 @@ def test_nginx_running_and_enabled(host):
 
 def test_unicorn_is_running(host):
     master = host.process.filter(user='redmine', comm='unicorn_rails')
-    print master
     for p in master:
         assert 'unicorn' in p
 
