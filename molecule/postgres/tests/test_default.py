@@ -26,7 +26,7 @@ def test_unicorn_is_running(host):
 
 
 def unicorn_is_listening(host):
-    assert host.socket("tcp://5777").is_listening == True
+    assert host.socket("tcp://5777").is_listening
 
 
 def test_redmine_running_and_enabled(host):
