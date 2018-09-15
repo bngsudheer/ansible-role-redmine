@@ -15,7 +15,7 @@ branches:
 
 script:
   - molecule test
-  - molecule --debug test --scenario-name=postgres
+  - molecule test --scenario-name=postgres
 
 notifications:
   webhooks: https://galaxy.ansible.com/api/v1/notifications/
