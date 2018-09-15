@@ -6,6 +6,8 @@
     - centos_base_fail2ban_configuration: false
     - centos_base_install_selinux_packages: true
     - centos_base_basic_packages: true
+    - centos_base_security_packages: true
+    - centos_base_firewalld: true
     - redmine_sql_database_name: "redmine"
     - redmine_sql_database_host: "localhost"
     - redmine_sql_username: "redmine"
