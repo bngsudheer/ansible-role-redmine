@@ -25,7 +25,7 @@ def test_nginx_running_and_enabled(host):
     assert nginx.is_enabled
 
 
-def test_nginx_running_and_enabled(host):
+def test_firewalld_running_and_enabled(host):
     firewalld = host.service("firewalld")
     assert firewalld.is_running
     assert firewalld.is_enabled
