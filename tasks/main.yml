@@ -1,5 +1,5 @@
 ---
-- name: include {{ redmine_sql_driver }}-specific dependencies
+- name: Include {{ redmine_sql_driver }}-specific dependencies
   include_vars: "{{ redmine_sql_driver }}.yml"
 
 # Split playbook with Ruby and Redmmine bug -
@@ -40,8 +40,10 @@
 - name: Redmine user
   user:
     name: redmine
+
 - name: Check whether Redmine is already downloaded
-  stat: path={{ redmine_home }}
+  stat:
+    path: "{{ redmine_runtime_directory }}/appveyor.yml"
   register: redmine_cat
 
 - name: Download Redmine
@@ -54,11 +56,11 @@
 
 - name: Ensure redmine runtime directory exists
   file:
-    path: /home/redmine/redmine
+    path: "{{ redmine_runtime_directory }}"
     state: directory
+    owner: redmine
+    group: redmine
   when: redmine_cat.stat.exists == False
-  become: true
-  become_user: redmine
 
 # First we create the fcontext before files are created in the directory
 # When the files are created they automatically have the right context
@@ -90,7 +92,7 @@
   when: redmine_cat.stat.exists == False
 
 - name: Copy Redmine source files to runtime directory
-  shell: "mv /home/redmine/redmine-{{ redmine_version }}/* /home/redmine/redmine/"
+  shell: "cp -a /home/redmine/redmine-{{ redmine_version }}/* {{ redmine_runtime_directory }}"
   become: true
   become_user: redmine
   when: redmine_cat.stat.exists == False
@@ -108,14 +110,14 @@
 - name: Redmine database configuration file
   template:
     src: database.yml
-    dest: "{{ redmine_home }}/config/"
+    dest: "{{ redmine_runtime_directory }}/config/"
   become: true
   become_user: redmine
 
 - name: Redmine configuration file
   template:
     src: home/redmine/redmine/config/configuration.yml.j2
-    dest: "{{ redmine_home }}/config/configuration.yml"
+    dest: "{{ redmine_runtime_directory }}/config/configuration.yml"
   become: true
   become_user: redmine
   when: redmine_additional_configuration
@@ -123,29 +125,31 @@
 - name: Local gemfile
   template:
     src: Gemfile.local
-    dest: "{{ redmine_home }}"
+    dest: "{{ redmine_runtime_directory }}"
   become: true
   become_user: redmine
 
 - name: Install the local gems via bundler
   bundler:
     executable: /home/redmine/bin/bundler
-    gemfile: "{{ redmine_home }}/Gemfile.local"
-    chdir: "{{ redmine_home }}"
+    gemfile: "{{ redmine_runtime_directory }}/Gemfile.local"
+    chdir: "{{ redmine_runtime_directory }}"
   become: true
   become_user: redmine
 
 - name: Install the gems needed by Redmine via bundler
   bundler:
     executable: /home/redmine/bin/bundler
-    gemfile: "{{ redmine_home }}/Gemfile"
-    chdir: "{{ redmine_home }}"
+    gemfile: "{{ redmine_runtime_directory }}/Gemfile"
+    chdir: "{{ redmine_runtime_directory }}"
   become: true
   become_user: redmine
+  tags:
+    - skip_ansible_lint
 
 - name: Stat secret token file
   stat:
-    path: "{{ redmine_home }}/config/initializers/secret_token.rb"
+    path: "{{ redmine_runtime_directory }}/config/initializers/secret_token.rb"
   register:
     secret_token_stat
 
@@ -154,25 +158,24 @@
   become_user: redmine
   shell: /home/redmine/bin/bundle exec /home/redmine/bin/rake generate_secret_token
   args:
-    chdir: "{{ redmine_home }}"
+    chdir: "{{ redmine_runtime_directory }}"
   when: secret_token_stat.stat.exists == False
   tags:
     - skip_ansible_lint
 
-# TODO Review
 - name: DB Migrate
   environment:
     RAILS_ENV: production
   shell: /home/redmine/bin/bundle exec /home/redmine/bin/rake db:migrate
   args:
-    creates: "{{ redmine_home }}/ansible_db_migrate_creates"
-    chdir: "{{ redmine_home }}"
+    creates: "/home/redmine/.ansible-creates-db-migrate"
+    chdir: "{{ redmine_runtime_directory }}"
   become: true
   become_user: redmine
   register:
     db_migrate
   notify:
-    creates file for db migration
+    - creates db migration
   tags:
     - skip_ansible_lint
 
@@ -183,7 +186,7 @@
 
 - name: Directories for shared resources
   file:
-    path: "{{ redmine_home }}/shared/{{ item }}"
+    path: "{{ redmine_runtime_directory }}/shared/{{ item }}"
     state: directory
   with_items:
     - config/redmine
@@ -193,10 +196,10 @@
   become: true
   become_user: redmine
 
-- name: unicorn.conf.rb file
+- name: Unicorn configuration
   template:
     src: unicorn.conf.rb
-    dest: "{{ redmine_home }}/shared/config/redmine/"
+    dest: "{{ redmine_runtime_directory }}/shared/config/redmine/"
   become: true
   become_user: redmine
 
@@ -207,7 +210,7 @@
 
 - name: Ensure temp, log and other Redmine directories exist
   file:
-    path: "{{ redmine_home }}/{{ item }}"
+    path: "{{ redmine_runtime_directory }}/{{ item }}"
     state: directory
     owner: redmine
     group: redmine
@@ -218,15 +221,21 @@
     - "files"
     - "log"
 
-# TODO Need to set lang here
-# and an option to install demo data
-# RAILS_ENV=production REDMINE_LANG=fr bundle exec rake redmine:load_default_data
-# - name: Default data
-#   shell: RAILS_ENV=production REDMINE_LANG=en /home/redmine/bin/bundle exec /home/redmine/bin/rake redmine:load_default_data
-#   become: true
-#   become_user: redmine
-#   args:
-#     chdir: "{{ redmine_home }}"
+- name: Populate default data
+  shell: /home/redmine/bin/bundle exec /home/redmine/bin/rake redmine:load_default_data
+  become: true
+  become_user: redmine
+  args:
+    chdir: "{{ redmine_runtime_directory }}"
+    creates: /home/redmine/.ansible-creates-default-data
+  when: redmine_default_data
+  notify:
+    - creates default data
+  tags:
+    - skip_ansible_lint
+  environment:
+    REDMINE_LANG: "{{ redmine_language }}"
+    RAILS_ENV: production
 
 - name: Firewall open http and https ports
   firewalld:
@@ -238,7 +247,7 @@
     - http
     - https
   notify:
-    - Firewalld restart
+    - firewalld restart
   when: redmine_configure_firewalld
 
 - name: Permissions for Nginx to read Redmine files
@@ -249,7 +258,7 @@
   with_items:
     - /home
     - /home/redmine
-    - "{{ redmine_home }}"
+    - "{{ redmine_runtime_directory }}"
   when: redmine_configure_nginx
 
 - name: Nginx configuration plain
@@ -257,7 +266,7 @@
     src: redmine.conf
     dest: /etc/nginx/conf.d/
   notify:
-    - Nginx restart
+    - nginx restart
   when:
     - redmine_configure_nginx
     - redmine_nginx_config_template == "plain"
@@ -267,7 +276,7 @@
     src: etc/nginx/conf.d/redmine_with_tls.conf
     dest: /etc/nginx/conf.d/redmine.conf
   notify:
-    - Nginx restart
+    - nginx restart
   when:
     - redmine_configure_nginx
     - redmine_nginx_config_template == "tls"
@@ -277,7 +286,7 @@
     src: "{{ redmine_nginx_custom_config_path }}"
     dest: /etc/nginx/conf.d/redmine.conf
   notify:
-    - Nginx restart
+    - nginx restart
   when:
     - redmine_configure_nginx
     - redmine_nginx_config_template == "custom"

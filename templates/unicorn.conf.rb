@@ -1,6 +1,6 @@
 worker_processes {{ redmine_unicorn_worker_processes }}
 
-working_directory "{{ redmine_home }}" # available in 0.94.0+
+working_directory "{{ redmine_runtime_directory }}" # available in 0.94.0+
 
 listen 8080, :tcp_nopush => true
 #listen "/var/run/redmine/redmine.unicorn.sock", :backlog => 64
@@ -14,8 +14,8 @@ pid "/var/run/redmine/unicorn.pid"
 # By default, the Unicorn logger will write to stderr.
 # Additionally, ome applications/frameworks log to stderr or stdout,
 # so prevent them from going to /dev/null when daemonized here:
-stderr_path "{{ redmine_home }}/shared/log/unicorn.stderr.log"
-stdout_path "{{ redmine_home }}/shared/log/unicorn.stdout.log"
+stderr_path "{{ redmine_runtime_directory }}/shared/log/unicorn.stderr.log"
+stdout_path "{{ redmine_runtime_directory }}/shared/log/unicorn.stdout.log"
 
 # combine Ruby 2.0.0+ with "preload_app true" for memory savings
 preload_app true

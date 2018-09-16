@@ -96,6 +96,9 @@ These variables are available with the following default values:
 | redmine_smtp_settings_user_name | | SMTP authentication username | No |
 | redmine_smtp_settings_password | | SMTP authentication password | No |
 | redmine_smtp_settings_enable_starttls_auto | false | Use TLS in SMTP | No |
+| redmine_default_data | false | Whether to populate default data | No |
+| redmine_language | en | Redmine language | No |
+| redmine_runtime_directory | /srv/redmine/redmine | The Redmine runtime directory | No |
 
 Dependencies
 ------------

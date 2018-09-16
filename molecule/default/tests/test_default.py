@@ -58,15 +58,14 @@ def test_redmine_user(host):
 
 
 def test_redmine_db_configuration_file(host):
-    # assert host.file("/home/redmine/redmine/config/configuration.yml").exists
-    f = host.file("/home/redmine/redmine/config/database.yml")
+    f = host.file("/srv/redmine/redmine/config/database.yml")
     assert f.exists
     assert f.user == 'redmine'
     assert f.group == 'redmine'
 
 
 def test_redmine_configuration_file(host):
-    f = host.file('/home/redmine/redmine/config/configuration.yml')
+    f = host.file('/srv/redmine/redmine/config/configuration.yml')
 
     assert f.exists
     assert f.user == 'redmine'

@@ -8,7 +8,7 @@
 
 - name: Relabel SELinux context
   file:
-    path: "{{ redmine_home }}/public"
+    path: "{{ redmine_runtime_directory }}/public"
     setype: httpd_sys_content_t
     recurse: true
   when: redmine_configure_selinux

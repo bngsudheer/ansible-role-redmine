@@ -8,7 +8,7 @@ Restart=always
 RestartSec=3
 PermissionsStartOnly=true
 RuntimeDirectory=redmine
-ExecStart=/home/redmine/bin/unicorn_rails -c {{ redmine_home }}/shared/config/redmine/unicorn.conf.rb -p {{ redmine_unicorn_port }} -E production -D
+ExecStart=/home/redmine/bin/unicorn_rails -c {{ redmine_runtime_directory }}/shared/config/redmine/unicorn.conf.rb -p {{ redmine_unicorn_port }} -E production -D
 User=redmine
 Group=redmine
 [Install]

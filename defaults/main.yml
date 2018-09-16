@@ -1,8 +1,8 @@
 ---
 # defaults file for ansible-role-redmine
 redmine_version: "3.4.6"
-# redmine_home: "/home/redmine/redmine-{{ redmine_version }}"
-redmine_home: "/home/redmine/redmine"
+# redmine_runtime_directory: "/home/redmine/redmine-{{ redmine_version }}"
+redmine_runtime_directory: "/srv/redmine/redmine"
 
 redmine_sql_database_name: "redmine"
 redmine_sql_database_host: "localhost"
@@ -37,3 +37,6 @@ redmine_smtp_settings_domain: redmine.example.com
 redmine_smtp_settings_user_name:
 redmine_smtp_settings_password:
 redmine_smtp_settings_enable_starttls_auto: false
+
+redmine_default_data: false
+redmine_language: en

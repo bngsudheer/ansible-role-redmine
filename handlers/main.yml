@@ -1,28 +1,28 @@
 ---
-- name: Firewalld reload
+- name: firewalld reload
   service:
-      name: firewalld
-      state: reloaded
+    name: firewalld
+    state: reloaded
 
-- name: Firewalld restart
+- name: firewalld restart
   service:
-      name: firewalld
-      state: restarted
+    name: firewalld
+    state: restarted
 
-- name: Nginx reload
+- name: nginx reload
   service:
-      name: nginx
-      state: reloaded
+    name: nginx
+    state: reloaded
 
-- name: Nginx restart
+- name: nginx restart
   service:
-      name: nginx
-      state: restarted
+    name: nginx
+    state: restarted
 
 - name: redmine restart
   service:
-      name: redmine
-      state: restarted
+    name: redmine
+    state: restarted
 
 # TODO environment variables not working in handler
 # - name: plugins migrate
@@ -30,13 +30,20 @@
 #       RAILS_ENV: production
 #   shell: RAILS_ENV=production /home/redmine/bin/bundle exec /home/redmine/bin/rake redmine:plugins:migrate
 #   args:
-#       chdir: "{{ redmine_home }}"
+#       chdir: "{{ redmine_runtime_directory }}"
 #   notify:
 #       redmine restart
 #   tags:
 #       - skip_ansible_lint
 
-- name: creates file for db migration
+- name: creates db migration
   file:
-      path: "{{ redmine_home }}/ansible_db_migrate_creates"
-      state: touch
+    path: /home/redmine/.ansible-creates-db-migrate
+    state: touch
+
+- name: creates default data
+  file:
+    path: /home/redmine/.ansible-creates-default-data
+    state: touch
+    owner: redmine
+    group: redmine
