@@ -11,7 +11,7 @@ lint:
 platforms:
   - name: instance
     image: centos:7
-    privileged: True
+    privileged: true
     capabilities:
       - SYS_ADMIN
     volume_mounts:
@@ -31,4 +31,4 @@ verifier:
     verbose: true
   lint:
     name: flake8
-    enabled: False
+    enabled: false

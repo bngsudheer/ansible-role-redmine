@@ -1,0 +1,36 @@
+---
+- name: Converge
+  hosts: all
+  vars:
+    - centos_base_enable_epel: true
+    - centos_base_fail2ban_configuration: false
+    - centos_base_install_selinux_packages: true
+    - centos_base_basic_packages: true
+    - centos_base_security_packages: true
+    - centos_base_firewalld: true
+    - redmine_sql_database_name: "redmine"
+    - redmine_sql_database_host: "localhost"
+    - redmine_sql_username: "redmine"
+    - redmine_sql_password: "password"
+    - redmine_unicorn_port: 5777
+    - redmine_configure_selinux: false
+    - redmine_plugins: []
+    - mysql_databases:
+        - name: redmine
+    - mysql_users:
+        - name: redmine
+          password: password
+          priv: "redmine.*:ALL"
+    - redmine_additional_configuration: true
+    - redmine_enable_smtp_email: true
+    - redmine_smtp_settings_address: localhost
+    - redmine_smtp_settings_port: 25
+    - redmine_smtp_settings_authentication: plain
+    - redmine_smtp_settings_domain: redmine.example.com
+    - redmine_smtp_settings_user_name: redmine@redmine.example.com
+    - redmine_smtp_settings_password: password
+    - redmine_smtp_settings_enable_starttls_auto: true
+  roles:
+    - bngsudheer.centos_base
+    - geerlingguy.mysql
+    - ansible-role-redmine

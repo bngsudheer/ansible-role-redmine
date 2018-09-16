@@ -69,7 +69,7 @@ These variables are available with the following default values:
 
 | Variable | Default Value | Description | Required? |
 |----------|---------------|---------|-----------|
-| redmine_version |  3.4.5 | Redmine version | No |
+| redmine_version |  3.4.6 | Redmine version | No |
 | redmine_sql_driver | mysql2 | Database driver. Valid choice is either *mysql2* or *postgresql* | Yes |
 | redmine_sql_username |redmine| MySQL or PostgreSQL username| No |
 | redmine_sql_password | localhost | Datagase server password| No |
@@ -158,10 +158,22 @@ BSD
 
 Developement
 ------------
+You need a few Python packages to run molecule tests:
+```
+python-vagrant
+docker
+molecule
+```
+
 To run molecule tests locally, you might want to set the ANSIBLE_ROLES_PATH
   variable.
 ```sh
 export ANSIBLE_ROLES_PATH=/path/to/ansible-role-redmine/molecule/default/roles
+```
+
+Vagrant tests are not included in TravisCI. Run them locally:
+```
+molecule test --scenario-name=selinux_vagrant -d vagrant
 ```
 
 Author Information

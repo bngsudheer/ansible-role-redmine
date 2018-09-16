@@ -10,5 +10,5 @@
   file:
     path: "{{ redmine_home }}/public"
     setype: httpd_sys_content_t
-    recurse: yes
+    recurse: true
   when: redmine_configure_selinux

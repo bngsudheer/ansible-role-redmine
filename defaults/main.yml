@@ -13,17 +13,17 @@ redmine_unicorn_worker_processes: 2
 
 redmine_domain_name: redmine.example.com
 
-redmine_configure_nginx: yes
+redmine_configure_nginx: true
 redmine_nginx_config_template: plain
 redmine_nginx_custom_config_path:
-redmine_configure_unicorn: yes
-redmine_configure_firewalld: yes
+redmine_configure_unicorn: true
+redmine_configure_firewalld: true
 
 redmine_unicorn_port: 5000
 redmine_nginx_bind_ip:
 redmine_plugins: []
 
-redmine_configure_selinux: no
+redmine_configure_selinux: false
 redmine_bundler_version: 1.16.1
 
 redmine_sql_driver: mysql2

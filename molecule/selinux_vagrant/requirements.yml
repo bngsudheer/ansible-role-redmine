@@ -1,0 +1,4 @@
+---
+- src: bngsudheer.centos_base
+- src: geerlingguy.mysql
+- src: geerlingguy.postgresql

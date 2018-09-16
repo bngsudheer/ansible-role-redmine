@@ -84,7 +84,7 @@
   unarchive:
     src: /home/redmine/redmine-{{ redmine_version }}.tar.gz
     dest: /home/redmine/
-    copy: no
+    copy: false
   become: true
   become_user: redmine
   when: redmine_cat.stat.exists == False
@@ -244,7 +244,7 @@
 - name: Permissions for Nginx to read Redmine files
   file:
     path: "{{ item }}"
-    recurse: no
+    recurse: false
     mode: o+x
   with_items:
     - /home
