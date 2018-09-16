@@ -99,6 +99,9 @@ These variables are available with the following default values:
 | redmine_default_data | false | Whether to populate default data | No |
 | redmine_language | en | Redmine language | No |
 | redmine_runtime_directory | /srv/redmine/redmine | The Redmine runtime directory | No |
+| redmine_ssl_certificate_path |  "/etc/letsencrypt/live/{{ redmine_domain_name }}/fullchain.pem" | Path to TLS certificate | No |
+| redmine_ssl_certificate_key_path | "/etc/letsencrypt/live/{{ redmine_domain_name }}/privkey.pem" | Path to TLS private key | No |
+
 
 Dependencies
 ------------

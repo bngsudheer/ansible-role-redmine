@@ -40,3 +40,5 @@ redmine_smtp_settings_enable_starttls_auto: false
 
 redmine_default_data: false
 redmine_language: en
+redmine_ssl_certificate_path: "/etc/letsencrypt/live/{{ redmine_domain_name }}/fullchain.pem"
+redmine_ssl_certificate_key_path: "/etc/letsencrypt/live/{{ redmine_domain_name }}/privkey.pem"
