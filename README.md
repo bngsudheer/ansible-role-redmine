@@ -139,7 +139,7 @@ Example playbook
         - redmine_sql_password: password
         - redmine_sql_database_name: redmine
         - remmine_sql_database_host: localhost
-        - redmine_version: 3.4.2
+        - redmine_version: 3.4.6
         - redmine_nginx_bind_ip: 192.168.100.130
         - redmine_configure_selinux: yes
         - redmine_plugins:
