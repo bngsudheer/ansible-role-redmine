@@ -102,7 +102,7 @@ These variables are available with the following default values:
 | redmine_ssl_certificate_path |  "/etc/letsencrypt/live/{{ redmine_domain_name }}/fullchain.pem" | Path to TLS certificate | No |
 | redmine_ssl_certificate_key_path | "/etc/letsencrypt/live/{{ redmine_domain_name }}/privkey.pem" | Path to TLS private key | No |
 | redmine_nginx_allowlist | false | Whether you want to have a strict allowlist in Nginx | No |
-| redmine_nginx_allowlist_path | | The path to file containing Nginx allow rules | No | 
+| redmine_nginx_allowlist_path | | The path to file containing Nginx allow rules | No |
 
 
 Dependencies
@@ -158,6 +158,20 @@ Example playbook
           - bngsudheer.redmine
 ```
 
+# Restricting Access To Redmine Based On IP Addresses
+If you use the `tls` Nginx configuration template, you can maintain a list of allow rules within a text file.
+For example `/etc/nginx/my-allowlist` could contain:
+```
+allow 1.2.3.4;
+allow 1.2.3.5;
+
+```
+Let the role know about your allowlist:
+```
+redmine_nginx_config_template: tls
+redmine_nginx_allowlist: true
+redmine_nginx_allowlist_path: /etc/nginx/my-allowlist
+```
 
 License
 -------
