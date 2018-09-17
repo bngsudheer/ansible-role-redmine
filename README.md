@@ -101,6 +101,8 @@ These variables are available with the following default values:
 | redmine_runtime_directory | /srv/redmine/redmine | The Redmine runtime directory | No |
 | redmine_ssl_certificate_path |  "/etc/letsencrypt/live/{{ redmine_domain_name }}/fullchain.pem" | Path to TLS certificate | No |
 | redmine_ssl_certificate_key_path | "/etc/letsencrypt/live/{{ redmine_domain_name }}/privkey.pem" | Path to TLS private key | No |
+| redmine_nginx_allowlist | false | Whether you want to have a strict allowlist in Nginx | No |
+| redmine_nginx_allowlist_path | | The path to file containing Nginx allow rules | No | 
 
 
 Dependencies
