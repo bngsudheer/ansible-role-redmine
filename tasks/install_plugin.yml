@@ -13,7 +13,7 @@
   get_url:
     url: "{{ item.url }}"
     dest: "{{ redmine_runtime_directory }}/plugins/"
-  when: plugin_directory_stat.stat.exists == False
+  when: not plugin_directory_stat.stat.exists
   register: plugin_download
   become: true
   become_user: redmine
@@ -22,7 +22,7 @@
   debug:
     msg: "{{ plugin_download }}"
     verbosity: 3
-  when: plugin_directory_stat.stat.exists == False
+  when: not plugin_directory_stat.stat.exists
 
 - name: Create plugin base directory
   file:
@@ -35,7 +35,7 @@
 - name: Set plugin archvie extraction target path - archive contains base_name root directory
   set_fact:
     plugin_directory: "{{ redmine_runtime_directory }}/plugins/"
-  when: item.create_base_directory == False
+  when: not item.create_base_directory
 
 - name: Set plugin archvie extraction target path - archive does not contains base_name root directory
   set_fact:
@@ -44,7 +44,7 @@
 
 - name: Debug target dir
   debug:
-    msg: "{{plugin_directory}}"
+    msg: "{{ plugin_directory }}"
     verbosity: 3
 
 - name: Extract plugin
@@ -52,13 +52,13 @@
     remote_src: true
     dest: "{{ plugin_directory }}"
     src: "{{ plugin_download.dest }}"
-  when: plugin_directory_stat.stat.exists == False
+  when: not plugin_directory_stat.stat.exists
   become: true
   become_user: redmine
 
 
 - name: Rename plugin mapping directory
-  command: mv "{{ redmine_runtime_directory }}/plugins/{{ item.map_directory.src}}" "{{ redmine_runtime_directory }}/plugins/{{ item.map_directory.dest}}"
+  command: mv "{{ redmine_runtime_directory }}/plugins/{{ item.map_directory.src }}" "{{ redmine_runtime_directory }}/plugins/{{ item.map_directory.dest }}"
   args:
     creates: "{{ redmine_runtime_directory }}/.ansible-plugin-{{ item.base_name }}.creates"
   register: mapping_creates

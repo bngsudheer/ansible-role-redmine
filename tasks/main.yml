@@ -52,7 +52,7 @@
     dest=/home/redmine/
   become: true
   become_user: redmine
-  when: redmine_cat.stat.exists == False
+  when: not redmine_cat.stat.exists
 
 - name: Ensure redmine runtime directory exists
   file:
@@ -60,7 +60,7 @@
     state: directory
     owner: redmine
     group: redmine
-  when: redmine_cat.stat.exists == False
+  when: not redmine_cat.stat.exists
 
 # First we create the fcontext before files are created in the directory
 # When the files are created they automatically have the right context
@@ -89,13 +89,13 @@
     copy: false
   become: true
   become_user: redmine
-  when: redmine_cat.stat.exists == False
+  when: not redmine_cat.stat.exists
 
 - name: Copy Redmine source files to runtime directory
   shell: "cp -a /home/redmine/redmine-{{ redmine_version }}/* {{ redmine_runtime_directory }}"
   become: true
   become_user: redmine
-  when: redmine_cat.stat.exists == False
+  when: not redmine_cat.stat.exists
 
 - name: Install bundler
   gem:
@@ -159,7 +159,7 @@
   shell: /home/redmine/bin/bundle exec /home/redmine/bin/rake generate_secret_token
   args:
     chdir: "{{ redmine_runtime_directory }}"
-  when: secret_token_stat.stat.exists == False
+  when: not secret_token_stat.stat.exists
   tags:
     - skip_ansible_lint
 
