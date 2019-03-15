@@ -8,11 +8,11 @@
     - centos_base_basic_packages: true
     - centos_base_security_packages: true
     - centos_base_firewalld: true
+    - ruby_version: 2.3
+    - ruby_install_globally: true
   roles:
     - bngsudheer.centos_base
     - bngsudheer.ruby
-    - ruby_version: 2.3
-    - ruby_install_globally: true
 
 - name: Converge
   hosts: all
