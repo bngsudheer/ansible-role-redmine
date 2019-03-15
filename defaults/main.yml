@@ -4,6 +4,7 @@ redmine_version: "3.4.6"
 # redmine_runtime_directory: "/home/redmine/redmine-{{ redmine_version }}"
 redmine_runtime_directory: "/srv/redmine/redmine"
 
+redmine_sql_driver: mysql2
 redmine_sql_database_name: "redmine"
 redmine_sql_database_host: "localhost"
 redmine_sql_username: "redmine"
@@ -25,8 +26,6 @@ redmine_plugins: []
 
 redmine_configure_selinux: false
 redmine_bundler_version: 1.16.1
-
-redmine_sql_driver: mysql2
 
 redmine_additional_configuration: false
 redmine_enable_smtp_email: false

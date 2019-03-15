@@ -6,13 +6,9 @@
 # https://github.com/ansible/ansible/issues/27520
 # TODO: TCP Socket with unicorn
 
-# Some Docker images such as CentOS do not have `which`
-# ruby gems like rmagick require `which`
-# ImageMagick.* is required for rmagick
-- name: Package dependencies from distribution
-  yum:
-    state: installed
-    name:
+- name: Default list of pacakages to be installed
+  set_fact:
+    default_packages_list:
       - ruby-devel
       - ImageMagick
       - ImageMagick-devel
@@ -21,7 +17,17 @@
       - patch
       - epel-release
       - which
-      - "{{ _sql_driver_dependencies }}"
+
+- name: Packages to install
+  set_fact:
+    packages_to_install: "{{ default_packages_list + _sql_driver_dependencies }}"
+
+# Some Docker images such as CentOS do not have `which`
+# ruby gems like rmagick require `which`
+# ImageMagick.* is required for rmagick
+- name: Package dependencies from distribution
+  yum:
+    name: "{{ packages_to_install }}"
 
 - name: Ensure Nginx is installed
   yum:
@@ -177,11 +183,6 @@
     - creates db migration
   tags:
     - skip_ansible_lint
-
-- name: Show db_migrate
-  debug:
-    msg: "{{ db_migrate }}"
-    verbosity: 3
 
 - name: Directories for shared resources
   file:
