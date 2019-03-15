@@ -6,7 +6,7 @@
 # https://github.com/ansible/ansible/issues/27520
 # TODO: TCP Socket with unicorn
 
-# Some Docker image os CentOS do not have `which`
+# Some Docker images such as CentOS do not have `which`
 # ruby gems like rmagick require `which`
 # ImageMagick.* is required for rmagick
 - name: Package dependencies from distribution
