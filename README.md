@@ -127,7 +127,7 @@ Example playbook
        - redmine_version: 3.4.2
        - redmine_nginx_bind_ip: 192.168.100.130
        - redmine_configure_selinux: yes
-      remote_user: root
+      remote_user: centos
       roles:
          - bngsudheer.centos_base
          - bngsudheer.redmine
@@ -152,7 +152,7 @@ Example playbook
             base_name: scrum
             url: https://redmine.ociotec.com/attachments/download/481/scrum-v0.18.1.tar.gz
             create_base_directory: false
-       remote_user: root
+       remote_user: centos
        roles:
           - bngsudheer.centos_base
           - bngsudheer.redmine
