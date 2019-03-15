@@ -8,6 +8,15 @@
     - centos_base_basic_packages: true
     - centos_base_security_packages: true
     - centos_base_firewalld: true
+  roles:
+    - bngsudheer.centos_base
+    - bngsudheer.ruby
+    - ruby_version: 2.3
+    - ruby_install_globally: true
+
+- name: Converge
+  hosts: all
+  vars:
     - redmine_sql_database_name: "redmine"
     - redmine_sql_database_host: "localhost"
     - redmine_sql_username: "redmine"
@@ -39,6 +48,5 @@
     - redmine_smtp_settings_password: password
     - redmine_smtp_settings_enable_starttls_auto: true
   roles:
-    - bngsudheer.centos_base
     - geerlingguy.mysql
     - ansible-role-redmine
