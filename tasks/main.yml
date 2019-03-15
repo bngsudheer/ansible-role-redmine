@@ -12,17 +12,16 @@
 - name: Package dependencies from distribution
   yum:
     state: installed
-    name: "{{ item }}"
-  with_items:
-    - ruby-devel
-    - ImageMagick
-    - ImageMagick-devel
-    - ImageMagick-c++-devel
-    - gcc
-    - patch
-    - epel-release
-    - which
-    - "{{ _sql_driver_dependencies }}"
+    name:
+      - ruby-devel
+      - ImageMagick
+      - ImageMagick-devel
+      - ImageMagick-c++-devel
+      - gcc
+      - patch
+      - epel-release
+      - which
+      - "{{ _sql_driver_dependencies }}"
 
 - name: Ensure Nginx is installed
   yum:
