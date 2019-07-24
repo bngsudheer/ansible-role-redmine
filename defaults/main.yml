@@ -1,6 +1,6 @@
 ---
 # defaults file for ansible-role-redmine
-redmine_version: "3.4.6"
+redmine_version: "3.4.11"
 # redmine_runtime_directory: "/home/redmine/redmine-{{ redmine_version }}"
 redmine_runtime_directory: "/srv/redmine/redmine"
 
