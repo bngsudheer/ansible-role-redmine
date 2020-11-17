@@ -91,7 +91,7 @@ These variables are available with the following default values:
 | redmine_enable_smtp_email | false | Enable SMTP email | No |
 | redmine_smtp_settings_address | localhost | SMTP server hostname | No |
 | redmine_smtp_settings_port | 25 | SMTP port | No |
-| redmine_smtp_settings_authentication |  plain | SMTP authentication method. Valid choices are *plain* and *login* | No |
+| redmine_smtp_settings_authentication |  plain | SMTP authentication method. Valid choices are *false*, *plain* and *login* | No |
 | redmine_smtp_settings_domain | redmine.example.com | SMTP domain name | No |
 | redmine_smtp_settings_user_name | | SMTP authentication username | No |
 | redmine_smtp_settings_password | | SMTP authentication password | No |
