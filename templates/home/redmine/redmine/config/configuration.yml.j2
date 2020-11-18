@@ -3,15 +3,17 @@ default:
   # Outgoing emails configuration
   email_delivery:
 {% if redmine_enable_smtp_email %}
-    delivery_method: smtp
+    delivery_method: :smtp
     smtp_settings:
       address: "{{ redmine_smtp_settings_address }}"
       port: {{ redmine_smtp_settings_port }}
-      authentication: {{ redmine_smtp_settings_authentication }}
       domain: "{{ redmine_smtp_settings_domain }}"
+{% if redmine_smtp_settings_authentication %}
+      authentication: :{{ redmine_smtp_settings_authentication }}
       user_name: "{{ redmine_smtp_settings_user_name }}"
       password: "{{ redmine_smtp_settings_password }}"
-      enable_starttls_auto: "{{ redmine_smtp_settings_enable_starttls_auto }}"
+{% endif %}
+      enable_starttls_auto: {{ redmine_smtp_settings_enable_starttls_auto }}
 {% endif %}
 
   attachments_storage_path:
